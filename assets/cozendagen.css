@@ -67,7 +67,7 @@
 
   /* ---- Type ------------------------------------------------------------- */
   --cz-font-display: "Germania One", "Times New Roman", serif;
-  --cz-font-body:    "Futura", "Century Gothic", "Trebuchet MS", system-ui, sans-serif;
+  --cz-font-body:    "Jost", "Futura", "Century Gothic", "Trebuchet MS", system-ui, sans-serif;
 
   /* fluid scale, 1.25 ratio at the small end, wider steps for display */
   --cz-text-xs:   0.78rem;
