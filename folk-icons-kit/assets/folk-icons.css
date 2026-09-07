@@ -1,0 +1,164 @@
+/* Folk Home Icon Set — sizing helpers
+   ---------------------------------------------------------------------------
+   The icons carry their own colour. There is no theming layer: colourway is
+   chosen by picking a file path, not by CSS. See ICONS.md.
+
+   Palette, for the rest of the site to match against:
+     teal #14607F   camel #D9A66A   maroon #5B2226   cream #F3E6D8
+     magenta #CD3684   orange #DE8426   gold #DBA80D
+   No red, ever. Maroon is the warm limit.
+   --------------------------------------------------------------------------- */
+
+.folk-icon {
+  display: block;
+  width: 120px;
+  height: auto;        /* aspect ratios vary from 0.74 to 1.63 — set one axis only */
+  flex: none;
+}
+
+.folk-icon--sm { width: 80px; }   /* practical floor; detail degrades below ~48px */
+.folk-icon--md { width: 120px; }
+.folk-icon--lg { width: 200px; }
+.folk-icon--xl { width: 320px; }
+
+/* Badge slots: a fixed square box with the illustration centred inside it.
+   Useful where a row of icons must align despite differing aspect ratios. */
+.folk-badge {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  aspect-ratio: 1;
+}
+
+.folk-badge > img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* ---- Frames -----------------------------------------------------------------
+   A frame is a border graphic with an empty centre. Set the four inset values
+   from the icon's safe_area in icons.json; content is absolutely positioned
+   inside that box.
+
+   <div class="folk-frame" style="--fi-t:30.3%;--fi-r:29.4%;--fi-b:32.3%;--fi-l:29.9%">
+     <img src="assets/icons/full/frame-02.svg" alt="">
+     <div class="folk-frame__content"> ... </div>
+   </div>
+
+   Safe areas run 27–52% of the frame's width, so the content box is small
+   relative to the whole graphic: a 800px-wide frame yields roughly a 330px
+   content box. Frames suit a pull quote, a short heading, or a small image —
+   not body copy. */
+
+.folk-frame {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.folk-frame > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.folk-frame__content {
+  position: absolute;
+  top: var(--fi-t, 30%);
+  right: var(--fi-r, 30%);
+  bottom: var(--fi-b, 33%);
+  left: var(--fi-l, 30%);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* ---- Patterns ---------------------------------------------------------------
+   Seamless raster tiles, 600px. The ground colour is baked into the file, so
+   don't set a competing background-color. Pair the matching one for the
+   pre-paint flash. */
+
+.folk-pattern {
+  background-image: var(--fp-src);
+  background-repeat: repeat;
+  background-size: 600px 600px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .folk-pattern { background-image: var(--fp-src-2x, var(--fp-src)); }
+}
+
+/* ---- Corner ornaments -------------------------------------------------------
+   corner-01 and corner-02 are single-colour flourishes drawn for the TOP-LEFT
+   corner. Place four rotated copies around a content area:
+
+   <div class="folk-corners" style="--fc-size:110px">
+     <img class="folk-corner folk-corner--tl" src="assets/icons/toffee/corner-02.svg" alt="">
+     <img class="folk-corner folk-corner--tr" src="assets/icons/toffee/corner-02.svg" alt="">
+     <img class="folk-corner folk-corner--br" src="assets/icons/toffee/corner-02.svg" alt="">
+     <img class="folk-corner folk-corner--bl" src="assets/icons/toffee/corner-02.svg" alt="">
+     <div class="folk-corners__content"> ... </div>
+   </div>
+
+   Rotation makes the flourish chase around the frame. For bilateral symmetry
+   instead, add .folk-corners--mirror to the wrapper. */
+
+.folk-corners {
+  position: relative;
+  padding: calc(var(--fc-size, 110px) * 0.85);
+}
+
+.folk-corners__content { position: relative; z-index: 1; }
+
+.folk-corner {
+  position: absolute;
+  width: var(--fc-size, 110px);
+  height: auto;
+  pointer-events: none;
+}
+
+.folk-corner--tl { top: 0; left: 0;  transform: rotate(0deg); }
+.folk-corner--tr { top: 0; right: 0; transform: rotate(90deg); }
+.folk-corner--br { bottom: 0; right: 0; transform: rotate(180deg); }
+.folk-corner--bl { bottom: 0; left: 0; transform: rotate(270deg); }
+
+/* mirrored variant: reflect rather than rotate */
+.folk-corners--mirror .folk-corner--tr { transform: scaleX(-1); }
+.folk-corners--mirror .folk-corner--br { transform: scale(-1, -1); }
+.folk-corners--mirror .folk-corner--bl { transform: scaleY(-1); }
+
+/* corner-02 is 2:3 rather than square — give it a taller box if you want the
+   vertical and horizontal runs to look equal in length */
+.folk-corner--tall { width: auto; height: var(--fc-size, 110px); }
+
+/* ---- The Cozendagen emblem ---------------------------------------------------
+   assets/icons/full/emblem.svg — the brand seal. ONE file, fixed colours, no
+   colourway variants. Its cream disc carries its own ground, so it sits on any
+   palette colour without adjustment.
+
+   It contains curved lettering and is far more detailed than the icons: 160px is
+   the practical floor. Below that the wordmark stops being readable and it turns
+   to mush. Use it for the header, the footer, and print — not as an inline icon. */
+
+.folk-emblem {
+  display: block;
+  width: clamp(160px, 18vw, 320px);
+  height: auto;
+}
+
+/* ---- Circular badges --------------------------------------------------------
+   badge-moose, badge-house, badge-teacup, badge-socks, badge-sweater.
+
+   Each is a self-contained disc: the circle is part of the artwork, so a badge
+   needs no backing shape and sits on any ground. Available in all eight
+   colourways — in full/ the five discs are deliberately five different palette
+   colours, which makes them work as a set. They are square, so unlike the rest of
+   the library a row of them aligns without .folk-badge. */
+
+.folk-disc {
+  display: block;
+  width: var(--fd-size, 120px);
+  height: var(--fd-size, 120px);
+}

@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cozendagen — design system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cozendagen.css">
+<link rel="stylesheet" href="assets/folk-icons.css">
+<style>
+  /* styleguide chrome only — not part of the system */
+  .sg-section { padding-block: var(--cz-8); border-top: 2px solid var(--cz-line-soft); }
+  .sg-section:first-of-type { border-top: 0; }
+  .sg-h { font-family: var(--cz-font-body); font-weight: 600; font-size: var(--cz-text-sm);
+          letter-spacing: .14em; text-transform: uppercase; color: var(--cz-teal);
+          margin: 0 0 var(--cz-2); }
+  .sg-note { background: rgba(20,96,127,.07); border-left: 6px solid var(--cz-teal);
+             padding: var(--cz-4) var(--cz-5); margin: 0 0 var(--cz-5); border-radius: 4px; }
+  .sg-note p:last-child { margin-bottom: 0; }
+  .sg-code { margin-top: var(--cz-3); }
+  .sg-code summary { cursor: pointer; font: 600 .78rem/1 var(--cz-font-body);
+                     letter-spacing: .1em; text-transform: uppercase; color: var(--cz-teal); }
+  .sg-code pre { background: var(--cz-maroon); color: var(--cz-cream); padding: var(--cz-4);
+                 border-radius: 6px; overflow-x: auto; font-size: .8rem; line-height: 1.5; }
+  .sg-demo { border: 2px dashed var(--cz-line-soft); border-radius: 8px;
+             padding: var(--cz-5); margin-bottom: var(--cz-3); }
+  .sg-swatches { display: grid; gap: var(--cz-4);
+                 grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); }
+  .sg-swatch__chip { height: 78px; border-radius: 6px; border: 2px solid var(--cz-maroon); }
+  .sg-swatch__meta { display: grid; gap: 2px; padding-top: var(--cz-2); font-size: .82rem; }
+  .sg-swatch__meta code { font-size: .78rem; }
+  .sg-matrix td { text-align: center; font-size: .74rem; padding: .4rem .3rem; }
+  .sg-matrix td span { display: block; padding: .25rem 0; border-radius: 3px;
+                       font-weight: 600; margin-bottom: 2px; }
+  .sg-matrix td b { font-weight: 600; font-size: .7rem; }
+  .sg-matrix th { font-size: .76rem; padding: .4rem; }
+  .sg-ok  b { color: var(--cz-teal); }
+  .sg-lg  b { color: var(--cz-orange); }
+  .sg-no  b { color: var(--cz-maroon); opacity: .55; }
+  .sg-no::after { content: " ✕"; }
+  .sg-lg::after { content: " L"; font-size: .6rem; }
+  .sg-x { opacity: .3; }
+  .sg-spec { display: grid; grid-template-columns: 190px 1fr; gap: var(--cz-4);
+             align-items: baseline; padding-block: var(--cz-3);
+             border-bottom: 2px solid var(--cz-line-soft); }
+  .sg-spec__label { display: grid; gap: 2px; }
+  .sg-toc { display: flex; flex-wrap: wrap; gap: var(--cz-2) var(--cz-4); padding: 0; list-style: none; }
+  .sg-toc a { font-size: .85rem; }
+  @media (max-width: 700px) { .sg-spec { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<a class="cz-skip" href="#main">Skip to content</a>
+
+<header class="cz-header">
+  <div class="cz-container cz-header__inner">
+    <a href="#top" aria-label="Cozendagen">
+      <img class="folk-emblem cz-header__mark" src="assets/icons/full/emblem.svg" alt="Cozendagen">
+    </a>
+    <button class="cz-nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="cz-nav" id="nav">
+      <a href="#colour">Colour</a>
+      <a href="#type">Type</a>
+      <a href="#bands">Bands</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#content">Content</a>
+      <a href="#forms">Forms</a>
+      <a href="#interactive">Interactive</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="cz-band cz-band--cream cz-band--tight" id="top">
+  <div class="cz-container">
+    <span class="cz-eyebrow">Design system</span>
+    <h1 class="cz-hero-title">Cozendagen</h1>
+    <p class="cz-lead">Every component in the system, rendered. Open the “markup” toggle under
+    anything to copy the HTML. Illustrations come from the folk library in the same folder,
+    so what you see here is exactly what a page will look like.</p>
+    <ul class="sg-toc">
+      <li><a href="#colour">Colour &amp; contrast</a></li>
+      <li><a href="#type">Typography</a></li>
+      <li><a href="#bands">Bands</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#content">Cards, callouts, quotes</a></li>
+      <li><a href="#dividers">Dividers &amp; lists</a></li>
+      <li><a href="#patterns">Pattern grounds</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#interactive">Modal, tabs, accordion</a></li>
+      <li><a href="#data">Tables &amp; navigation</a></li>
+      <li><a href="#timeline">Timeline &amp; figures</a></li>
+      <li><a href="#brand">Emblem &amp; patterns</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COLOUR ============ -->
+<section class="cz-band cz-band--cream sg-section" id="colour">
+  <div class="cz-container">
+    <p class="sg-h">01 — Colour</p>
+    <h2>Seven colours. No red, ever.</h2>
+    <h3>Primary — the four bold accents</h3>
+    <div class="sg-swatches"><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#DBA80D"></div>
+      <div class="sg-swatch__meta"><strong>flame</strong><code>#DBA80D</code>
+      <span class="cz-meta">--cz-gold</span></div>
+    </div><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#CD3684"></div>
+      <div class="sg-swatch__meta"><strong>valentine</strong><code>#CD3684</code>
+      <span class="cz-meta">--cz-magenta</span></div>
+    </div><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#DE8426"></div>
+      <div class="sg-swatch__meta"><strong>sunset</strong><code>#DE8426</code>
+      <span class="cz-meta">--cz-orange</span></div>
+    </div><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#14607F"></div>
+      <div class="sg-swatch__meta"><strong>dusk</strong><code>#14607F</code>
+      <span class="cz-meta">--cz-teal</span></div>
+    </div></div>
+
+    <h3 style="margin-top:2rem">Tertiary — warm neutrals and grounds</h3>
+    <div class="sg-swatches"><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#F3E6D8"></div>
+      <div class="sg-swatch__meta"><strong>snow</strong><code>#F3E6D8</code>
+      <span class="cz-meta">--cz-cream</span></div>
+    </div><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#5C3317"></div>
+      <div class="sg-swatch__meta"><strong>toffee</strong><code>#5C3317</code>
+      <span class="cz-meta">--cz-maroon</span></div>
+    </div><div class="sg-swatch">
+      <div class="sg-swatch__chip" style="background:#D9A66A"></div>
+      <div class="sg-swatch__meta"><strong>bread</strong><code>#D9A66A</code>
+      <span class="cz-meta">--cz-camel</span></div>
+    </div></div>
+
+    <h3 style="margin-top:3rem">Text on background — measured</h3>
+    <div class="sg-note">
+      <p><strong>The finding that shapes the system:</strong> sunset has no body-text pairing
+      at all — its best pair is toffee at 4.37:1. Valentine's best is snow at 3.84:1, large text
+      only. So <strong>sunset and valentine are accent grounds</strong>, and copy on them goes
+      inside a snow panel. You'll see that in the bands below.</p>
+      <p class="cz-meta">Dusk number = clears 4.5:1 (body). Sunset + L = 3:1, large text
+      only. Faded + ✕ = below 3:1.</p>
+    </div>
+    <div class="cz-table-wrap"><table class="cz-table sg-matrix"><thead><tr><th>ground / ink</th><th>snow</th><th>bread</th><th>flame</th><th>sunset</th><th>valentine</th><th>dusk</th><th>toffee</th></tr></thead><tbody><tr><th style="background:#F3E6D8;color:#5C3317">snow</th><td class="sg-x">—</td><td class="sg-no"><span style="background:#F3E6D8;color:#D9A66A">Aa</span><b>1.78</b></td><td class="sg-no"><span style="background:#F3E6D8;color:#DBA80D">Aa</span><b>1.78</b></td><td class="sg-no"><span style="background:#F3E6D8;color:#DE8426">Aa</span><b>2.30</b></td><td class="sg-lg"><span style="background:#F3E6D8;color:#CD3684">Aa</span><b>3.84</b></td><td class="sg-ok"><span style="background:#F3E6D8;color:#14607F">Aa</span><b>5.69</b></td><td class="sg-ok"><span style="background:#F3E6D8;color:#5C3317">Aa</span><b>10.06</b></td></tr><tr><th style="background:#D9A66A;color:#5C3317">bread</th><td class="sg-no"><span style="background:#D9A66A;color:#F3E6D8">Aa</span><b>1.78</b></td><td class="sg-x">—</td><td class="sg-no"><span style="background:#D9A66A;color:#DBA80D">Aa</span><b>1.00</b></td><td class="sg-no"><span style="background:#D9A66A;color:#DE8426">Aa</span><b>1.29</b></td><td class="sg-no"><span style="background:#D9A66A;color:#CD3684">Aa</span><b>2.16</b></td><td class="sg-lg"><span style="background:#D9A66A;color:#14607F">Aa</span><b>3.19</b></td><td class="sg-ok"><span style="background:#D9A66A;color:#5C3317">Aa</span><b>5.65</b></td></tr><tr><th style="background:#DBA80D;color:#5C3317">flame</th><td class="sg-no"><span style="background:#DBA80D;color:#F3E6D8">Aa</span><b>1.78</b></td><td class="sg-no"><span style="background:#DBA80D;color:#D9A66A">Aa</span><b>1.00</b></td><td class="sg-x">—</td><td class="sg-no"><span style="background:#DBA80D;color:#DE8426">Aa</span><b>1.29</b></td><td class="sg-no"><span style="background:#DBA80D;color:#CD3684">Aa</span><b>2.16</b></td><td class="sg-lg"><span style="background:#DBA80D;color:#14607F">Aa</span><b>3.20</b></td><td class="sg-ok"><span style="background:#DBA80D;color:#5C3317">Aa</span><b>5.65</b></td></tr><tr><th style="background:#DE8426;color:#5C3317">sunset</th><td class="sg-no"><span style="background:#DE8426;color:#F3E6D8">Aa</span><b>2.30</b></td><td class="sg-no"><span style="background:#DE8426;color:#D9A66A">Aa</span><b>1.29</b></td><td class="sg-no"><span style="background:#DE8426;color:#DBA80D">Aa</span><b>1.29</b></td><td class="sg-x">—</td><td class="sg-no"><span style="background:#DE8426;color:#CD3684">Aa</span><b>1.67</b></td><td class="sg-no"><span style="background:#DE8426;color:#14607F">Aa</span><b>2.47</b></td><td class="sg-lg"><span style="background:#DE8426;color:#5C3317">Aa</span><b>4.37</b></td></tr><tr><th style="background:#CD3684;color:#F3E6D8">valentine</th><td class="sg-lg"><span style="background:#CD3684;color:#F3E6D8">Aa</span><b>3.84</b></td><td class="sg-no"><span style="background:#CD3684;color:#D9A66A">Aa</span><b>2.16</b></td><td class="sg-no"><span style="background:#CD3684;color:#DBA80D">Aa</span><b>2.16</b></td><td class="sg-no"><span style="background:#CD3684;color:#DE8426">Aa</span><b>1.67</b></td><td class="sg-x">—</td><td class="sg-no"><span style="background:#CD3684;color:#14607F">Aa</span><b>1.48</b></td><td class="sg-no"><span style="background:#CD3684;color:#5C3317">Aa</span><b>2.62</b></td></tr><tr><th style="background:#14607F;color:#F3E6D8">dusk</th><td class="sg-ok"><span style="background:#14607F;color:#F3E6D8">Aa</span><b>5.69</b></td><td class="sg-lg"><span style="background:#14607F;color:#D9A66A">Aa</span><b>3.19</b></td><td class="sg-lg"><span style="background:#14607F;color:#DBA80D">Aa</span><b>3.20</b></td><td class="sg-no"><span style="background:#14607F;color:#DE8426">Aa</span><b>2.47</b></td><td class="sg-no"><span style="background:#14607F;color:#CD3684">Aa</span><b>1.48</b></td><td class="sg-x">—</td><td class="sg-no"><span style="background:#14607F;color:#5C3317">Aa</span><b>1.77</b></td></tr><tr><th style="background:#5C3317;color:#F3E6D8">toffee</th><td class="sg-ok"><span style="background:#5C3317;color:#F3E6D8">Aa</span><b>10.06</b></td><td class="sg-ok"><span style="background:#5C3317;color:#D9A66A">Aa</span><b>5.65</b></td><td class="sg-ok"><span style="background:#5C3317;color:#DBA80D">Aa</span><b>5.65</b></td><td class="sg-lg"><span style="background:#5C3317;color:#DE8426">Aa</span><b>4.37</b></td><td class="sg-no"><span style="background:#5C3317;color:#CD3684">Aa</span><b>2.62</b></td><td class="sg-no"><span style="background:#5C3317;color:#14607F">Aa</span><b>1.77</b></td><td class="sg-x">—</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section class="cz-band cz-band--cream sg-section" id="type">
+  <div class="cz-container">
+    <p class="sg-h">02 — Typography</p>
+    <h2>Germania One and Jost</h2>
+    <p>Germania One has one weight and a decorative skeleton — it stops being comfortable
+    below about 22px, so h1–h2 use it. H3 switches to Jost bold all-caps (a visual bridge
+    between the display and body tiers), and h4–h6 continue in Jost bold.</p>
+    <div class="sg-spec"><div class="sg-spec__label"><code>cz-hero-title</code><span class="cz-meta">--cz-text-4xl · Germania One</span></div><p class="cz-hero-title" class="cz-no-margin">A season of deliberate coziness</p></div><div class="sg-spec"><div class="sg-spec__label"><code>h1</code><span class="cz-meta">--cz-text-3xl · Germania One</span></div><h1 class="cz-no-margin">Cozendagen</h1></div><div class="sg-spec"><div class="sg-spec__label"><code>h2</code><span class="cz-meta">--cz-text-2xl · Germania One</span></div><h2 class="cz-no-margin">How to celebrate</h2></div><div class="sg-spec"><div class="sg-spec__label"><code>h3</code><span class="cz-meta">--cz-text-lg · Jost 700 caps</span></div><h3 class="cz-no-margin">Nine essentials</h3></div><div class="sg-spec"><div class="sg-spec__label"><code>h4</code><span class="cz-meta">--cz-text-md · Jost 700</span></div><h4 class="cz-no-margin">Hearth and hot drinks</h4></div><div class="sg-spec"><div class="sg-spec__label"><code>h5</code><span class="cz-meta">--cz-text-base · Jost 700</span></div><h5 class="cz-no-margin">Wool, books, candlelight</h5></div><div class="sg-spec"><div class="sg-spec__label"><code>h6</code><span class="cz-meta">--cz-text-sm · Jost 700 caps</span></div><h6 class="cz-no-margin">Community hosted</h6></div>
+    <div class="sg-demo" style="margin-top:2rem">
+      <span class="cz-eyebrow">Eyebrow · .cz-eyebrow</span>
+      <h3>A heading with a lead paragraph</h3>
+      <p class="cz-lead">This is <code>.cz-lead</code> — larger, tighter leading, capped at
+      60 characters so it stays readable as an opening paragraph.</p>
+      <p>And this is body copy at 17px with 1.62 line height, capped at 68 characters. Jost
+      runs small, which is why the base size is 17 rather than 16. Here is
+      <a href="#type">a link</a> for reference, and some <strong>bold text</strong> plus
+      <em>italics</em>.</p>
+      <p class="cz-meta">.cz-meta — captions, timestamps, help text.</p>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;span class="cz-eyebrow"&gt;Eyebrow&lt;/span&gt;
+&lt;h3&gt;A heading&lt;/h3&gt;
+&lt;p class="cz-lead"&gt;Opening paragraph.&lt;/p&gt;
+&lt;p&gt;Body copy.&lt;/p&gt;
+&lt;p class="cz-meta"&gt;Caption or meta.&lt;/p&gt;</code></pre></details>
+  </div>
+</section>
+
+<!-- ============ BANDS ============ -->
+<section class="cz-band cz-band--cream sg-section" id="bands">
+  <div class="cz-container">
+    <p class="sg-h">03 — Bands</p>
+    <h2>A page is a stack of bands</h2>
+    <p>Two ground types, alternated. <strong>Light:</strong> snow background with dusk, valentine, or sunset as the text colour. <strong>Colour:</strong> dusk, valentine, flame, or sunset background with snow text. No bread bands, no toffee bands. All band content is centered. Panels (<code>.cz-panel</code>) are reserved for textured/patterned backgrounds only — plain bands don't need them. Snow text reads directly on colour at display size.</p>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;section class="cz-band cz-band--teal"&gt;
+  &lt;div class="cz-container"&gt;
+    &lt;span class="cz-eyebrow"&gt;How to celebrate&lt;/span&gt;
+    &lt;h2&gt;Nine essentials&lt;/h2&gt;
+    &lt;p&gt;Body copy.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></details>
+  </div>
+</section>
+
+  <!-- ── LIGHT GROUNDS ─────────────────────────────────────────── -->
+
+  <!-- Snow / dusk ink — WITH icon -->
+  <section class="cz-band cz-band--cream cz-band--cornered" id="bands-cream">
+  <img class="folk-corner folk-corner--tl" src="assets/icons/teal/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--tr" src="assets/icons/teal/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--br" src="assets/icons/teal/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--bl" src="assets/icons/teal/corner-02.svg" alt="">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--cream · dusk ink · dusk corner-02</span>
+      <h3>Snow — the default ground</h3>
+      <div class="cz-folk-circle cz-folk-circle--kettle" style="--cfc-bg:var(--cz-teal);margin-bottom:var(--cz-6)">
+        <img src="assets/icons/cream/kettle-02.svg" alt="">
+      </div>
+      <p>Dusk ink on snow: 5.69:1 — passes AA for body copy. This is the base of the system.
+      Corner-02 botanical ornaments always appear on snow bands, coloured to match the headline ink.
+      180px minimum — never smaller on a full-width band.</p>
+      <div class="cz-btn-row" style="justify-content:center;margin-top:var(--cz-5)">
+        <a class="cz-btn cz-btn--primary" href="#">Primary</a>
+        <a class="cz-btn cz-btn--secondary" href="#">Secondary</a>
+        <a class="cz-btn cz-btn--tertiary" href="#">Tertiary</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snow + dusk pattern — NO icon, NO corners (corners + patterns never combine) -->
+  <section class="cz-pattern-ground cz-band cz-band--cream" style="--cpg-src:url('patterns/teal/pattern-01.png');--cpg-opacity:0.10">
+    <div class="cz-container">
+      <span class="cz-eyebrow">Snow + dusk pattern-01 · 10% opacity</span>
+      <h3>Snow with texture</h3>
+      <div class="cz-pattern-ground__panel" style="margin-inline:auto;max-width:54ch">
+        <h4 class="cz-no-margin">Body copy in the panel</h4>
+        <p class="cz-mb-0">The snow medallion lifts running text off the texture. Dusk-on-snow
+        is 5.69:1 inside the panel regardless of the pattern opacity behind it. Not every band
+        needs an illustration — here the texture does the decorative work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snow / valentine ink — WITH icon -->
+  <section class="cz-band cz-band--cream--magenta cz-band--cornered">
+  <img class="folk-corner folk-corner--tl" src="assets/icons/magenta/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--tr" src="assets/icons/magenta/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--br" src="assets/icons/magenta/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--bl" src="assets/icons/magenta/corner-02.svg" alt="">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--cream--magenta · valentine ink · valentine corner-02</span>
+      <h3>Snow / valentine text</h3>
+      <div class="cz-folk-circle cz-folk-circle--teacup" style="--cfc-bg:var(--cz-magenta);margin-bottom:var(--cz-6)">
+        <img src="assets/icons/cream/teacup-02.svg" alt="">
+      </div>
+      <p>Valentine-on-snow: 3.84:1 — large text and headings only. Body copy in a panel.
+      Circle fill matches headline ink; icon uses snow colourway with accent details.</p>
+    </div>
+  </section>
+
+  <!-- Snow / sunset ink — NO icon -->
+  <section class="cz-band cz-band--cream--orange cz-band--cornered">
+  <img class="folk-corner folk-corner--tl" src="assets/icons/orange/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--tr" src="assets/icons/orange/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--br" src="assets/icons/orange/corner-02.svg" alt="">
+  <img class="folk-corner folk-corner--bl" src="assets/icons/orange/corner-02.svg" alt="">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--cream--orange · sunset ink · sunset corner-02</span>
+      <h3>Snow / sunset text</h3>
+      <p>Sunset-on-snow: 4.37:1 — display headings and eyebrows only.
+      Some bands carry no illustration; the headline, copy, and ornament corners are enough.</p>
+    </div>
+  </section>
+
+  <!-- ── COLOUR GROUNDS ──────────────────────────────────── -->
+
+  <!-- Teal — WITH icon + buttons -->
+  <section class="cz-band cz-band--teal">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--teal · snow text (5.69:1) · snow corner-02</span>
+      <h3>Dusk band</h3>
+      <div class="cz-folk-circle" style="--cfc-bg:var(--cz-cream);margin-bottom:var(--cz-6)">
+        <img src="assets/icons/teal/armchair-01.svg" alt="">
+      </div>
+      <p>Body copy passes AA on dusk. Accent flips to flame automatically.
+      Corner-02 uses snow — always the headline ink colour.</p>
+      <div class="cz-btn-row" style="justify-content:center;margin-top:var(--cz-5)">
+        <a class="cz-btn cz-btn--primary" href="#">Primary</a>
+        <a class="cz-btn cz-btn--secondary" href="#">Secondary</a>
+        <a class="cz-btn cz-btn--tertiary" href="#">Tertiary</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teal + pattern — NO icon -->
+  <section class="cz-pattern-ground cz-band cz-band--teal" style="--cpg-src:url('patterns/cream/pattern-02.png');--cpg-opacity:0.14">
+    <div class="cz-container">
+      <span class="cz-eyebrow">Dusk + snow pattern-02 · 14% opacity</span>
+      <h3>Dusk with texture</h3>
+      <div class="cz-pattern-ground__panel" style="margin-inline:auto;max-width:54ch">
+        <h4 class="cz-no-margin">Panel resets contrast</h4>
+        <p class="cz-mb-0">Dusk-on-snow 5.69:1 inside the panel, always, regardless of
+        pattern opacity on the band behind it. The texture alone sets the mood — no icon needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Magenta — WITH icon, copy direct on colour -->
+  <section class="cz-band cz-band--magenta">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--magenta · snow text · snow corner-02</span>
+      <h3>Valentine band</h3>
+      <div class="cz-folk-circle" style="--cfc-bg:var(--cz-cream);margin-bottom:var(--cz-6)">
+        <img src="assets/icons/magenta/candle.svg" alt="">
+      </div>
+      <p>Snow-on-valentine is 3.84:1 — fine for large display text. Body copy at small sizes
+      should go in a panel, but headlines and short descriptors are comfortable directly on the band.</p>
+      <div class="cz-btn-row" style="justify-content:center;margin-top:var(--cz-5)">
+        <a class="cz-btn cz-btn--primary" href="#">Primary</a>
+        <a class="cz-btn cz-btn--secondary" href="#">Secondary</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Magenta + pattern — NO icon -->
+  <section class="cz-pattern-ground cz-band cz-band--magenta" style="--cpg-src:url('patterns/cream/pattern-03.png');--cpg-opacity:0.12">
+    <div class="cz-container">
+      <span class="cz-eyebrow">Valentine + snow pattern-03 · 12% opacity</span>
+      <h3>Valentine with texture</h3>
+      <div class="cz-pattern-ground__panel" style="margin-inline:auto;max-width:54ch">
+        <h4 class="cz-no-margin">Richest combination</h4>
+        <p class="cz-mb-0">Pattern gives the band depth flat valentine alone doesn't have.
+        The panel carries the copy; the texture and corners set the mood.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gold — NO icon, copy direct on colour -->
+  <section class="cz-band cz-band--gold">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--gold · snow text · snow corner-02</span>
+      <h3>Flame band</h3>
+      <p>Warm accent ground — eyebrow and heading moments. Snow copy sits directly on flame
+      without a panel for display-scale text. For body copy at small sizes, add a panel.
+      No illustration here — the flame does the work.</p>
+    </div>
+  </section>
+
+  <!-- Orange — WITH icon, copy direct on colour -->
+  <section class="cz-band cz-band--orange">
+    <div class="cz-container">
+      <span class="cz-eyebrow">.cz-band--orange · snow text · snow corner-02</span>
+      <h3>Sunset band</h3>
+      <div class="cz-folk-circle cz-folk-circle--campfire" style="--cfc-bg:var(--cz-cream);margin-bottom:var(--cz-6)">
+        <img src="assets/icons/orange/campfire.svg" alt="">
+      </div>
+      <p>Snow circle, sunset-dominant icon — the icon's primary fill matches the band colour
+      so it reads as embedded in the world, not dropped on top. Snow text on sunset is legible
+      at display size without a panel.</p>
+    </div>
+  </section>
+
+<!-- ============ BUTTONS ============ -->
+<section class="cz-band cz-band--cream sg-section" id="buttons">
+  <div class="cz-container">
+    <p class="sg-h">04 — Buttons</p>
+    <h2>Four kinds, three sizes</h2>
+    <p>One primary per view. Primary's hover <em>inverts</em> to snow-on-toffee rather than
+    darkening, because there is no darker brown in the palette — contrast stays at 10:1 in
+    both states. Hover and focus them to check.</p>
+    <div class="sg-demo">
+      <div class="cz-btn-row" style="margin-bottom:1rem">
+        <button class="cz-btn cz-btn--primary">Primary</button>
+        <button class="cz-btn cz-btn--secondary">Secondary</button>
+        <button class="cz-btn cz-btn--gold">Flame call to action</button>
+        <button class="cz-btn cz-btn--tertiary">Tertiary</button>
+      </div>
+      <div class="cz-btn-row" style="margin-bottom:1rem">
+        <button class="cz-btn cz-btn--primary cz-btn--sm">Small</button>
+        <button class="cz-btn cz-btn--primary">Medium</button>
+        <button class="cz-btn cz-btn--primary cz-btn--lg">Large</button>
+        <button class="cz-btn cz-btn--primary" disabled>Disabled</button>
+      </div>
+      <div class="cz-btn-row">
+        <button class="cz-btn cz-btn--primary">
+          <img src="assets/icons/cream/mark-01.svg" alt="">With icon
+        </button>
+        <button class="cz-btn cz-btn--secondary">
+          <img src="assets/icons/toffee/mark-01.svg" alt="">Secondary with icon
+        </button>
+        <button class="cz-btn cz-btn--gold">
+          <img src="assets/icons/toffee/mark-01.svg" alt="">Flame with icon
+        </button>
+      </div>
+      <div style="max-width:22rem;margin-top:1rem">
+        <button class="cz-btn cz-btn--primary cz-btn--block">Block</button>
+      </div>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-btn-row"&gt;
+  &lt;button class="cz-btn cz-btn--primary"&gt;Primary&lt;/button&gt;
+  &lt;button class="cz-btn cz-btn--secondary"&gt;Secondary&lt;/button&gt;
+  &lt;button class="cz-btn cz-btn--gold"&gt;Flame call to action&lt;/button&gt;
+  &lt;button class="cz-btn cz-btn--tertiary"&gt;Tertiary&lt;/button&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section class="cz-band cz-band--cream sg-section" id="content">
+  <div class="cz-container">
+    <p class="sg-h">05 — Cards, callouts, quotes</p>
+    <h2>Content components</h2>
+
+    <h3>Cards</h3>
+    <p>Lead cards with a folk illustration. Icons sit centred above the title — smaller than you think,
+    with generous breathing room. Use the colourway that matches the band the card sits on.</p>
+    <div class="cz-grid cz-grid--3 sg-demo">
+      <div class="cz-card">
+        <img class="folk-icon folk-icon--kettle" src="assets/icons/teal/kettle-02.svg" alt="">
+        <h4 class="cz-card__title">Warm drinks</h4>
+        <div class="cz-card__body"><p>Bordered card — transparent, takes the band's ground. Icon is dusk to match.</p></div>
+      </div>
+      <div class="cz-card cz-card--filled">
+        <img class="folk-icon" src="assets/icons/toffee/candle.svg" alt="">
+        <h4 class="cz-card__title">Candlelight</h4>
+        <div class="cz-card__body"><p>Snow fill with a toffee border. Icon uses the toffee colourway.</p></div>
+      </div>
+      <a class="cz-card" href="#content">
+        <img class="folk-icon folk-icon--teacup" src="assets/icons/teal/teacup-02.svg" alt="">
+        <h4 class="cz-card__title">Whole card is a link</h4>
+        <div class="cz-card__body"><p>Hover it — the border goes flame. Icon colourway stays fixed.</p></div>
+      </a>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-grid cz-grid--3"&gt;
+  &lt;div class="cz-card"&gt;
+    &lt;img class="folk-icon folk-icon--md" src="assets/icons/teal/kettle-02.svg" alt=""&gt;
+    &lt;h4 class="cz-card__title"&gt;Title&lt;/h4&gt;
+    &lt;div class="cz-card__body"&gt;&lt;p&gt;Body.&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+
+    <h3 style="margin-top:3rem">Badge cards — the essentials grid</h3>
+    <div class="cz-grid sg-demo" style="--cz-grid-min:180px">
+      <div class="cz-badge-card">
+        <img src="assets/icons/full/badge-house.svg" alt="">
+        <h4 class="cz-no-margin">Home</h4>
+        <p class="cz-meta cz-mb-0">A place to gather</p>
+      </div>
+      <div class="cz-badge-card">
+        <img src="assets/icons/full/badge-teacup.svg" alt="">
+        <h4 class="cz-no-margin">Hot drinks</h4>
+        <p class="cz-meta cz-mb-0">Tea, cocoa, cider</p>
+      </div>
+      <div class="cz-badge-card">
+        <img src="assets/icons/full/badge-socks.svg" alt="">
+        <h4 class="cz-no-margin">Wool</h4>
+        <p class="cz-meta cz-mb-0">Socks and sweaters</p>
+      </div>
+      <div class="cz-badge-card">
+        <img src="assets/icons/full/badge-sweater.svg" alt="">
+        <h4 class="cz-no-margin">Sweaters</h4>
+        <p class="cz-meta cz-mb-0">The heavier the better</p>
+      </div>
+    </div>
+    <p class="cz-meta">In <code>full/</code> the five badge discs are five different palette
+    colours, which is why a row of them works with no further decisions.</p>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-grid" style="--cz-grid-min:180px"&gt;
+  &lt;div class="cz-badge-card"&gt;
+    &lt;img src="assets/icons/full/badge-house.svg" alt=""&gt;
+    &lt;h4 class="cz-no-margin"&gt;Home&lt;/h4&gt;
+    &lt;p class="cz-meta cz-mb-0"&gt;A place to gather&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+
+    <h3 style="margin-top:3rem">Callouts</h3>
+    <div class="sg-note">
+      <p><strong>No red exists in this palette</strong>, so the usual error/warning colour
+      convention is unavailable. Toffee carries weight, dusk carries information, flame
+      carries emphasis — and every state is always paired with text.</p>
+    </div>
+    <div class="cz-stack sg-demo" style="--cz-stack-gap:1.5rem">
+      <div class="cz-callout cz-callout--info">
+        <img src="assets/icons/teal/candle.svg" alt="">
+        <div>
+          <p class="cz-callout__title">Information</p>
+          <p class="cz-mb-0">Teal border. For neutral notes and asides.</p>
+        </div>
+      </div>
+      <div class="cz-callout cz-callout--emphasis">
+        <img src="assets/icons/gold/spray-02.svg" alt="">
+        <div>
+          <p class="cz-callout__title">Emphasis</p>
+          <p class="cz-mb-0">Gold border. For something worth noticing.</p>
+        </div>
+      </div>
+      <div class="cz-callout cz-callout--important cz-callout--filled">
+        <img src="assets/icons/toffee/mark-01.svg" alt="">
+        <div>
+          <p class="cz-callout__title">Important</p>
+          <p class="cz-mb-0">Toffee border with a snow fill. The heaviest weight available.</p>
+        </div>
+      </div>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-callout cz-callout--info"&gt;
+  &lt;img src="assets/icons/teal/mark-01.svg" alt=""&gt;
+  &lt;div&gt;
+    &lt;p class="cz-callout__title"&gt;Information&lt;/p&gt;
+    &lt;p class="cz-mb-0"&gt;Body.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+
+    <h3 style="margin-top:3rem">Pull quotes</h3>
+    <div class="sg-demo">
+      <div class="cz-pullquote">
+        <blockquote>Winter asks less of us than we think. Mostly it asks us to stay in.</blockquote>
+        <cite>Cliff Lewis</cite>
+      </div>
+      <div class="cz-pullquote cz-pullquote--centred">
+        <blockquote>The whole point is that nothing is required of you.</blockquote>
+        <cite>Lancaster Weekly</cite>
+      </div>
+      <div class="folk-corners folk-corners--mirror" style="--fc-size:88px;max-width:38rem;margin-inline:auto" title="corner-01 at 88px — use corner-02 only above 160px">
+        <img class="folk-corner folk-corner--tl" src="assets/icons/teal/corner-01.svg" alt="">
+        <img class="folk-corner folk-corner--tr" src="assets/icons/teal/corner-01.svg" alt="">
+        <img class="folk-corner folk-corner--br" src="assets/icons/teal/corner-01.svg" alt="">
+        <img class="folk-corner folk-corner--bl" src="assets/icons/teal/corner-01.svg" alt="">
+        <div class="folk-corners__content cz-center">
+          <div class="cz-pullquote cz-pullquote--centred" style="margin:0">
+            <blockquote>And the corner ornaments make it a occasion.</blockquote>
+            <cite>The richest option</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-pullquote"&gt;
+  &lt;blockquote&gt;The quote.&lt;/blockquote&gt;
+  &lt;cite&gt;Attribution&lt;/cite&gt;
+&lt;/div&gt;
+
+&lt;!-- or wrapped in corner ornaments --&gt;
+&lt;div class="folk-corners" style="--fc-size:88px"&gt;
+  &lt;div class="folk-corners__content cz-center"&gt; ... &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+
+<!-- ============ DIVIDERS & LISTS ============ -->
+<section class="cz-band cz-band--cream sg-section" id="dividers">
+  <div class="cz-container">
+    <p class="sg-h">06 — Dividers &amp; lists</p>
+    <h2>Ornament dividers</h2>
+    <p>Prefer these over a plain rule. Ornaments size by <strong>width</strong> — 120px
+    minimum, 200–320px typical.</p>
+    <div class="sg-demo">
+      <img class="cz-divider" src="assets/icons/toffee/divider-01.svg" alt="" style="--cz-divider-w:280px">
+      <div class="cz-divider-rule">
+        <img src="assets/icons/toffee/mark-01.svg" alt="" style="width:26px">
+      </div>
+      <img class="cz-divider" src="assets/icons/teal/garland-03.svg" alt="" style="--cz-divider-w:360px">
+      <hr>
+      <p class="cz-meta cz-mb-0">Top to bottom: .cz-divider with divider-01, .cz-divider-rule
+      with mark-01, .cz-divider with garland-03, and the plain &lt;hr&gt; for comparison.</p>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;img class="cz-divider" src="assets/icons/toffee/divider-01.svg" alt=""
+     style="--cz-divider-w:280px"&gt;
+
+&lt;div class="cz-divider-rule"&gt;
+  &lt;img src="assets/icons/toffee/mark-01.svg" alt="" style="width:26px"&gt;
+&lt;/div&gt;</code></pre></details>
+
+    <h3 style="margin-top:3rem">Lists</h3>
+    <div class="cz-grid cz-grid--3 sg-demo">
+      <div>
+        <p class="cz-meta">Unordered — gold markers</p>
+        <ul><li>Hearth and bonfire</li><li>Wool and candlelight</li><li>Books and quiet</li></ul>
+      </div>
+      <div>
+        <p class="cz-meta">Ordered</p>
+        <ol><li>Invite people</li><li>Make something hot</li><li>Stay in</li></ol>
+      </div>
+      <div>
+        <p class="cz-meta">Ornament bullets — .cz-list--ornament</p>
+        <ul class="cz-list--ornament">
+          <li>Uses mark-01 at its 20px floor</li>
+          <li>Set --cz-bullet for another colourway</li>
+          <li>Never an emoji</li>
+        </ul>
+      </div>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;ul class="cz-list--ornament"&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- another colourway --&gt;
+&lt;ul class="cz-list--ornament" style="--cz-bullet:url('assets/icons/teal/mark-01.svg')"&gt;
+  &lt;li&gt;Teal bullets&lt;/li&gt;
+&lt;/ul&gt;</code></pre></details>
+  </div>
+</section>
+
+
+<!-- ============ FORMS ============ -->
+<section class="cz-band cz-band--cream sg-section" id="forms">
+  <div class="cz-container">
+    <p class="sg-h">07 — Forms</p>
+    <h2>Fields, validation, choices</h2>
+    <p>Inputs are snow-filled with a toffee border so they read on any band. The select
+    chevron is drawn with CSS gradients — no icon file, no emoji. Focus a field to see the
+    teal glow, which is the one exception to the no-shadow rule.</p>
+
+    <div class="sg-demo">
+      <form onsubmit="event.preventDefault();alert('Styleguide only — nothing submitted.')">
+        <div class="cz-field">
+          <label class="cz-label" for="f-name">Your name <span class="cz-label__req">*</span></label>
+          <input class="cz-input" id="f-name" type="text" placeholder="Cliff Lewis" required>
+        </div>
+
+        <div class="cz-field">
+          <label class="cz-label" for="f-email">Email</label>
+          <input class="cz-input" id="f-email" type="email" placeholder="you@example.com">
+          <p class="cz-help">We'll only use this to confirm your event.</p>
+        </div>
+
+        <div class="cz-field">
+          <label class="cz-label" for="f-city">Which city</label>
+          <select class="cz-select" id="f-city">
+            <option>Lancaster, PA</option>
+            <option>Philadelphia, PA</option>
+            <option>Somewhere else</option>
+          </select>
+        </div>
+
+        <div class="cz-field">
+          <label class="cz-label" for="f-about">Tell us about your gathering</label>
+          <textarea class="cz-textarea" id="f-about" placeholder="A few sentences is plenty."></textarea>
+        </div>
+
+        <div class="cz-field cz-field--error">
+          <label class="cz-label" for="f-err">A field with an error</label>
+          <input class="cz-input" id="f-err" type="text" value="not-an-email"
+                 aria-describedby="f-err-msg" aria-invalid="true">
+          <p class="cz-error" id="f-err-msg">That doesn't look like an email address.</p>
+        </div>
+
+        <div class="cz-field">
+          <label class="cz-label" for="f-ok">A field that validated</label>
+          <input class="cz-input" id="f-ok" type="text" value="cliff@example.com">
+          <p class="cz-success">Looks good.</p>
+        </div>
+
+        <fieldset>
+          <legend>What are you bringing?</legend>
+          <div class="cz-stack" style="--cz-stack-gap:.75rem">
+            <div class="cz-check">
+              <input type="checkbox" id="c1" checked>
+              <label for="c1">Something hot to drink</label>
+            </div>
+            <div class="cz-check">
+              <input type="checkbox" id="c2">
+              <label for="c2">Wool, in quantity</label>
+            </div>
+            <div class="cz-check">
+              <input type="checkbox" id="c3" disabled>
+              <label for="c3">A disabled option</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Event type</legend>
+          <div class="cz-stack" style="--cz-stack-gap:.75rem">
+            <div class="cz-check">
+              <input type="radio" name="kind" id="r1" checked>
+              <label for="r1">Flagship</label>
+            </div>
+            <div class="cz-check">
+              <input type="radio" name="kind" id="r2">
+              <label for="r2">Community hosted</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="cz-btn-row">
+          <button class="cz-btn cz-btn--primary" type="submit">Send it</button>
+          <button class="cz-btn cz-btn--tertiary" type="reset">Clear</button>
+        </div>
+      </form>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-field"&gt;
+  &lt;label class="cz-label" for="f-name"&gt;Your name &lt;span class="cz-label__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+  &lt;input class="cz-input" id="f-name" type="text" required&gt;
+  &lt;p class="cz-help"&gt;Help text.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="cz-field cz-field--error"&gt;
+  &lt;label class="cz-label" for="f-e"&gt;Label&lt;/label&gt;
+  &lt;input class="cz-input" id="f-e" aria-describedby="e-msg" aria-invalid="true"&gt;
+  &lt;p class="cz-error" id="e-msg"&gt;What went wrong.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="cz-check"&gt;
+  &lt;input type="checkbox" id="c1"&gt;
+  &lt;label for="c1"&gt;Checkbox label&lt;/label&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+
+<!-- forms on a dark band, to prove they adapt -->
+<section class="cz-band cz-band--teal cz-band--tight">
+  <div class="cz-container">
+    <span class="cz-eyebrow">Same components, teal band</span>
+    <h3>Fields and buttons adapt automatically</h3>
+    <div class="cz-grid cz-grid--2">
+      <div>
+        <div class="cz-field">
+          <label class="cz-label" for="f-d">Email <span class="cz-label__req">*</span></label>
+          <input class="cz-input" id="f-d" type="email" placeholder="you@example.com">
+          <p class="cz-help">Help text inherits the band's ink.</p>
+        </div>
+        <div class="cz-btn-row">
+          <button class="cz-btn cz-btn--primary">Primary</button>
+          <button class="cz-btn cz-btn--secondary">Secondary</button>
+        </div>
+      </div>
+      <div class="cz-callout cz-callout--emphasis">
+        <img src="assets/icons/gold/mark-01.svg" alt="">
+        <div>
+          <p class="cz-callout__title">Callout on a dark band</p>
+          <p class="cz-mb-0">The border, links and captions all switched without extra
+          classes — the three dark bands and the footer are one selector group.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE ============ -->
+<section class="cz-band cz-band--cream sg-section" id="interactive">
+  <div class="cz-container">
+    <p class="sg-h">08 — Modal, tabs, accordion, tooltip</p>
+    <h2>Interactive components</h2>
+    <p>The modal is a native <code>&lt;dialog&gt;</code> and the accordion is native
+    <code>&lt;details&gt;</code>, so focus trapping, Escape and keyboard behaviour come free.</p>
+
+    <div class="sg-demo">
+      <button class="cz-btn cz-btn--primary" onclick="document.getElementById('demo-modal').showModal()">
+        Open the modal
+      </button>
+      <span class="cz-tooltip" style="margin-left:1.5rem">
+        <span data-tip tabindex="0">Hover or focus me</span>
+        <span class="cz-tooltip__bubble" role="tooltip">A tooltip. Toffee fill, snow ink.</span>
+      </span>
+    </div>
+
+    <dialog class="cz-modal" id="demo-modal">
+      <div class="cz-modal__head">
+        <h3 class="cz-no-margin">Host an event</h3>
+        <button class="cz-modal__close" aria-label="Close"
+                onclick="this.closest('dialog').close()">&times;</button>
+      </div>
+      <div class="cz-modal__body">
+        <p>The backdrop is <strong>toffee at 82%</strong>, not black — the palette has no dark
+        neutral and inventing one was ruled out.</p>
+        <div class="cz-field cz-mb-0">
+          <label class="cz-label" for="m-e">Email</label>
+          <input class="cz-input" id="m-e" type="email">
+        </div>
+      </div>
+      <div class="cz-modal__foot">
+        <button class="cz-btn cz-btn--tertiary" onclick="this.closest('dialog').close()">Cancel</button>
+        <button class="cz-btn cz-btn--primary" onclick="this.closest('dialog').close()">Continue</button>
+      </div>
+    </dialog>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;button onclick="document.getElementById('m').showModal()"&gt;Open&lt;/button&gt;
+
+&lt;dialog class="cz-modal" id="m"&gt;
+  &lt;div class="cz-modal__head"&gt;
+    &lt;h3 class="cz-no-margin"&gt;Title&lt;/h3&gt;
+    &lt;button class="cz-modal__close" aria-label="Close"
+            onclick="this.closest('dialog').close()"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="cz-modal__body"&gt; ... &lt;/div&gt;
+  &lt;div class="cz-modal__foot"&gt;
+    &lt;button class="cz-btn cz-btn--primary"&gt;Continue&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;</code></pre></details>
+
+    <h3 style="margin-top:3rem">Tabs</h3>
+    <div class="sg-demo">
+      <div class="cz-tabs" role="tablist">
+        <button class="cz-tab" role="tab" aria-selected="true" aria-controls="tp1">Flagship</button>
+        <button class="cz-tab" role="tab" aria-selected="false" aria-controls="tp2">Community</button>
+        <button class="cz-tab" role="tab" aria-selected="false" aria-controls="tp3">At home</button>
+      </div>
+      <div class="cz-tabpanel" id="tp1" role="tabpanel">
+        <p class="cz-mb-0">The flagship gathering. Click the other tabs.</p>
+      </div>
+      <div class="cz-tabpanel" id="tp2" role="tabpanel" hidden>
+        <p class="cz-mb-0">Community-hosted events, anywhere.</p>
+      </div>
+      <div class="cz-tabpanel" id="tp3" role="tabpanel" hidden>
+        <p class="cz-mb-0">Or just stay in. That counts.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3rem">Accordion — for the FAQ</h3>
+    <div class="cz-accordion sg-demo">
+      <details open>
+        <summary>Is Cozendagen a Christmas thing?</summary>
+        <p>No — deliberately not. There is no red anywhere in the visual system, which is the
+        clearest signal of that.</p>
+      </details>
+      <details>
+        <summary>Do I need to host something?</summary>
+        <p>No. Staying in counts.</p>
+      </details>
+      <details>
+        <summary>How do I get involved?</summary>
+        <p>Host an event, or bring something to the clothing drive.</p>
+      </details>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;div class="cz-accordion"&gt;
+  &lt;details&gt;
+    &lt;summary&gt;Question&lt;/summary&gt;
+    &lt;p&gt;Answer.&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+
+<!-- ============ DATA ============ -->
+<section class="cz-band cz-band--cream sg-section" id="data">
+  <div class="cz-container">
+    <p class="sg-h">09 — Tables &amp; navigation</p>
+    <h2>Tables, pagination, breadcrumbs</h2>
+    <div class="sg-demo">
+      <div class="cz-table-wrap">
+        <table class="cz-table">
+          <caption>Cozendagen events</caption>
+          <thead><tr><th>Date</th><th>Event</th><th>City</th><th>Type</th></tr></thead>
+          <tbody>
+            <tr><td>Dec 6</td><td>Opening bonfire</td><td>Lancaster, PA</td><td>Flagship</td></tr>
+            <tr><td>Dec 13</td><td>Sweater exchange</td><td>Lancaster, PA</td><td>Community</td></tr>
+            <tr><td>Dec 20</td><td>Reading night</td><td>Philadelphia, PA</td><td>Community</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="Breadcrumb" style="margin-top:1.5rem">
+        <ol class="cz-breadcrumbs">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#data">Events</a></li>
+          <li>Opening bonfire</li>
+        </ol>
+      </nav>
+      <nav aria-label="Pagination" style="margin-top:1.5rem">
+        <ul class="cz-pagination">
+          <li><a href="#data">Prev</a></li>
+          <li><a href="#data" aria-current="page">1</a></li>
+          <li><a href="#data">2</a></li>
+          <li><a href="#data">3</a></li>
+          <li><a href="#data">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="cz-band cz-band--cream sg-section" id="timeline">
+  <div class="cz-container">
+    <p class="sg-h">10 — Timeline &amp; figures</p>
+    <h2>For the-story.html</h2>
+    <div class="cz-grid cz-grid--2 sg-demo">
+      <ol class="cz-timeline">
+        <li>
+          <span class="cz-timeline__date">2019</span>
+          <p class="cz-timeline__title">The first one</p>
+          <p class="cz-mb-0">Four people and a bonfire.</p>
+        </li>
+        <li>
+          <span class="cz-timeline__date">2022</span>
+          <p class="cz-timeline__title">It got a name</p>
+          <p class="cz-mb-0">And then it needed a website.</p>
+        </li>
+        <li>
+          <span class="cz-timeline__date">2025</span>
+          <p class="cz-timeline__title">Community hosted</p>
+          <p class="cz-mb-0">Other cities started their own.</p>
+        </li>
+      </ol>
+      <figure class="cz-figure">
+        <div class="sg-note" style="margin:0">
+          <p class="cz-mb-0"><strong>Frame illustrations</strong> — the decorative border frames
+          (<code>frame-01</code> through <code>frame-06</code>) are reserved for <strong>social media
+          graphics and print</strong>, not web layouts. Keep them in your back pocket for poster
+          moments and Instagram assets. On the web, use band corners and pattern grounds instead.</p>
+        </div>
+        <figcaption>Captions use <code>--cz-ink-soft</code> — dusk at 72% alpha,
+        not an eighth colour.</figcaption>
+      </figure>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;ol class="cz-timeline"&gt;
+  &lt;li&gt;
+    &lt;span class="cz-timeline__date"&gt;2019&lt;/span&gt;
+    &lt;p class="cz-timeline__title"&gt;The first one&lt;/p&gt;
+    &lt;p class="cz-mb-0"&gt;Description.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre></details>
+  </div>
+</section>
+
+<!-- ============ BRAND ============ -->
+<section class="cz-band cz-band--cream sg-section" id="brand">
+  <div class="cz-container">
+    <p class="sg-h">11 — Emblem &amp; patterns</p>
+    <h2>The seal</h2>
+    <p>One file, fixed colours, never recoloured. Its snow disc carries its own ground so it
+    works on any palette colour. <strong>160px is a hard floor</strong> — below that the
+    wordmark stops being readable.</p>
+    <div class="sg-demo" style="display:flex;gap:2rem;align-items:flex-end;flex-wrap:wrap">
+      <div>
+        <img src="assets/icons/full/emblem.svg" alt="Cozendagen" style="width:260px">
+        <p class="cz-meta">260px</p>
+      </div>
+      <div>
+        <img src="assets/icons/full/emblem.svg" alt="Cozendagen" style="width:160px">
+        <p class="cz-meta">160px — the floor</p>
+      </div>
+      <div style="background:var(--cz-teal);padding:1.25rem;border-radius:8px">
+        <img src="assets/icons/full/emblem.svg" alt="Cozendagen" style="width:160px">
+        <p class="cz-meta" style="color:var(--cz-cream)">on dusk</p>
+      </div>
+      <div style="background:var(--cz-magenta);padding:1.25rem;border-radius:8px">
+        <img src="assets/icons/full/emblem.svg" alt="Cozendagen" style="width:160px">
+        <p class="cz-meta" style="color:var(--cz-cream)">on valentine</p>
+      </div>
+      <div>
+        <img src="assets/icons/full/emblem.svg" alt="Cozendagen" style="width:96px;opacity:.85">
+        <p class="cz-meta">96px — too small, don't</p>
+      </div>
+    </div>
+    <details class="sg-code"><summary>markup</summary><pre><code>&lt;img class="folk-emblem" src="assets/icons/full/emblem.svg" alt="Cozendagen"&gt;</code></pre></details>
+  </div>
+</section>
+
+<section class="cz-band cz-band--cream sg-section">
+  <div class="cz-container">
+    <h3>Pattern inks</h3>
+    <div class="cz-grid" style="--cz-grid-min:150px">
+      <div><div style="height:120px;border-radius:6px;border:2px solid var(--cz-maroon);background:url('assets/patterns/camel/pattern-02.png') 0 0/300px"></div><p class="cz-meta">bread — texture</p></div>
+      <div><div style="height:120px;border-radius:6px;border:2px solid var(--cz-maroon);background:url('assets/patterns/gold/pattern-02.png') 0 0/300px"></div><p class="cz-meta">flame — texture</p></div>
+      <div><div style="height:120px;border-radius:6px;border:2px solid var(--cz-maroon);background:url('assets/patterns/toffee/pattern-02.png') 0 0/300px"></div><p class="cz-meta">toffee</p></div>
+      <div><div style="height:120px;border-radius:6px;border:2px solid var(--cz-maroon);background:url('assets/patterns/cream/pattern-02.png') 0 0/300px"></div><p class="cz-meta">snow on dusk</p></div>
+      <div><div style="height:120px;border-radius:6px;border:2px solid var(--cz-maroon);background:url('assets/patterns/full/pattern-02.png') 0 0/300px"></div><p class="cz-meta">full — feature only</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cz-band cz-band--cream sg-section">
+  <div class="cz-container">
+    <p class="sg-h">12 — Decisions you might want to change</p>
+    <h2>Flagging what I chose rather than you</h2>
+    <ol>
+      <li><strong>Muted text is dusk at 72% alpha</strong> (<code>--cz-ink-soft</code>), not an eighth colour. Keeps the
+      palette at seven; costs a little control. Over bread or flame it drops to about 4:1.</li>
+      <li><strong>Errors are sunset, success is dusk.</strong> No red exists. On dark bands,
+      error flips to flame for contrast.</li>
+      <li><strong>Sunset and valentine are accent-only grounds.</strong> Enforced by convention
+      and the panel pattern, not by code.</li>
+      <li><strong>Germania One stops at h3.</strong> Pushing it to h4 means legibility
+      complaints at 19px.</li>
+      <li><strong>The header emblem forces a tall header</strong> at its 160px floor. The
+      alternative is a small wordmark for the header, which doesn't exist yet.</li>
+      <li><strong>No shadows at all.</strong> A lifted card would be a deliberate exception
+      to argue for.</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer class="cz-footer">
+  <div class="cz-container">
+    <div class="cz-footer__grid">
+      <div>
+        <img src="assets/icons/full/emblem.svg" alt="Cozendagen" style="width:160px">
+      </div>
+      <div>
+        <h3>Celebrate</h3>
+        <ul>
+          <li><a href="#bands">How to celebrate</a></li>
+          <li><a href="#data">Events</a></li>
+          <li><a href="#forms">Host an event</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>About</h3>
+        <ul>
+          <li><a href="#timeline">The story</a></li>
+          <li><a href="#interactive">FAQ</a></li>
+          <li><a href="#content">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Clothing drive</h3>
+        <p class="cz-mb-0">Gloves, hats and socks. Lancaster, PA.</p>
+        <img src="assets/icons/gold/divider-01.svg" alt="" style="width:150px;margin-top:1rem">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- =================================================================
+     PHOTOGRAPHY TREATMENTS
+     =================================================================
+     Five approved treatments. Rules:
+     - No folk circles, icons, or corner ornaments on photo-fill bands.
+     - Duotone bands follow normal band text rules (centred, measured copy).
+     - Pattern-ink accent is for small square images only, 32px border.
+     - Arch trios always appear in groups of three.
+     ================================================================= -->
+
+<!-- ---- FULL-BLEED HERO: bottom scrim ---- -->
+<section class="cz-hero cz-hero--tall">
+  <img src="assets/photos/venue-crowd.jpg" alt="Cozendagen venue with string lights and crowd">
+  <div class="cz-hero__scrim cz-hero__scrim--bottom">
+    <h2>Full-bleed hero — bottom scrim</h2>
+    <p>Gradient fades up from the bottom edge. Headline and body copy anchor to the lower-left. Use for page openers and landing heroes.</p>
+  </div>
+</section>
+
+<!-- ---- FULL-BLEED HERO: centre scrim ---- -->
+<section class="cz-hero cz-hero--mid">
+  <img src="assets/photos/musicians.jpg" alt="Folk musicians playing at Cozendagen">
+  <div class="cz-hero__scrim cz-hero__scrim--center">
+    <h3>Full-bleed hero — centre scrim</h3>
+    <p>Uniform dark wash. Content centred vertically and horizontally. Good for section dividers and secondary heroes.</p>
+  </div>
+</section>
+
+<!-- ---- DUOTONE PHOTO BAND: toffee ---- -->
+<section class="cz-band cz-band--photo cz-band--photo-chocolate">
+  <img src="assets/photos/banner-crowd.jpg" alt="Cozendagen banner over crowd">
+  <div class="cz-container" style="padding-block:var(--cz-9)">
+    <h2>Duotone photo band</h2>
+    <p>Photo desaturated and tinted with a palette colour via multiply blend. Three approved tints: toffee (shown), bread, and valentine. Follows all normal band layout rules — centred, measured copy — but never includes folk circles, icons, or corner ornaments.</p>
+  </div>
+</section>
+
+<!-- ---- DUOTONE PHOTO BAND: bread ---- -->
+<section class="cz-band cz-band--photo cz-band--photo-camel">
+  <img src="assets/photos/venue-crowd.jpg" alt="Venue crowd">
+  <div class="cz-container" style="padding-block:var(--cz-9)">
+    <h2>Bread duotone</h2>
+    <p>Golden warmth. A lighter, more vintage-feeling alternative.</p>
+  </div>
+</section>
+
+<!-- ---- DUOTONE PHOTO BAND: valentine ---- -->
+<section class="cz-band cz-band--photo cz-band--photo-magenta">
+  <img src="assets/photos/food-serving.jpg" alt="Food being served">
+  <div class="cz-container" style="padding-block:var(--cz-9)">
+    <h2>Valentine duotone</h2>
+    <p>Bold accent moment. Use sparingly for high-energy sections.</p>
+  </div>
+</section>
+
+<!-- ---- ARCH TRIO (Storyteller) ---- -->
+<section class="cz-band" style="background:var(--cz-cream)">
+  <div class="cz-container">
+    <h2>Arch trio — storyteller</h2>
+    <p style="margin-bottom:var(--cz-6)">Three arch-shaped photos with bread border, each paired with a small headline and one line of body copy. For apples-to-apples comparisons of similar content.</p>
+
+    <div class="cz-arch-trio">
+      <div class="cz-arch-trio__item">
+        <div class="cz-arch-trio__photo">
+          <img src="assets/photos/venue-crowd.jpg" alt="Gathering venue">
+        </div>
+        <h3>The Gathering</h3>
+        <p>String lights, gothic arches, and a room full of warmth.</p>
+      </div>
+      <div class="cz-arch-trio__item">
+        <div class="cz-arch-trio__photo">
+          <img src="assets/photos/food-serving.jpg" alt="Food being served">
+        </div>
+        <h3>The Feast</h3>
+        <p>Sticky toffee pudding and a ladle that never stops.</p>
+      </div>
+      <div class="cz-arch-trio__item">
+        <div class="cz-arch-trio__photo">
+          <img src="assets/photos/musicians.jpg" alt="Musicians playing">
+        </div>
+        <h3>The Music</h3>
+        <p>Fiddles, guitars, and a room that hums along.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---- SPLIT SIDE-BY-SIDE (Gallery) ---- -->
+<div class="cz-split cz-split--cream">
+  <div class="cz-split__photo"><img src="assets/photos/venue-crowd.jpg" alt="Venue crowd"></div>
+  <div class="cz-split__content">
+    <h2>Split — snow content</h2>
+    <p>Half photo, half content. The workhorse for feature sections, event descriptions, and calls to action. Photo left, content right.</p>
+    <div class="cz-btn-row" style="justify-content:flex-start"><a class="cz-btn cz-btn--primary" href="#">Learn More</a></div>
+  </div>
+</div>
+
+<div class="cz-split cz-split--teal cz-split--reverse">
+  <div class="cz-split__photo"><img src="assets/photos/food-serving.jpg" alt="Food serving"></div>
+  <div class="cz-split__content">
+    <h2>Split — dusk, reversed</h2>
+    <p>Content left, photo right. Dusk ground on the content side. Alternate directions to create visual rhythm down the page.</p>
+  </div>
+</div>
+
+<div class="cz-split cz-split--chocolate">
+  <div class="cz-split__photo"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+  <div class="cz-split__content">
+    <h2>Split — toffee</h2>
+    <p>Rich and warm. Works well for evening and music-related content.</p>
+  </div>
+</div>
+
+<!-- ---- ASYMMETRIC EDITORIAL GRID (Gallery) ---- -->
+<section class="cz-band" style="background:var(--cz-cream)">
+  <div class="cz-container">
+    <h2>Asymmetric editorial grid</h2>
+    <p style="margin-bottom:var(--cz-6)">Five photos in a 12-column grid. One hero, one tall sidebar, one wide bottom-left, two small bottom-right. For event recaps and gallery sections.</p>
+  </div>
+
+  <div class="cz-photo-grid" style="padding-inline:2rem">
+    <div class="cz-photo-grid__item cz-photo-grid__item--hero"><img src="assets/photos/venue-crowd.jpg" alt="Venue"></div>
+    <div class="cz-photo-grid__item cz-photo-grid__item--tall"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+    <div class="cz-photo-grid__item cz-photo-grid__item--wide"><img src="assets/photos/banner-crowd.jpg" alt="Banner"></div>
+    <div class="cz-photo-grid__item cz-photo-grid__item--small-a"><img src="assets/photos/buttons-basket.jpg" alt="Buttons"></div>
+    <div class="cz-photo-grid__item cz-photo-grid__item--small-b"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+  </div>
+</section>
+
+<!-- ---- PATTERN-INK ACCENT BORDER ---- -->
+<section class="cz-band" style="background:var(--cz-cream)">
+  <div class="cz-container">
+    <h2>Pattern-ink accent border</h2>
+    <p style="margin-bottom:var(--cz-6)">Small square photos framed by a 32px band of pattern tile. For detail shots, portraits, and decorative accents. Two sizes shown.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;align-items:flex-start">
+      <div>
+        <div class="cz-photo-accent cz-photo-accent--md" style="--cpa-pattern:url(patterns/camel/pattern-02.png)">
+          <img src="assets/photos/food-serving.jpg" alt="Food serving">
+        </div>
+        <p style="text-align:center;font-size:12px;font-weight:700;margin-top:0.5rem;color:var(--cz-ink-soft)">MEDIUM (280px)</p>
+      </div>
+      <div>
+        <div class="cz-photo-accent cz-photo-accent--lg" style="--cpa-pattern:url(patterns/toffee/pattern-01.png)">
+          <img src="assets/photos/musicians.jpg" alt="Musicians">
+        </div>
+        <p style="text-align:center;font-size:12px;font-weight:700;margin-top:0.5rem;color:var(--cz-ink-soft)">LARGE (360px)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // mobile nav
+  var t = document.querySelector('.cz-nav-toggle');
+  if (t) t.addEventListener('click', function () {
+    var nav = document.getElementById('nav');
+    var open = nav.getAttribute('data-open') === 'true';
+    nav.setAttribute('data-open', String(!open));
+    t.setAttribute('aria-expanded', String(!open));
+  });
+
+  // tabs
+  document.querySelectorAll('[role="tablist"]').forEach(function (list) {
+    list.addEventListener('click', function (e) {
+      var tab = e.target.closest('[role="tab"]');
+      if (!tab) return;
+      list.querySelectorAll('[role="tab"]').forEach(function (t2) {
+        var sel = t2 === tab;
+        t2.setAttribute('aria-selected', String(sel));
+        var panel = document.getElementById(t2.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !sel;
+      });
+    });
+  });
+</script>
+</body>
+</html>

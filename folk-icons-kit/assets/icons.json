@@ -1,0 +1,1777 @@
+{
+ "palette": {
+  "teal": "#14607F",
+  "camel": "#D9A66A",
+  "maroon": "#5B2226",
+  "cream": "#F3E6D8",
+  "magenta": "#CD3684",
+  "orange": "#DE8426",
+  "gold": "#DBA80D"
+ },
+ "colorways": {
+  "full": {
+   "body": "full palette",
+   "ornament": "full palette",
+   "use_on": [
+    "cream",
+    "camel",
+    "white"
+   ],
+   "note": "the original seven-colour artwork; light grounds only"
+  },
+  "maroon": {
+   "body": "#5B2226",
+   "ornament_light": "#F3E6D8",
+   "ornament_dark": "#D9A66A",
+   "best_on": [
+    "camel",
+    "cream",
+    "orange",
+    "gold",
+    "white"
+   ],
+   "use_on": [
+    "camel",
+    "cream",
+    "magenta",
+    "orange",
+    "gold",
+    "white"
+   ],
+   "soft_on": [
+    "teal"
+   ]
+  },
+  "teal": {
+   "body": "#14607F",
+   "ornament_light": "#F3E6D8",
+   "ornament_dark": "#D9A66A",
+   "best_on": [
+    "camel",
+    "cream",
+    "gold",
+    "white"
+   ],
+   "use_on": [
+    "camel",
+    "cream",
+    "orange",
+    "gold",
+    "white"
+   ],
+   "soft_on": [
+    "maroon",
+    "magenta"
+   ]
+  },
+  "magenta": {
+   "body": "#CD3684",
+   "ornament_light": "#F3E6D8",
+   "ornament_dark": "#D9A66A",
+   "best_on": [
+    "cream",
+    "white"
+   ],
+   "use_on": [
+    "camel",
+    "maroon",
+    "cream",
+    "gold",
+    "white"
+   ],
+   "soft_on": [
+    "teal",
+    "orange"
+   ]
+  },
+  "orange": {
+   "body": "#DE8426",
+   "ornament_light": "#14607F",
+   "ornament_dark": "#5B2226",
+   "best_on": [
+    "maroon"
+   ],
+   "use_on": [
+    "teal",
+    "maroon",
+    "cream",
+    "white"
+   ],
+   "soft_on": [
+    "magenta"
+   ]
+  },
+  "camel": {
+   "body": "#D9A66A",
+   "ornament_light": "#14607F",
+   "ornament_dark": "#5B2226",
+   "best_on": [
+    "teal",
+    "maroon"
+   ],
+   "use_on": [
+    "teal",
+    "maroon",
+    "magenta",
+    "white"
+   ],
+   "soft_on": [
+    "cream"
+   ]
+  },
+  "gold": {
+   "body": "#DBA80D",
+   "ornament_light": "#14607F",
+   "ornament_dark": "#5B2226",
+   "best_on": [
+    "teal",
+    "maroon"
+   ],
+   "use_on": [
+    "teal",
+    "maroon",
+    "magenta",
+    "white"
+   ],
+   "soft_on": [
+    "cream"
+   ]
+  },
+  "cream": {
+   "body": "#F3E6D8",
+   "ornament_light": "#14607F",
+   "ornament_dark": "#5B2226",
+   "best_on": [
+    "teal",
+    "maroon",
+    "magenta"
+   ],
+   "use_on": [
+    "teal",
+    "maroon",
+    "magenta",
+    "orange"
+   ],
+   "soft_on": [
+    "camel",
+    "gold"
+   ]
+  }
+ },
+ "pattern_colorways": {
+  "full": {
+   "ground": "#F3E6D8",
+   "ink": "full palette"
+  },
+  "maroon": {
+   "ground": "#F3E6D8",
+   "ink": "#5B2226"
+  },
+  "teal": {
+   "ground": "#F3E6D8",
+   "ink": "#14607F"
+  },
+  "magenta": {
+   "ground": "#F3E6D8",
+   "ink": "#CD3684"
+  },
+  "orange": {
+   "ground": "#F3E6D8",
+   "ink": "#DE8426"
+  },
+  "camel": {
+   "ground": "#F3E6D8",
+   "ink": "#D9A66A",
+   "note": "very low contrast; reads as texture"
+  },
+  "gold": {
+   "ground": "#F3E6D8",
+   "ink": "#DBA80D",
+   "note": "very low contrast; reads as texture"
+  },
+  "cream": {
+   "ground": "#14607F",
+   "ink": "#F3E6D8",
+   "note": "inverted: cream ink on a teal ground"
+  }
+ },
+ "patterns": [
+  {
+   "slug": "pattern-01",
+   "subject": "vertical floral columns with teacups",
+   "tile_px": 600,
+   "variants": {
+    "full": "assets/patterns/full/pattern-01.png",
+    "maroon": "assets/patterns/toffee/pattern-01.png",
+    "teal": "assets/patterns/teal/pattern-01.png",
+    "magenta": "assets/patterns/magenta/pattern-01.png",
+    "orange": "assets/patterns/orange/pattern-01.png",
+    "camel": "assets/patterns/camel/pattern-01.png",
+    "gold": "assets/patterns/gold/pattern-01.png",
+    "cream": "assets/patterns/cream/pattern-01.png"
+   },
+   "variants_2x": {
+    "full": "assets/patterns/full/pattern-01@2x.png",
+    "maroon": "assets/patterns/toffee/pattern-01@2x.png",
+    "teal": "assets/patterns/teal/pattern-01@2x.png",
+    "magenta": "assets/patterns/magenta/pattern-01@2x.png",
+    "orange": "assets/patterns/orange/pattern-01@2x.png",
+    "camel": "assets/patterns/camel/pattern-01@2x.png",
+    "gold": "assets/patterns/gold/pattern-01@2x.png",
+    "cream": "assets/patterns/cream/pattern-01@2x.png"
+   }
+  },
+  {
+   "slug": "pattern-02",
+   "subject": "kettles and teacups, tossed",
+   "tile_px": 600,
+   "variants": {
+    "full": "assets/patterns/full/pattern-02.png",
+    "maroon": "assets/patterns/toffee/pattern-02.png",
+    "teal": "assets/patterns/teal/pattern-02.png",
+    "magenta": "assets/patterns/magenta/pattern-02.png",
+    "orange": "assets/patterns/orange/pattern-02.png",
+    "camel": "assets/patterns/camel/pattern-02.png",
+    "gold": "assets/patterns/gold/pattern-02.png",
+    "cream": "assets/patterns/cream/pattern-02.png"
+   },
+   "variants_2x": {
+    "full": "assets/patterns/full/pattern-02@2x.png",
+    "maroon": "assets/patterns/toffee/pattern-02@2x.png",
+    "teal": "assets/patterns/teal/pattern-02@2x.png",
+    "magenta": "assets/patterns/magenta/pattern-02@2x.png",
+    "orange": "assets/patterns/orange/pattern-02@2x.png",
+    "camel": "assets/patterns/camel/pattern-02@2x.png",
+    "gold": "assets/patterns/gold/pattern-02@2x.png",
+    "cream": "assets/patterns/cream/pattern-02@2x.png"
+   }
+  },
+  {
+   "slug": "pattern-03",
+   "subject": "cats, wing chairs, typewriters and books",
+   "tile_px": 600,
+   "variants": {
+    "full": "assets/patterns/full/pattern-03.png",
+    "maroon": "assets/patterns/toffee/pattern-03.png",
+    "teal": "assets/patterns/teal/pattern-03.png",
+    "magenta": "assets/patterns/magenta/pattern-03.png",
+    "orange": "assets/patterns/orange/pattern-03.png",
+    "camel": "assets/patterns/camel/pattern-03.png",
+    "gold": "assets/patterns/gold/pattern-03.png",
+    "cream": "assets/patterns/cream/pattern-03.png"
+   },
+   "variants_2x": {
+    "full": "assets/patterns/full/pattern-03@2x.png",
+    "maroon": "assets/patterns/toffee/pattern-03@2x.png",
+    "teal": "assets/patterns/teal/pattern-03@2x.png",
+    "magenta": "assets/patterns/magenta/pattern-03@2x.png",
+    "orange": "assets/patterns/orange/pattern-03@2x.png",
+    "camel": "assets/patterns/camel/pattern-03@2x.png",
+    "gold": "assets/patterns/gold/pattern-03@2x.png",
+    "cream": "assets/patterns/cream/pattern-03@2x.png"
+   }
+  },
+  {
+   "slug": "pattern-04",
+   "subject": "sweaters, socks, moka pots and candles",
+   "tile_px": 600,
+   "variants": {
+    "full": "assets/patterns/full/pattern-04.png",
+    "maroon": "assets/patterns/toffee/pattern-04.png",
+    "teal": "assets/patterns/teal/pattern-04.png",
+    "magenta": "assets/patterns/magenta/pattern-04.png",
+    "orange": "assets/patterns/orange/pattern-04.png",
+    "camel": "assets/patterns/camel/pattern-04.png",
+    "gold": "assets/patterns/gold/pattern-04.png",
+    "cream": "assets/patterns/cream/pattern-04.png"
+   },
+   "variants_2x": {
+    "full": "assets/patterns/full/pattern-04@2x.png",
+    "maroon": "assets/patterns/toffee/pattern-04@2x.png",
+    "teal": "assets/patterns/teal/pattern-04@2x.png",
+    "magenta": "assets/patterns/magenta/pattern-04@2x.png",
+    "orange": "assets/patterns/orange/pattern-04@2x.png",
+    "camel": "assets/patterns/camel/pattern-04@2x.png",
+    "gold": "assets/patterns/gold/pattern-04@2x.png",
+    "cream": "assets/patterns/cream/pattern-04@2x.png"
+   }
+  }
+ ],
+ "icons": [
+  {
+   "slug": "emblem",
+   "title": "Cozendagen emblem",
+   "category": "emblem",
+   "subject": "the Cozendagen seal &mdash; fixed colours, no variants; use at 160px and above",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "cream",
+    "gold",
+    "teal",
+    "orange"
+   ],
+   "variants": {
+    "full": "assets/icons/full/emblem.svg"
+   }
+  },
+  {
+   "slug": "badge-house",
+   "title": "Badge \u2014 house",
+   "category": "badge",
+   "subject": "circular badge, cottage",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "gold",
+    "teal",
+    "cream",
+    "camel",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/badge-house.svg",
+    "maroon": "assets/icons/toffee/badge-house.svg",
+    "teal": "assets/icons/teal/badge-house.svg",
+    "magenta": "assets/icons/magenta/badge-house.svg",
+    "orange": "assets/icons/orange/badge-house.svg",
+    "camel": "assets/icons/camel/badge-house.svg",
+    "gold": "assets/icons/gold/badge-house.svg",
+    "cream": "assets/icons/cream/badge-house.svg"
+   }
+  },
+  {
+   "slug": "badge-moose",
+   "title": "Badge \u2014 moose",
+   "category": "badge",
+   "subject": "circular badge, moose",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "orange",
+    "cream",
+    "maroon",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/badge-moose.svg",
+    "maroon": "assets/icons/toffee/badge-moose.svg",
+    "teal": "assets/icons/teal/badge-moose.svg",
+    "magenta": "assets/icons/magenta/badge-moose.svg",
+    "orange": "assets/icons/orange/badge-moose.svg",
+    "camel": "assets/icons/camel/badge-moose.svg",
+    "gold": "assets/icons/gold/badge-moose.svg",
+    "cream": "assets/icons/cream/badge-moose.svg"
+   }
+  },
+  {
+   "slug": "badge-socks",
+   "title": "Badge \u2014 socks",
+   "category": "badge",
+   "subject": "circular badge, socks",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "camel",
+    "magenta",
+    "maroon",
+    "orange",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/badge-socks.svg",
+    "maroon": "assets/icons/toffee/badge-socks.svg",
+    "teal": "assets/icons/teal/badge-socks.svg",
+    "magenta": "assets/icons/magenta/badge-socks.svg",
+    "orange": "assets/icons/orange/badge-socks.svg",
+    "camel": "assets/icons/camel/badge-socks.svg",
+    "gold": "assets/icons/gold/badge-socks.svg",
+    "cream": "assets/icons/cream/badge-socks.svg"
+   }
+  },
+  {
+   "slug": "badge-sweater",
+   "title": "Badge \u2014 sweater",
+   "category": "badge",
+   "subject": "circular badge, sweater",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "teal",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/badge-sweater.svg",
+    "maroon": "assets/icons/toffee/badge-sweater.svg",
+    "teal": "assets/icons/teal/badge-sweater.svg",
+    "magenta": "assets/icons/magenta/badge-sweater.svg",
+    "orange": "assets/icons/orange/badge-sweater.svg",
+    "camel": "assets/icons/camel/badge-sweater.svg",
+    "gold": "assets/icons/gold/badge-sweater.svg",
+    "cream": "assets/icons/cream/badge-sweater.svg"
+   }
+  },
+  {
+   "slug": "badge-teacup",
+   "title": "Badge \u2014 teacup",
+   "category": "badge",
+   "subject": "circular badge, teacup",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "magenta",
+    "orange",
+    "gold",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/badge-teacup.svg",
+    "maroon": "assets/icons/toffee/badge-teacup.svg",
+    "teal": "assets/icons/teal/badge-teacup.svg",
+    "magenta": "assets/icons/magenta/badge-teacup.svg",
+    "orange": "assets/icons/orange/badge-teacup.svg",
+    "camel": "assets/icons/camel/badge-teacup.svg",
+    "gold": "assets/icons/gold/badge-teacup.svg",
+    "cream": "assets/icons/cream/badge-teacup.svg"
+   }
+  },
+  {
+   "slug": "coffee-pot-01",
+   "title": "Coffee pot I",
+   "category": "vessel",
+   "subject": "gooseneck pour-over pot",
+   "width": 1000.0,
+   "height": 962.33,
+   "aspect": 1.04,
+   "palette_full": [
+    "gold",
+    "maroon",
+    "teal",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/coffee-pot-01.svg",
+    "maroon": "assets/icons/toffee/coffee-pot-01.svg",
+    "teal": "assets/icons/teal/coffee-pot-01.svg",
+    "magenta": "assets/icons/magenta/coffee-pot-01.svg",
+    "orange": "assets/icons/orange/coffee-pot-01.svg",
+    "camel": "assets/icons/camel/coffee-pot-01.svg",
+    "gold": "assets/icons/gold/coffee-pot-01.svg",
+    "cream": "assets/icons/cream/coffee-pot-01.svg"
+   }
+  },
+  {
+   "slug": "coffee-pot-02",
+   "title": "Coffee pot II",
+   "category": "vessel",
+   "subject": "gooseneck pour-over pot",
+   "width": 1000.0,
+   "height": 961.88,
+   "aspect": 1.04,
+   "palette_full": [
+    "maroon",
+    "camel",
+    "gold",
+    "magenta",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/coffee-pot-02.svg",
+    "maroon": "assets/icons/toffee/coffee-pot-02.svg",
+    "teal": "assets/icons/teal/coffee-pot-02.svg",
+    "magenta": "assets/icons/magenta/coffee-pot-02.svg",
+    "orange": "assets/icons/orange/coffee-pot-02.svg",
+    "camel": "assets/icons/camel/coffee-pot-02.svg",
+    "gold": "assets/icons/gold/coffee-pot-02.svg",
+    "cream": "assets/icons/cream/coffee-pot-02.svg"
+   }
+  },
+  {
+   "slug": "kettle-01",
+   "title": "Kettle I",
+   "category": "vessel",
+   "subject": "stovetop kettle, floral spray",
+   "width": 823.74,
+   "height": 1000.0,
+   "aspect": 0.82,
+   "palette_full": [
+    "camel",
+    "maroon",
+    "teal",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/kettle-01.svg",
+    "maroon": "assets/icons/toffee/kettle-01.svg",
+    "teal": "assets/icons/teal/kettle-01.svg",
+    "magenta": "assets/icons/magenta/kettle-01.svg",
+    "orange": "assets/icons/orange/kettle-01.svg",
+    "camel": "assets/icons/camel/kettle-01.svg",
+    "gold": "assets/icons/gold/kettle-01.svg",
+    "cream": "assets/icons/cream/kettle-01.svg"
+   }
+  },
+  {
+   "slug": "kettle-02",
+   "title": "Kettle II",
+   "category": "vessel",
+   "subject": "stovetop kettle, lotus medallion",
+   "width": 824.14,
+   "height": 1000.0,
+   "aspect": 0.82,
+   "palette_full": [
+    "magenta",
+    "camel",
+    "cream",
+    "maroon",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/kettle-02.svg",
+    "maroon": "assets/icons/toffee/kettle-02.svg",
+    "teal": "assets/icons/teal/kettle-02.svg",
+    "magenta": "assets/icons/magenta/kettle-02.svg",
+    "orange": "assets/icons/orange/kettle-02.svg",
+    "camel": "assets/icons/camel/kettle-02.svg",
+    "gold": "assets/icons/gold/kettle-02.svg",
+    "cream": "assets/icons/cream/kettle-02.svg"
+   }
+  },
+  {
+   "slug": "kettle-03",
+   "title": "Kettle III",
+   "category": "vessel",
+   "subject": "stovetop kettle, four fan medallions",
+   "width": 823.85,
+   "height": 1000.0,
+   "aspect": 0.82,
+   "palette_full": [
+    "teal",
+    "gold",
+    "maroon",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/kettle-03.svg",
+    "maroon": "assets/icons/toffee/kettle-03.svg",
+    "teal": "assets/icons/teal/kettle-03.svg",
+    "magenta": "assets/icons/magenta/kettle-03.svg",
+    "orange": "assets/icons/orange/kettle-03.svg",
+    "camel": "assets/icons/camel/kettle-03.svg",
+    "gold": "assets/icons/gold/kettle-03.svg",
+    "cream": "assets/icons/cream/kettle-03.svg"
+   }
+  },
+  {
+   "slug": "kettle-04",
+   "title": "Kettle IV",
+   "category": "vessel",
+   "subject": "stovetop kettle, single flowering branch",
+   "width": 824.14,
+   "height": 1000.0,
+   "aspect": 0.82,
+   "palette_full": [
+    "teal",
+    "camel",
+    "gold",
+    "maroon",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/kettle-04.svg",
+    "maroon": "assets/icons/toffee/kettle-04.svg",
+    "teal": "assets/icons/teal/kettle-04.svg",
+    "magenta": "assets/icons/magenta/kettle-04.svg",
+    "orange": "assets/icons/orange/kettle-04.svg",
+    "camel": "assets/icons/camel/kettle-04.svg",
+    "gold": "assets/icons/gold/kettle-04.svg",
+    "cream": "assets/icons/cream/kettle-04.svg"
+   }
+  },
+  {
+   "slug": "moka-pot",
+   "title": "Moka pot",
+   "category": "vessel",
+   "subject": "stovetop espresso maker",
+   "width": 806.99,
+   "height": 1000.0,
+   "aspect": 0.81,
+   "palette_full": [
+    "magenta",
+    "maroon",
+    "cream",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/moka-pot.svg",
+    "maroon": "assets/icons/toffee/moka-pot.svg",
+    "teal": "assets/icons/teal/moka-pot.svg",
+    "magenta": "assets/icons/magenta/moka-pot.svg",
+    "orange": "assets/icons/orange/moka-pot.svg",
+    "camel": "assets/icons/camel/moka-pot.svg",
+    "gold": "assets/icons/gold/moka-pot.svg",
+    "cream": "assets/icons/cream/moka-pot.svg"
+   }
+  },
+  {
+   "slug": "teacup-01",
+   "title": "Teacup I",
+   "category": "vessel",
+   "subject": "teacup, tulip spray",
+   "width": 1000.0,
+   "height": 781.62,
+   "aspect": 1.28,
+   "palette_full": [
+    "teal",
+    "cream",
+    "camel",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/teacup-01.svg",
+    "maroon": "assets/icons/toffee/teacup-01.svg",
+    "teal": "assets/icons/teal/teacup-01.svg",
+    "magenta": "assets/icons/magenta/teacup-01.svg",
+    "orange": "assets/icons/orange/teacup-01.svg",
+    "camel": "assets/icons/camel/teacup-01.svg",
+    "gold": "assets/icons/gold/teacup-01.svg",
+    "cream": "assets/icons/cream/teacup-01.svg"
+   }
+  },
+  {
+   "slug": "teacup-02",
+   "title": "Teacup II",
+   "category": "vessel",
+   "subject": "teacup, tulip spray",
+   "width": 1000.0,
+   "height": 781.62,
+   "aspect": 1.28,
+   "palette_full": [
+    "maroon",
+    "cream",
+    "camel",
+    "gold",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/teacup-02.svg",
+    "maroon": "assets/icons/toffee/teacup-02.svg",
+    "teal": "assets/icons/teal/teacup-02.svg",
+    "magenta": "assets/icons/magenta/teacup-02.svg",
+    "orange": "assets/icons/orange/teacup-02.svg",
+    "camel": "assets/icons/camel/teacup-02.svg",
+    "gold": "assets/icons/gold/teacup-02.svg",
+    "cream": "assets/icons/cream/teacup-02.svg"
+   }
+  },
+  {
+   "slug": "teacup-03",
+   "title": "Teacup III",
+   "category": "vessel",
+   "subject": "teacup, wildflower spray",
+   "width": 1000.0,
+   "height": 781.62,
+   "aspect": 1.28,
+   "palette_full": [
+    "camel",
+    "maroon",
+    "teal",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/teacup-03.svg",
+    "maroon": "assets/icons/toffee/teacup-03.svg",
+    "teal": "assets/icons/teal/teacup-03.svg",
+    "magenta": "assets/icons/magenta/teacup-03.svg",
+    "orange": "assets/icons/orange/teacup-03.svg",
+    "camel": "assets/icons/camel/teacup-03.svg",
+    "gold": "assets/icons/gold/teacup-03.svg",
+    "cream": "assets/icons/cream/teacup-03.svg"
+   }
+  },
+  {
+   "slug": "teacup-04",
+   "title": "Teacup IV",
+   "category": "vessel",
+   "subject": "teacup, tulip + petal border",
+   "width": 1000.0,
+   "height": 781.62,
+   "aspect": 1.28,
+   "palette_full": [
+    "teal",
+    "cream",
+    "gold",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/teacup-04.svg",
+    "maroon": "assets/icons/toffee/teacup-04.svg",
+    "teal": "assets/icons/teal/teacup-04.svg",
+    "magenta": "assets/icons/magenta/teacup-04.svg",
+    "orange": "assets/icons/orange/teacup-04.svg",
+    "camel": "assets/icons/camel/teacup-04.svg",
+    "gold": "assets/icons/gold/teacup-04.svg",
+    "cream": "assets/icons/cream/teacup-04.svg"
+   }
+  },
+  {
+   "slug": "campfire",
+   "title": "Campfire",
+   "category": "fire-light",
+   "subject": "campfire with logs",
+   "width": 870.85,
+   "height": 1000.0,
+   "aspect": 0.87,
+   "palette_full": [
+    "maroon",
+    "orange",
+    "gold",
+    "camel",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/campfire.svg",
+    "maroon": "assets/icons/toffee/campfire.svg",
+    "teal": "assets/icons/teal/campfire.svg",
+    "magenta": "assets/icons/magenta/campfire.svg",
+    "orange": "assets/icons/orange/campfire.svg",
+    "camel": "assets/icons/camel/campfire.svg",
+    "gold": "assets/icons/gold/campfire.svg",
+    "cream": "assets/icons/cream/campfire.svg"
+   }
+  },
+  {
+   "slug": "candle",
+   "title": "Candle",
+   "category": "fire-light",
+   "subject": "lit candle in a glass jar",
+   "width": 819.76,
+   "height": 1000.0,
+   "aspect": 0.82,
+   "palette_full": [
+    "maroon",
+    "teal",
+    "cream",
+    "camel",
+    "gold",
+    "orange"
+   ],
+   "variants": {
+    "full": "assets/icons/full/candle.svg",
+    "maroon": "assets/icons/toffee/candle.svg",
+    "teal": "assets/icons/teal/candle.svg",
+    "magenta": "assets/icons/magenta/candle.svg",
+    "orange": "assets/icons/orange/candle.svg",
+    "camel": "assets/icons/camel/candle.svg",
+    "gold": "assets/icons/gold/candle.svg",
+    "cream": "assets/icons/cream/candle.svg"
+   }
+  },
+  {
+   "slug": "stove-01",
+   "title": "Wood stove",
+   "category": "fire-light",
+   "subject": "wood stove with lit firebox and flue",
+   "width": 501.31,
+   "height": 1000.0,
+   "aspect": 0.5,
+   "palette_full": [
+    "teal",
+    "maroon",
+    "cream",
+    "orange",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/stove-01.svg",
+    "maroon": "assets/icons/toffee/stove-01.svg",
+    "teal": "assets/icons/teal/stove-01.svg",
+    "magenta": "assets/icons/magenta/stove-01.svg",
+    "orange": "assets/icons/orange/stove-01.svg",
+    "camel": "assets/icons/camel/stove-01.svg",
+    "gold": "assets/icons/gold/stove-01.svg",
+    "cream": "assets/icons/cream/stove-01.svg"
+   }
+  },
+  {
+   "slug": "closed-book-01",
+   "title": "Closed book I",
+   "category": "book",
+   "subject": "closed book, standing",
+   "width": 744.71,
+   "height": 1000.0,
+   "aspect": 0.74,
+   "palette_full": [
+    "maroon",
+    "orange",
+    "camel",
+    "cream",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/closed-book-01.svg",
+    "maroon": "assets/icons/toffee/closed-book-01.svg",
+    "teal": "assets/icons/teal/closed-book-01.svg",
+    "magenta": "assets/icons/magenta/closed-book-01.svg",
+    "orange": "assets/icons/orange/closed-book-01.svg",
+    "camel": "assets/icons/camel/closed-book-01.svg",
+    "gold": "assets/icons/gold/closed-book-01.svg",
+    "cream": "assets/icons/cream/closed-book-01.svg"
+   }
+  },
+  {
+   "slug": "closed-book-02",
+   "title": "Closed book II",
+   "category": "book",
+   "subject": "closed book, standing",
+   "width": 744.71,
+   "height": 1000.0,
+   "aspect": 0.74,
+   "palette_full": [
+    "teal",
+    "camel",
+    "cream",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/closed-book-02.svg",
+    "maroon": "assets/icons/toffee/closed-book-02.svg",
+    "teal": "assets/icons/teal/closed-book-02.svg",
+    "magenta": "assets/icons/magenta/closed-book-02.svg",
+    "orange": "assets/icons/orange/closed-book-02.svg",
+    "camel": "assets/icons/camel/closed-book-02.svg",
+    "gold": "assets/icons/gold/closed-book-02.svg",
+    "cream": "assets/icons/cream/closed-book-02.svg"
+   }
+  },
+  {
+   "slug": "open-book",
+   "title": "Open book",
+   "category": "book",
+   "subject": "open book, sprig-decorated cover",
+   "width": 1000.0,
+   "height": 904.91,
+   "aspect": 1.11,
+   "palette_full": [
+    "maroon",
+    "camel",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/open-book.svg",
+    "maroon": "assets/icons/toffee/open-book.svg",
+    "teal": "assets/icons/teal/open-book.svg",
+    "magenta": "assets/icons/magenta/open-book.svg",
+    "orange": "assets/icons/orange/open-book.svg",
+    "camel": "assets/icons/camel/open-book.svg",
+    "gold": "assets/icons/gold/open-book.svg",
+    "cream": "assets/icons/cream/open-book.svg"
+   }
+  },
+  {
+   "slug": "radio-01",
+   "title": "Radio I",
+   "category": "machine",
+   "subject": "cabinet radio, floral pilasters",
+   "width": 780.96,
+   "height": 1000.0,
+   "aspect": 0.78,
+   "palette_full": [
+    "orange",
+    "maroon",
+    "cream",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/radio-01.svg",
+    "maroon": "assets/icons/toffee/radio-01.svg",
+    "teal": "assets/icons/teal/radio-01.svg",
+    "magenta": "assets/icons/magenta/radio-01.svg",
+    "orange": "assets/icons/orange/radio-01.svg",
+    "camel": "assets/icons/camel/radio-01.svg",
+    "gold": "assets/icons/gold/radio-01.svg",
+    "cream": "assets/icons/cream/radio-01.svg"
+   }
+  },
+  {
+   "slug": "radio-02",
+   "title": "Radio II",
+   "category": "machine",
+   "subject": "cabinet radio, blossom panel",
+   "width": 780.97,
+   "height": 1000.0,
+   "aspect": 0.78,
+   "palette_full": [
+    "teal",
+    "maroon",
+    "cream",
+    "orange",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/radio-02.svg",
+    "maroon": "assets/icons/toffee/radio-02.svg",
+    "teal": "assets/icons/teal/radio-02.svg",
+    "magenta": "assets/icons/magenta/radio-02.svg",
+    "orange": "assets/icons/orange/radio-02.svg",
+    "camel": "assets/icons/camel/radio-02.svg",
+    "gold": "assets/icons/gold/radio-02.svg",
+    "cream": "assets/icons/cream/radio-02.svg"
+   }
+  },
+  {
+   "slug": "sewing-machine-01",
+   "title": "Sewing machine I",
+   "category": "machine",
+   "subject": "hand-crank sewing machine",
+   "width": 1000.0,
+   "height": 613.28,
+   "aspect": 1.63,
+   "palette_full": [
+    "teal",
+    "gold",
+    "cream",
+    "magenta"
+   ],
+   "variants": {
+    "full": "assets/icons/full/sewing-machine-01.svg",
+    "maroon": "assets/icons/toffee/sewing-machine-01.svg",
+    "teal": "assets/icons/teal/sewing-machine-01.svg",
+    "magenta": "assets/icons/magenta/sewing-machine-01.svg",
+    "orange": "assets/icons/orange/sewing-machine-01.svg",
+    "camel": "assets/icons/camel/sewing-machine-01.svg",
+    "gold": "assets/icons/gold/sewing-machine-01.svg",
+    "cream": "assets/icons/cream/sewing-machine-01.svg"
+   }
+  },
+  {
+   "slug": "sewing-machine-02",
+   "title": "Sewing machine II",
+   "category": "machine",
+   "subject": "hand-crank sewing machine",
+   "width": 1000.0,
+   "height": 612.96,
+   "aspect": 1.63,
+   "palette_full": [
+    "maroon",
+    "orange",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/sewing-machine-02.svg",
+    "maroon": "assets/icons/toffee/sewing-machine-02.svg",
+    "teal": "assets/icons/teal/sewing-machine-02.svg",
+    "magenta": "assets/icons/magenta/sewing-machine-02.svg",
+    "orange": "assets/icons/orange/sewing-machine-02.svg",
+    "camel": "assets/icons/camel/sewing-machine-02.svg",
+    "gold": "assets/icons/gold/sewing-machine-02.svg",
+    "cream": "assets/icons/cream/sewing-machine-02.svg"
+   }
+  },
+  {
+   "slug": "typewriter-01",
+   "title": "Typewriter I",
+   "category": "machine",
+   "subject": "typewriter with paper",
+   "width": 1000.0,
+   "height": 873.71,
+   "aspect": 1.14,
+   "palette_full": [
+    "teal",
+    "camel",
+    "maroon",
+    "orange",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/typewriter-01.svg",
+    "maroon": "assets/icons/toffee/typewriter-01.svg",
+    "teal": "assets/icons/teal/typewriter-01.svg",
+    "magenta": "assets/icons/magenta/typewriter-01.svg",
+    "orange": "assets/icons/orange/typewriter-01.svg",
+    "camel": "assets/icons/camel/typewriter-01.svg",
+    "gold": "assets/icons/gold/typewriter-01.svg",
+    "cream": "assets/icons/cream/typewriter-01.svg"
+   }
+  },
+  {
+   "slug": "typewriter-02",
+   "title": "Typewriter II",
+   "category": "machine",
+   "subject": "typewriter with paper",
+   "width": 1000.0,
+   "height": 873.88,
+   "aspect": 1.14,
+   "palette_full": [
+    "magenta",
+    "camel",
+    "gold",
+    "cream",
+    "teal"
+   ],
+   "variants": {
+    "full": "assets/icons/full/typewriter-02.svg",
+    "maroon": "assets/icons/toffee/typewriter-02.svg",
+    "teal": "assets/icons/teal/typewriter-02.svg",
+    "magenta": "assets/icons/magenta/typewriter-02.svg",
+    "orange": "assets/icons/orange/typewriter-02.svg",
+    "camel": "assets/icons/camel/typewriter-02.svg",
+    "gold": "assets/icons/gold/typewriter-02.svg",
+    "cream": "assets/icons/cream/typewriter-02.svg"
+   }
+  },
+  {
+   "slug": "armchair-01",
+   "title": "Armchair I",
+   "category": "furniture",
+   "subject": "upholstered armchair, blossom on the headrest",
+   "width": 851.31,
+   "height": 1000.0,
+   "aspect": 0.85,
+   "palette_full": [
+    "teal",
+    "camel",
+    "maroon",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/armchair-01.svg",
+    "maroon": "assets/icons/toffee/armchair-01.svg",
+    "teal": "assets/icons/teal/armchair-01.svg",
+    "magenta": "assets/icons/magenta/armchair-01.svg",
+    "orange": "assets/icons/orange/armchair-01.svg",
+    "camel": "assets/icons/camel/armchair-01.svg",
+    "gold": "assets/icons/gold/armchair-01.svg",
+    "cream": "assets/icons/cream/armchair-01.svg"
+   }
+  },
+  {
+   "slug": "armchair-02",
+   "title": "Armchair II",
+   "category": "furniture",
+   "subject": "wingback armchair, petal skirt",
+   "width": 986.41,
+   "height": 1000.0,
+   "aspect": 0.99,
+   "palette_full": [
+    "teal",
+    "camel",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/armchair-02.svg",
+    "maroon": "assets/icons/toffee/armchair-02.svg",
+    "teal": "assets/icons/teal/armchair-02.svg",
+    "magenta": "assets/icons/magenta/armchair-02.svg",
+    "orange": "assets/icons/orange/armchair-02.svg",
+    "camel": "assets/icons/camel/armchair-02.svg",
+    "gold": "assets/icons/gold/armchair-02.svg",
+    "cream": "assets/icons/cream/armchair-02.svg"
+   }
+  },
+  {
+   "slug": "slippers-01",
+   "title": "Slippers",
+   "category": "apparel",
+   "subject": "pair of house slippers",
+   "width": 1000.0,
+   "height": 986.6,
+   "aspect": 1.01,
+   "palette_full": [
+    "cream",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/slippers-01.svg",
+    "maroon": "assets/icons/toffee/slippers-01.svg",
+    "teal": "assets/icons/teal/slippers-01.svg",
+    "magenta": "assets/icons/magenta/slippers-01.svg",
+    "orange": "assets/icons/orange/slippers-01.svg",
+    "camel": "assets/icons/camel/slippers-01.svg",
+    "gold": "assets/icons/gold/slippers-01.svg",
+    "cream": "assets/icons/cream/slippers-01.svg"
+   }
+  },
+  {
+   "slug": "socks-01",
+   "title": "Socks",
+   "category": "apparel",
+   "subject": "pair of dotted wool socks",
+   "width": 758.71,
+   "height": 1000.0,
+   "aspect": 0.76,
+   "palette_full": [
+    "teal",
+    "camel",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/socks-01.svg",
+    "maroon": "assets/icons/toffee/socks-01.svg",
+    "teal": "assets/icons/teal/socks-01.svg",
+    "magenta": "assets/icons/magenta/socks-01.svg",
+    "orange": "assets/icons/orange/socks-01.svg",
+    "camel": "assets/icons/camel/socks-01.svg",
+    "gold": "assets/icons/gold/socks-01.svg",
+    "cream": "assets/icons/cream/socks-01.svg"
+   }
+  },
+  {
+   "slug": "sweater-01",
+   "title": "Sweater I",
+   "category": "apparel",
+   "subject": "turtleneck sweater, tulip motif",
+   "width": 1000.0,
+   "height": 694.62,
+   "aspect": 1.44,
+   "palette_full": [
+    "camel",
+    "maroon",
+    "teal"
+   ],
+   "variants": {
+    "full": "assets/icons/full/sweater-01.svg",
+    "maroon": "assets/icons/toffee/sweater-01.svg",
+    "teal": "assets/icons/teal/sweater-01.svg",
+    "magenta": "assets/icons/magenta/sweater-01.svg",
+    "orange": "assets/icons/orange/sweater-01.svg",
+    "camel": "assets/icons/camel/sweater-01.svg",
+    "gold": "assets/icons/gold/sweater-01.svg",
+    "cream": "assets/icons/cream/sweater-01.svg"
+   }
+  },
+  {
+   "slug": "sweater-02",
+   "title": "Sweater II",
+   "category": "apparel",
+   "subject": "turtleneck sweater, sprig field",
+   "width": 1000.0,
+   "height": 694.62,
+   "aspect": 1.44,
+   "palette_full": [
+    "teal",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/sweater-02.svg",
+    "maroon": "assets/icons/toffee/sweater-02.svg",
+    "teal": "assets/icons/teal/sweater-02.svg",
+    "magenta": "assets/icons/magenta/sweater-02.svg",
+    "orange": "assets/icons/orange/sweater-02.svg",
+    "camel": "assets/icons/camel/sweater-02.svg",
+    "gold": "assets/icons/gold/sweater-02.svg",
+    "cream": "assets/icons/cream/sweater-02.svg"
+   }
+  },
+  {
+   "slug": "house-01",
+   "title": "House I",
+   "category": "building",
+   "subject": "tall gabled house, lotus over a plank door",
+   "width": 545.45,
+   "height": 1000.0,
+   "aspect": 0.55,
+   "palette_full": [
+    "teal",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/house-01.svg",
+    "maroon": "assets/icons/toffee/house-01.svg",
+    "teal": "assets/icons/teal/house-01.svg",
+    "magenta": "assets/icons/magenta/house-01.svg",
+    "orange": "assets/icons/orange/house-01.svg",
+    "camel": "assets/icons/camel/house-01.svg",
+    "gold": "assets/icons/gold/house-01.svg",
+    "cream": "assets/icons/cream/house-01.svg"
+   }
+  },
+  {
+   "slug": "house-02",
+   "title": "House II",
+   "category": "building",
+   "subject": "tall gabled house, tulip motif and door-side sprigs",
+   "width": 545.45,
+   "height": 1000.0,
+   "aspect": 0.55,
+   "palette_full": [
+    "maroon",
+    "cream",
+    "camel",
+    "orange"
+   ],
+   "variants": {
+    "full": "assets/icons/full/house-02.svg",
+    "maroon": "assets/icons/toffee/house-02.svg",
+    "teal": "assets/icons/teal/house-02.svg",
+    "magenta": "assets/icons/magenta/house-02.svg",
+    "orange": "assets/icons/orange/house-02.svg",
+    "camel": "assets/icons/camel/house-02.svg",
+    "gold": "assets/icons/gold/house-02.svg",
+    "cream": "assets/icons/cream/house-02.svg"
+   }
+  },
+  {
+   "slug": "house-03",
+   "title": "House III",
+   "category": "building",
+   "subject": "cottage with chimney, window and flower beds",
+   "width": 847.25,
+   "height": 1000.0,
+   "aspect": 0.85,
+   "palette_full": [
+    "teal",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/house-03.svg",
+    "maroon": "assets/icons/toffee/house-03.svg",
+    "teal": "assets/icons/teal/house-03.svg",
+    "magenta": "assets/icons/magenta/house-03.svg",
+    "orange": "assets/icons/orange/house-03.svg",
+    "camel": "assets/icons/camel/house-03.svg",
+    "gold": "assets/icons/gold/house-03.svg",
+    "cream": "assets/icons/cream/house-03.svg"
+   }
+  },
+  {
+   "slug": "tree-01",
+   "title": "Tree I",
+   "category": "nature",
+   "subject": "pine, notched tiers",
+   "width": 530.57,
+   "height": 1000.0,
+   "aspect": 0.53,
+   "palette_full": [
+    "teal"
+   ],
+   "variants": {
+    "full": "assets/icons/full/tree-01.svg",
+    "maroon": "assets/icons/toffee/tree-01.svg",
+    "teal": "assets/icons/teal/tree-01.svg",
+    "magenta": "assets/icons/magenta/tree-01.svg",
+    "orange": "assets/icons/orange/tree-01.svg",
+    "camel": "assets/icons/camel/tree-01.svg",
+    "gold": "assets/icons/gold/tree-01.svg",
+    "cream": "assets/icons/cream/tree-01.svg"
+   }
+  },
+  {
+   "slug": "tree-02",
+   "title": "Tree II",
+   "category": "nature",
+   "subject": "pine, scalloped tiers",
+   "width": 599.52,
+   "height": 1000.0,
+   "aspect": 0.6,
+   "palette_full": [
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/tree-02.svg",
+    "maroon": "assets/icons/toffee/tree-02.svg",
+    "teal": "assets/icons/teal/tree-02.svg",
+    "magenta": "assets/icons/magenta/tree-02.svg",
+    "orange": "assets/icons/orange/tree-02.svg",
+    "camel": "assets/icons/camel/tree-02.svg",
+    "gold": "assets/icons/gold/tree-02.svg",
+    "cream": "assets/icons/cream/tree-02.svg"
+   }
+  },
+  {
+   "slug": "tree-03",
+   "title": "Tree III",
+   "category": "nature",
+   "subject": "pine, plain triangular tiers",
+   "width": 622.81,
+   "height": 1000.0,
+   "aspect": 0.62,
+   "palette_full": [
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/tree-03.svg",
+    "maroon": "assets/icons/toffee/tree-03.svg",
+    "teal": "assets/icons/teal/tree-03.svg",
+    "magenta": "assets/icons/magenta/tree-03.svg",
+    "orange": "assets/icons/orange/tree-03.svg",
+    "camel": "assets/icons/camel/tree-03.svg",
+    "gold": "assets/icons/gold/tree-03.svg",
+    "cream": "assets/icons/cream/tree-03.svg"
+   }
+  },
+  {
+   "slug": "moose-01",
+   "title": "Moose I",
+   "category": "animal",
+   "subject": "moose with striped saddle blanket",
+   "width": 1000.0,
+   "height": 967.46,
+   "aspect": 1.03,
+   "palette_full": [
+    "camel",
+    "maroon",
+    "teal"
+   ],
+   "variants": {
+    "full": "assets/icons/full/moose-01.svg",
+    "maroon": "assets/icons/toffee/moose-01.svg",
+    "teal": "assets/icons/teal/moose-01.svg",
+    "magenta": "assets/icons/magenta/moose-01.svg",
+    "orange": "assets/icons/orange/moose-01.svg",
+    "camel": "assets/icons/camel/moose-01.svg",
+    "gold": "assets/icons/gold/moose-01.svg",
+    "cream": "assets/icons/cream/moose-01.svg"
+   }
+  },
+  {
+   "slug": "moose-02",
+   "title": "Moose II",
+   "category": "animal",
+   "subject": "moose with floral flank",
+   "width": 1000.0,
+   "height": 968.16,
+   "aspect": 1.03,
+   "palette_full": [
+    "teal",
+    "cream",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/moose-02.svg",
+    "maroon": "assets/icons/toffee/moose-02.svg",
+    "teal": "assets/icons/teal/moose-02.svg",
+    "magenta": "assets/icons/magenta/moose-02.svg",
+    "orange": "assets/icons/orange/moose-02.svg",
+    "camel": "assets/icons/camel/moose-02.svg",
+    "gold": "assets/icons/gold/moose-02.svg",
+    "cream": "assets/icons/cream/moose-02.svg"
+   }
+  },
+  {
+   "slug": "divider-01",
+   "title": "Divider I",
+   "category": "ornament",
+   "subject": "slim horizontal divider, blossom + two wings",
+   "width": 1000.0,
+   "height": 288.66,
+   "aspect": 3.46,
+   "palette_full": [
+    "teal",
+    "gold",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/divider-01.svg",
+    "maroon": "assets/icons/toffee/divider-01.svg",
+    "teal": "assets/icons/teal/divider-01.svg",
+    "magenta": "assets/icons/magenta/divider-01.svg",
+    "orange": "assets/icons/orange/divider-01.svg",
+    "camel": "assets/icons/camel/divider-01.svg",
+    "gold": "assets/icons/gold/divider-01.svg",
+    "cream": "assets/icons/cream/divider-01.svg"
+   }
+  },
+  {
+   "slug": "garland-01",
+   "title": "Garland I",
+   "category": "ornament",
+   "subject": "wide horizontal swag, lotus at centre",
+   "width": 1000.0,
+   "height": 524.29,
+   "aspect": 1.91,
+   "palette_full": [
+    "maroon",
+    "camel",
+    "teal",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/garland-01.svg",
+    "maroon": "assets/icons/toffee/garland-01.svg",
+    "teal": "assets/icons/teal/garland-01.svg",
+    "magenta": "assets/icons/magenta/garland-01.svg",
+    "orange": "assets/icons/orange/garland-01.svg",
+    "camel": "assets/icons/camel/garland-01.svg",
+    "gold": "assets/icons/gold/garland-01.svg",
+    "cream": "assets/icons/cream/garland-01.svg"
+   }
+  },
+  {
+   "slug": "garland-02",
+   "title": "Garland II",
+   "category": "ornament",
+   "subject": "wide low garland, blossoms",
+   "width": 1000.0,
+   "height": 500.88,
+   "aspect": 2.0,
+   "palette_full": [
+    "gold",
+    "teal",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/garland-02.svg",
+    "maroon": "assets/icons/toffee/garland-02.svg",
+    "teal": "assets/icons/teal/garland-02.svg",
+    "magenta": "assets/icons/magenta/garland-02.svg",
+    "orange": "assets/icons/orange/garland-02.svg",
+    "camel": "assets/icons/camel/garland-02.svg",
+    "gold": "assets/icons/gold/garland-02.svg",
+    "cream": "assets/icons/cream/garland-02.svg"
+   }
+  },
+  {
+   "slug": "garland-03",
+   "title": "Garland III",
+   "category": "ornament",
+   "subject": "wide arched crown garland",
+   "width": 1000.0,
+   "height": 409.62,
+   "aspect": 2.44,
+   "palette_full": [
+    "teal",
+    "maroon",
+    "cream",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/garland-03.svg",
+    "maroon": "assets/icons/toffee/garland-03.svg",
+    "teal": "assets/icons/teal/garland-03.svg",
+    "magenta": "assets/icons/magenta/garland-03.svg",
+    "orange": "assets/icons/orange/garland-03.svg",
+    "camel": "assets/icons/camel/garland-03.svg",
+    "gold": "assets/icons/gold/garland-03.svg",
+    "cream": "assets/icons/cream/garland-03.svg"
+   }
+  },
+  {
+   "slug": "mark-01",
+   "title": "Mark I",
+   "category": "ornament",
+   "subject": "single tulip with leaves &mdash; smallest piece, holds at 20px",
+   "width": 1000.0,
+   "height": 792.34,
+   "aspect": 1.26,
+   "palette_full": [
+    "camel",
+    "teal"
+   ],
+   "variants": {
+    "full": "assets/icons/full/mark-01.svg",
+    "maroon": "assets/icons/toffee/mark-01.svg",
+    "teal": "assets/icons/teal/mark-01.svg",
+    "magenta": "assets/icons/magenta/mark-01.svg",
+    "orange": "assets/icons/orange/mark-01.svg",
+    "camel": "assets/icons/camel/mark-01.svg",
+    "gold": "assets/icons/gold/mark-01.svg",
+    "cream": "assets/icons/cream/mark-01.svg"
+   }
+  },
+  {
+   "slug": "spray-01",
+   "title": "Spray I",
+   "category": "ornament",
+   "subject": "upright symmetrical spray, tulip at centre",
+   "width": 958.21,
+   "height": 1000.0,
+   "aspect": 0.96,
+   "palette_full": [
+    "maroon",
+    "camel",
+    "teal",
+    "cream"
+   ],
+   "variants": {
+    "full": "assets/icons/full/spray-01.svg",
+    "maroon": "assets/icons/toffee/spray-01.svg",
+    "teal": "assets/icons/teal/spray-01.svg",
+    "magenta": "assets/icons/magenta/spray-01.svg",
+    "orange": "assets/icons/orange/spray-01.svg",
+    "camel": "assets/icons/camel/spray-01.svg",
+    "gold": "assets/icons/gold/spray-01.svg",
+    "cream": "assets/icons/cream/spray-01.svg"
+   }
+  },
+  {
+   "slug": "spray-02",
+   "title": "Spray II",
+   "category": "ornament",
+   "subject": "upright wheat-stem sprig",
+   "width": 972.41,
+   "height": 1000.0,
+   "aspect": 0.97,
+   "palette_full": [
+    "maroon",
+    "teal",
+    "camel"
+   ],
+   "variants": {
+    "full": "assets/icons/full/spray-02.svg",
+    "maroon": "assets/icons/toffee/spray-02.svg",
+    "teal": "assets/icons/teal/spray-02.svg",
+    "magenta": "assets/icons/magenta/spray-02.svg",
+    "orange": "assets/icons/orange/spray-02.svg",
+    "camel": "assets/icons/camel/spray-02.svg",
+    "gold": "assets/icons/gold/spray-02.svg",
+    "cream": "assets/icons/cream/spray-02.svg"
+   }
+  },
+  {
+   "slug": "spray-03",
+   "title": "Spray III",
+   "category": "ornament",
+   "subject": "symmetrical lotus spray, wide",
+   "width": 1000.0,
+   "height": 727.27,
+   "aspect": 1.38,
+   "palette_full": [
+    "teal",
+    "camel",
+    "cream",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/spray-03.svg",
+    "maroon": "assets/icons/toffee/spray-03.svg",
+    "teal": "assets/icons/teal/spray-03.svg",
+    "magenta": "assets/icons/magenta/spray-03.svg",
+    "orange": "assets/icons/orange/spray-03.svg",
+    "camel": "assets/icons/camel/spray-03.svg",
+    "gold": "assets/icons/gold/spray-03.svg",
+    "cream": "assets/icons/cream/spray-03.svg"
+   }
+  },
+  {
+   "slug": "corner-01",
+   "title": "Corner I",
+   "category": "corner",
+   "subject": "snowflake, blossoms and swirls &mdash; top-left reference",
+   "width": 1000.0,
+   "height": 1000.0,
+   "aspect": 1.0,
+   "palette_full": [
+    "teal"
+   ],
+   "source": "vector (not traced)",
+   "reference_corner": "top-left",
+   "variants": {
+    "full": "assets/icons/full/corner-01.svg",
+    "teal": "assets/icons/teal/corner-01.svg",
+    "camel": "assets/icons/camel/corner-01.svg",
+    "maroon": "assets/icons/toffee/corner-01.svg",
+    "cream": "assets/icons/cream/corner-01.svg",
+    "magenta": "assets/icons/magenta/corner-01.svg",
+    "orange": "assets/icons/orange/corner-01.svg",
+    "gold": "assets/icons/gold/corner-01.svg"
+   }
+  },
+  {
+   "slug": "corner-02",
+   "title": "Corner II",
+   "category": "corner",
+   "subject": "sprigs, tulip and snowflakes &mdash; top-left reference",
+   "width": 666.67,
+   "height": 1000.0,
+   "aspect": 0.67,
+   "palette_full": [
+    "maroon"
+   ],
+   "source": "vector (not traced)",
+   "reference_corner": "top-left",
+   "variants": {
+    "full": "assets/icons/full/corner-02.svg",
+    "teal": "assets/icons/teal/corner-02.svg",
+    "camel": "assets/icons/camel/corner-02.svg",
+    "maroon": "assets/icons/toffee/corner-02.svg",
+    "cream": "assets/icons/cream/corner-02.svg",
+    "magenta": "assets/icons/magenta/corner-02.svg",
+    "orange": "assets/icons/orange/corner-02.svg",
+    "gold": "assets/icons/gold/corner-02.svg"
+   }
+  },
+  {
+   "slug": "frame-01",
+   "title": "Frame I",
+   "category": "frame",
+   "subject": "cats, wing chair, woman and teacups",
+   "width": 849.0,
+   "height": 1000.0,
+   "aspect": 0.85,
+   "palette_full": [
+    "teal",
+    "camel",
+    "maroon",
+    "cream",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/frame-01.svg",
+    "maroon": "assets/icons/toffee/frame-01.svg",
+    "teal": "assets/icons/teal/frame-01.svg",
+    "magenta": "assets/icons/magenta/frame-01.svg",
+    "orange": "assets/icons/orange/frame-01.svg",
+    "camel": "assets/icons/camel/frame-01.svg",
+    "gold": "assets/icons/gold/frame-01.svg",
+    "cream": "assets/icons/cream/frame-01.svg"
+   },
+   "safe_area": {
+    "top": 28.5,
+    "left": 24.0,
+    "right": 23.7,
+    "bottom": 37.8,
+    "width": 52.3,
+    "height": 33.7
+   }
+  },
+  {
+   "slug": "frame-02",
+   "title": "Frame II",
+   "category": "frame",
+   "subject": "wood stove, typewriter and butterflies",
+   "width": 813.89,
+   "height": 1000.0,
+   "aspect": 0.81,
+   "palette_full": [
+    "maroon",
+    "cream",
+    "teal",
+    "camel",
+    "orange"
+   ],
+   "variants": {
+    "full": "assets/icons/full/frame-02.svg",
+    "maroon": "assets/icons/toffee/frame-02.svg",
+    "teal": "assets/icons/teal/frame-02.svg",
+    "magenta": "assets/icons/magenta/frame-02.svg",
+    "orange": "assets/icons/orange/frame-02.svg",
+    "camel": "assets/icons/camel/frame-02.svg",
+    "gold": "assets/icons/gold/frame-02.svg",
+    "cream": "assets/icons/cream/frame-02.svg"
+   },
+   "safe_area": {
+    "top": 30.3,
+    "left": 29.9,
+    "right": 29.4,
+    "bottom": 32.3,
+    "width": 40.7,
+    "height": 37.4
+   }
+  },
+  {
+   "slug": "frame-03",
+   "title": "Frame III",
+   "category": "frame",
+   "subject": "sewing machine, birds, candles and coffee pots",
+   "width": 820.47,
+   "height": 1000.0,
+   "aspect": 0.82,
+   "palette_full": [
+    "maroon",
+    "camel",
+    "teal",
+    "cream",
+    "orange",
+    "gold"
+   ],
+   "variants": {
+    "full": "assets/icons/full/frame-03.svg",
+    "maroon": "assets/icons/toffee/frame-03.svg",
+    "teal": "assets/icons/teal/frame-03.svg",
+    "magenta": "assets/icons/magenta/frame-03.svg",
+    "orange": "assets/icons/orange/frame-03.svg",
+    "camel": "assets/icons/camel/frame-03.svg",
+    "gold": "assets/icons/gold/frame-03.svg",
+    "cream": "assets/icons/cream/frame-03.svg"
+   },
+   "safe_area": {
+    "top": 30.1,
+    "left": 32.8,
+    "right": 32.7,
+    "bottom": 26.0,
+    "width": 34.5,
+    "height": 43.9
+   }
+  },
+  {
+   "slug": "frame-04",
+   "title": "Frame IV",
+   "category": "frame",
+   "subject": "wing chairs, moka pots and teacups",
+   "width": 774.24,
+   "height": 1000.0,
+   "aspect": 0.77,
+   "palette_full": [
+    "orange",
+    "teal",
+    "camel",
+    "cream",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/frame-04.svg",
+    "maroon": "assets/icons/toffee/frame-04.svg",
+    "teal": "assets/icons/teal/frame-04.svg",
+    "magenta": "assets/icons/magenta/frame-04.svg",
+    "orange": "assets/icons/orange/frame-04.svg",
+    "camel": "assets/icons/camel/frame-04.svg",
+    "gold": "assets/icons/gold/frame-04.svg",
+    "cream": "assets/icons/cream/frame-04.svg"
+   },
+   "safe_area": {
+    "top": 27.7,
+    "left": 26.7,
+    "right": 26.3,
+    "bottom": 45.4,
+    "width": 47.0,
+    "height": 27.0
+   }
+  },
+  {
+   "slug": "frame-05",
+   "title": "Frame V",
+   "category": "frame",
+   "subject": "cat, birds, kettles and coffee pots",
+   "width": 760.1,
+   "height": 1000.0,
+   "aspect": 0.76,
+   "palette_full": [
+    "camel",
+    "teal",
+    "cream",
+    "maroon"
+   ],
+   "variants": {
+    "full": "assets/icons/full/frame-05.svg",
+    "maroon": "assets/icons/toffee/frame-05.svg",
+    "teal": "assets/icons/teal/frame-05.svg",
+    "magenta": "assets/icons/magenta/frame-05.svg",
+    "orange": "assets/icons/orange/frame-05.svg",
+    "camel": "assets/icons/camel/frame-05.svg",
+    "gold": "assets/icons/gold/frame-05.svg",
+    "cream": "assets/icons/cream/frame-05.svg"
+   },
+   "safe_area": {
+    "top": 29.2,
+    "left": 26.6,
+    "right": 26.2,
+    "bottom": 37.7,
+    "width": 47.2,
+    "height": 33.1
+   }
+  }
+ ]
+}

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cozendagen — Photography Treatment Exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Jost:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cozendagen.css">
+<style>
+/* ===== Page-level layout ===== */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--cz-cream);color:var(--cz-teal);font-family:var(--cz-font-body)}
+
+.toc{
+  max-width:800px;margin:0 auto 3rem;padding:2rem;
+  columns:2;column-gap:2rem;
+}
+.toc a{
+  display:block;padding:0.35em 0;
+  font-size:var(--cz-text-sm);color:var(--cz-teal);text-decoration:none;
+  break-inside:avoid;
+}
+.toc a:hover{color:var(--cz-camel)}
+.toc a span{font-weight:600}
+
+.section-intro{
+  max-width:800px;margin:0 auto;padding:0 2rem 1rem;
+}
+.section-intro h2{
+  font-family:var(--cz-font-display);
+  font-size:clamp(1.6rem,4vw,2.4rem);
+  margin:0 0 0.5rem;
+}
+.section-intro p{
+  font-size:var(--cz-text-sm);
+  color:var(--cz-ink-soft);
+  max-width:62ch;
+  margin:0 0 1.5rem;
+}
+.section-intro .tag{
+  display:inline-block;
+  padding:0.2em 0.75em;
+  border-radius:99px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.tag--hero{background:var(--cz-teal);color:var(--cz-cream)}
+.tag--inset{background:var(--cz-camel);color:var(--cz-chocolate)}
+.tag--shape{background:var(--cz-magenta);color:#fff}
+.tag--layout{background:var(--cz-orange);color:#fff}
+.tag--overlay{background:var(--cz-chocolate);color:var(--cz-cream)}
+.tag--frame{background:var(--cz-gold);color:var(--cz-chocolate)}
+
+.divider{
+  max-width:120px;height:3px;margin:4rem auto;
+  background:var(--cz-camel);border:none;border-radius:2px;
+}
+
+/* ===== HEADER ===== */
+.page-header{
+  text-align:center;padding:4rem 2rem 2rem;
+}
+.page-header h1{
+  font-family:var(--cz-font-display);
+  font-size:clamp(2rem,5vw,3.2rem);
+  margin:0 0 0.5rem;
+}
+.page-header .lead{
+  font-size:var(--cz-text-base);
+  color:var(--cz-ink-soft);
+  max-width:54ch;margin:0 auto;
+}
+
+/* ===== 1 · FULL BLEED ===== */
+.fb{
+  position:relative;width:100%;overflow:hidden;
+}
+.fb img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;
+}
+.fb--tall{height:clamp(420px,60vh,720px)}
+.fb--mid{height:clamp(320px,40vh,520px)}
+
+/* gradient scrim */
+.fb__scrim{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:3rem clamp(2rem,5vw,6rem);
+}
+.fb__scrim--bottom{
+  background:linear-gradient(to top,rgba(0,0,0,0.68) 0%,rgba(0,0,0,0.25) 45%,transparent 100%);
+}
+.fb__scrim--center{
+  background:rgba(0,0,0,0.42);
+  justify-content:center;align-items:center;text-align:center;
+}
+.fb__scrim h2,.fb__scrim h3{
+  font-family:var(--cz-font-display);
+  color:#fff;margin:0 0 0.5rem;
+  text-shadow:0 2px 12px rgba(0,0,0,0.4);
+}
+.fb__scrim h2{font-size:clamp(2rem,5vw,3.6rem)}
+.fb__scrim h3{font-size:clamp(1.2rem,3vw,1.8rem)}
+.fb__scrim p{
+  color:rgba(255,255,255,0.88);
+  font-size:var(--cz-text-base);
+  max-width:48ch;margin:0;
+}
+.fb__scrim--center p{margin:0 auto}
+
+/* colour overlays */
+.fb__overlay{
+  position:absolute;inset:0;
+  mix-blend-mode:multiply;
+}
+.fb__overlay--teal{background:var(--cz-teal)}
+.fb__overlay--chocolate{background:var(--cz-chocolate)}
+.fb__overlay--camel{background:var(--cz-camel)}
+.fb__overlay--magenta{background:var(--cz-magenta)}
+
+/* duotone — desaturate image, overlay colour */
+.fb--duotone img{filter:grayscale(1) contrast(1.1)}
+.fb--duotone .fb__overlay{opacity:0.75}
+
+/* ===== 2 · INSET PHOTOS ===== */
+.inset-row{
+  display:grid;gap:2rem;
+  max-width:1200px;margin:0 auto;padding:0 2rem 2rem;
+}
+.inset-row--2{grid-template-columns:1fr 1fr}
+.inset-row--3{grid-template-columns:1fr 1fr 1fr}
+
+.inset-card{overflow:hidden}
+.inset-card img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* plain inset on cream */
+.inset--plain{border-radius:0}
+.inset--plain img{aspect-ratio:3/2}
+
+/* rounded */
+.inset--rounded{border-radius:16px}
+.inset--rounded img{border-radius:16px;aspect-ratio:3/2}
+
+/* thick border */
+.inset--bordered{
+  border:6px solid var(--cz-teal);
+}
+.inset--bordered img{aspect-ratio:3/2}
+
+/* camel border */
+.inset--bordered-camel{
+  border:6px solid var(--cz-camel);
+  border-radius:8px;
+}
+.inset--bordered-camel img{border-radius:4px;aspect-ratio:3/2}
+
+/* shadow float */
+.inset--shadow{
+  border-radius:12px;
+  box-shadow:0 8px 32px rgba(92,51,23,0.18),0 2px 8px rgba(92,51,23,0.10);
+}
+.inset--shadow img{border-radius:12px;aspect-ratio:3/2}
+
+/* ===== 3 · COLOURED-GROUND INSET ===== */
+.ground-band{
+  padding:3rem 2rem;
+}
+.ground-band--teal{background:var(--cz-teal)}
+.ground-band--chocolate{background:var(--cz-chocolate)}
+.ground-band--camel{background:var(--cz-camel)}
+.ground-band .inset-row{padding:0}
+
+.ground-band .caption{
+  text-align:center;margin-top:1rem;
+  font-size:var(--cz-text-sm);
+  color:var(--cz-cream);
+  font-style:italic;
+}
+.ground-band--camel .caption{color:var(--cz-chocolate)}
+
+/* ===== 4 · CIRCLE & SHAPE MASKS ===== */
+.shapes-row{
+  display:flex;flex-wrap:wrap;gap:2.5rem;
+  justify-content:center;align-items:center;
+  max-width:1000px;margin:0 auto;padding:0 2rem 2rem;
+}
+.shape-cell{text-align:center}
+.shape-cell .label{
+  display:block;margin-top:0.75rem;
+  font-size:12px;font-weight:600;
+  letter-spacing:0.04em;text-transform:uppercase;
+  color:var(--cz-ink-soft);
+}
+
+.photo-circle{
+  width:200px;height:200px;
+  border-radius:50%;overflow:hidden;
+  flex:none;
+}
+.photo-circle img{width:100%;height:100%;object-fit:cover}
+
+.photo-circle--ring{
+  border:5px solid var(--cz-camel);
+}
+.photo-circle--teal-ring{
+  border:5px solid var(--cz-teal);
+}
+
+/* arch / rounded-top */
+.photo-arch{
+  width:240px;height:320px;
+  border-radius:120px 120px 0 0;
+  overflow:hidden;flex:none;
+}
+.photo-arch img{width:100%;height:100%;object-fit:cover}
+
+/* oval */
+.photo-oval{
+  width:200px;height:260px;
+  border-radius:50%;overflow:hidden;
+  border:4px solid var(--cz-chocolate);
+  flex:none;
+}
+.photo-oval img{width:100%;height:100%;object-fit:cover}
+
+/* ===== 5 · SPLIT / SIDE-BY-SIDE ===== */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:420px;
+}
+.split--reverse{direction:rtl}
+.split--reverse > *{direction:ltr}
+
+.split__photo{overflow:hidden;position:relative}
+.split__photo img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;
+}
+.split__content{
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:clamp(2rem,4vw,4rem);
+}
+.split__content h2{
+  font-family:var(--cz-font-display);
+  font-size:clamp(1.6rem,3vw,2.6rem);
+  margin:0 0 1rem;
+}
+.split__content p{
+  font-size:var(--cz-text-base);
+  max-width:42ch;margin:0 0 1.5rem;
+  line-height:1.65;
+}
+
+.split--cream .split__content{background:var(--cz-cream);color:var(--cz-teal)}
+.split--teal .split__content{background:var(--cz-teal);color:var(--cz-cream)}
+.split--chocolate .split__content{background:var(--cz-chocolate);color:var(--cz-cream)}
+
+/* ===== 6 · EDITORIAL GRID ===== */
+.ed-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(180px,auto);
+  gap:1rem;
+  max-width:1200px;margin:0 auto;padding:0 2rem 2rem;
+}
+.ed-grid__item{overflow:hidden;border-radius:8px}
+.ed-grid__item img{display:block;width:100%;height:100%;object-fit:cover}
+
+.ed-grid__item--hero{grid-column:1/8;grid-row:1/3}
+.ed-grid__item--tall{grid-column:8/13;grid-row:1/3}
+.ed-grid__item--wide{grid-column:1/7;grid-row:3/4}
+.ed-grid__item--small-a{grid-column:7/10;grid-row:3/4}
+.ed-grid__item--small-b{grid-column:10/13;grid-row:3/4}
+
+/* grid variant 2: masonry-ish */
+.ed-grid-2{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:200px;
+  gap:1rem;
+  max-width:1000px;margin:0 auto;padding:0 2rem 2rem;
+}
+.ed-grid-2__item{overflow:hidden;border-radius:6px}
+.ed-grid-2__item img{display:block;width:100%;height:100%;object-fit:cover}
+.ed-grid-2__item--span-2{grid-row:span 2}
+
+/* ===== 7 · COLOUR WASH / TINT ===== */
+.wash{
+  position:relative;overflow:hidden;
+}
+.wash img{
+  display:block;width:100%;aspect-ratio:16/7;
+  object-fit:cover;
+}
+/* sepia warmth */
+.wash--warm img{filter:sepia(0.35) saturate(1.2) contrast(1.05)}
+/* cool teal cast */
+.wash--cool img{filter:sepia(0.2) saturate(0.8) hue-rotate(160deg) contrast(1.05)}
+/* high contrast B&W */
+.wash--bw img{filter:grayscale(1) contrast(1.2)}
+/* faded vintage */
+.wash--vintage img{filter:sepia(0.15) saturate(0.85) brightness(1.05) contrast(0.92)}
+
+.wash .wash-label{
+  position:absolute;bottom:1rem;left:1rem;
+  background:rgba(0,0,0,0.55);color:#fff;
+  padding:0.3em 0.8em;border-radius:4px;
+  font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;
+}
+
+/* ===== 8 · CORNER-ORNAMENT FRAME ===== */
+.corner-frame{
+  position:relative;
+  max-width:800px;margin:0 auto;padding:0 2rem;
+}
+.corner-frame__inner{
+  position:relative;
+  border:3px solid var(--cz-camel);
+  padding:24px;
+}
+.corner-frame__inner img{
+  display:block;width:100%;aspect-ratio:16/10;object-fit:cover;
+}
+.corner-frame__corner{
+  position:absolute;width:60px;height:60px;
+  pointer-events:none;
+}
+.corner-frame__corner img{width:100%;height:100%;object-fit:contain}
+.corner-frame__corner--tl{top:8px;left:8px}
+.corner-frame__corner--tr{top:8px;right:8px;transform:scaleX(-1)}
+.corner-frame__corner--bl{bottom:8px;left:8px;transform:scaleY(-1)}
+.corner-frame__corner--br{bottom:8px;right:8px;transform:scale(-1,-1)}
+
+/* ===== 9 · PATTERN BORDER ===== */
+.pattern-border{
+  max-width:800px;margin:0 auto;padding:0 2rem;
+}
+.pattern-border__outer{
+  background-image:var(--pb-src);
+  background-size:300px;
+  padding:16px;
+  border-radius:8px;
+}
+.pattern-border__outer img{
+  display:block;width:100%;aspect-ratio:16/10;
+  object-fit:cover;border-radius:4px;
+}
+
+/* ===== 10 · POLAROID / INSTANT ===== */
+.polaroids{
+  display:flex;flex-wrap:wrap;gap:2rem;
+  justify-content:center;
+  max-width:1000px;margin:0 auto;padding:0 2rem 2rem;
+}
+.polaroid{
+  background:#fff;
+  padding:12px 12px 48px;
+  box-shadow:0 4px 16px rgba(92,51,23,0.12),0 1px 4px rgba(92,51,23,0.08);
+  flex:none;
+}
+.polaroid img{display:block;width:240px;aspect-ratio:1/1;object-fit:cover}
+.polaroid--tilted-l{transform:rotate(-3deg)}
+.polaroid--tilted-r{transform:rotate(2.5deg)}
+.polaroid--tilted-l2{transform:rotate(-1.5deg)}
+.polaroid .caption{
+  text-align:center;margin-top:12px;
+  font-family:var(--cz-font-display);
+  font-size:1rem;color:var(--cz-chocolate);
+}
+
+/* ===== 11 · VIGNETTE ===== */
+.vignette{
+  position:relative;overflow:hidden;
+  max-width:800px;margin:0 auto;
+}
+.vignette img{
+  display:block;width:100%;aspect-ratio:16/9;object-fit:cover;
+}
+.vignette::after{
+  content:'';position:absolute;inset:0;
+  box-shadow:inset 0 0 120px 40px rgba(0,0,0,0.45);
+  pointer-events:none;
+}
+
+/* ===== 12 · PHOTO + FOLK CIRCLE ACCENT ===== */
+.photo-accent{
+  position:relative;
+  max-width:1000px;margin:0 auto;padding:0 2rem;
+}
+.photo-accent__img{
+  display:block;width:100%;aspect-ratio:16/9;object-fit:cover;
+  border-radius:12px;
+}
+.photo-accent__circle{
+  position:absolute;
+  bottom:-36px;right:clamp(2rem,6vw,6rem);
+  width:100px;height:100px;
+  border-radius:50%;
+  background:var(--cz-teal);
+  display:grid;place-items:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.25);
+  border:4px solid var(--cz-cream);
+}
+.photo-accent__circle img{
+  width:44px;height:44px;
+}
+
+/* ===== 13 · FILMSTRIP ===== */
+.filmstrip{
+  display:flex;gap:0;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  max-width:100%;
+}
+.filmstrip__frame{
+  flex:none;width:280px;
+  scroll-snap-align:start;
+  border-left:3px solid var(--cz-chocolate);
+  border-right:3px solid var(--cz-chocolate);
+  position:relative;
+}
+.filmstrip__frame:first-child{border-left:6px solid var(--cz-chocolate)}
+.filmstrip__frame:last-child{border-right:6px solid var(--cz-chocolate)}
+.filmstrip__frame img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.filmstrip__perf{
+  height:20px;background:var(--cz-chocolate);
+  display:flex;align-items:center;justify-content:space-evenly;
+  padding:0 8px;
+}
+.filmstrip__perf span{
+  display:block;width:10px;height:8px;
+  border-radius:2px;background:var(--cz-cream);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .split{grid-template-columns:1fr}
+  .inset-row--2,.inset-row--3{grid-template-columns:1fr}
+  .ed-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+  .ed-grid__item--hero,.ed-grid__item--tall,.ed-grid__item--wide,
+  .ed-grid__item--small-a,.ed-grid__item--small-b{grid-column:1/-1;grid-row:auto}
+  .ed-grid__item img{aspect-ratio:16/9}
+  .ed-grid-2{grid-template-columns:1fr}
+  .toc{columns:1}
+  .shapes-row{gap:1.5rem}
+  .photo-arch{width:180px;height:240px;border-radius:90px 90px 0 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="page-header">
+  <h1>Photography Treatments</h1>
+  <p class="lead">
+    An exploration of how event photography lives within the Cozendagen design system. Each treatment below is a reusable pattern for the website.
+  </p>
+</header>
+
+<!-- TABLE OF CONTENTS -->
+<nav class="toc">
+  <a href="#full-bleed"><span>01</span> Full-Bleed Hero</a>
+  <a href="#duotone"><span>02</span> Duotone &amp; Colour Overlay</a>
+  <a href="#colour-wash"><span>03</span> Colour Wash Filters</a>
+  <a href="#inset-cream"><span>04</span> Inset on Cream</a>
+  <a href="#inset-colour"><span>05</span> Inset on Colour Grounds</a>
+  <a href="#shape-masks"><span>06</span> Circle &amp; Shape Masks</a>
+  <a href="#split"><span>07</span> Split / Side-by-Side</a>
+  <a href="#editorial-grid"><span>08</span> Editorial Grid</a>
+  <a href="#corner-frame"><span>09</span> Corner-Ornament Frame</a>
+  <a href="#pattern-border"><span>10</span> Pattern-Ink Border</a>
+  <a href="#polaroid"><span>11</span> Instant / Polaroid</a>
+  <a href="#filmstrip"><span>12</span> Filmstrip</a>
+  <a href="#vignette"><span>13</span> Vignette</a>
+  <a href="#photo-accent"><span>14</span> Photo + Folk Circle Accent</a>
+</nav>
+
+<hr class="divider">
+
+<!-- ============================================================
+     01 · FULL-BLEED HERO
+     ============================================================ -->
+<section id="full-bleed">
+  <div class="section-intro">
+    <span class="tag tag--hero">Hero</span>
+    <h2>Full-Bleed Hero</h2>
+    <p>Photo fills edge-to-edge. Content is overlaid on a gradient scrim that protects readability. Two variants: bottom-anchored headline and centred headline.</p>
+  </div>
+
+  <!-- Bottom scrim -->
+  <div class="fb fb--tall">
+    <img src="assets/photos/venue-crowd.jpg" alt="Cozendagen venue with string lights and crowd">
+    <div class="fb__scrim fb__scrim--bottom">
+      <h2>Cozendagen</h2>
+      <p>A winter holiday for the rest of us. Gather, feast, and make something beautiful.</p>
+    </div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <!-- Centre scrim -->
+  <div class="fb fb--mid">
+    <img src="assets/photos/musicians.jpg" alt="Folk musicians playing at Cozendagen">
+    <div class="fb__scrim fb__scrim--center">
+      <h3>Live Music All Evening</h3>
+      <p>From fiddle tunes to singalongs — the soundtrack of a cozy night.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     02 · DUOTONE & COLOUR OVERLAY
+     ============================================================ -->
+<section id="duotone">
+  <div class="section-intro">
+    <span class="tag tag--overlay">Overlay</span>
+    <h2>Duotone &amp; Colour Overlay</h2>
+    <p>Desaturate the photo and apply a palette colour via multiply blend. Creates a strong brand-forward moment — great for section dividers or backgrounds behind sparse text.</p>
+  </div>
+
+  <!-- Teal duotone -->
+  <div class="fb fb--mid fb--duotone">
+    <img src="assets/photos/banner-crowd.jpg" alt="Cozendagen banner over crowd">
+    <div class="fb__overlay fb__overlay--teal"></div>
+    <div class="fb__scrim fb__scrim--center">
+      <h3>Teal Duotone</h3>
+      <p>Strong brand presence. Works over any photo.</p>
+    </div>
+  </div>
+
+  <div style="height:1.5rem"></div>
+
+  <!-- Chocolate duotone -->
+  <div class="fb fb--mid fb--duotone">
+    <img src="assets/photos/venue-crowd.jpg" alt="Venue crowd">
+    <div class="fb__overlay fb__overlay--chocolate"></div>
+    <div class="fb__scrim fb__scrim--center">
+      <h3>Chocolate Duotone</h3>
+      <p>Warm and rich. Feels like firelight.</p>
+    </div>
+  </div>
+
+  <div style="height:1.5rem"></div>
+
+  <!-- Camel duotone -->
+  <div class="fb fb--mid fb--duotone">
+    <img src="assets/photos/musicians.jpg" alt="Musicians">
+    <div class="fb__overlay fb__overlay--camel"></div>
+    <div class="fb__scrim fb__scrim--center">
+      <h3>Camel Duotone</h3>
+      <p>Soft and golden. Vintage warmth.</p>
+    </div>
+  </div>
+
+  <div style="height:1.5rem"></div>
+
+  <!-- Magenta duotone -->
+  <div class="fb fb--mid fb--duotone">
+    <img src="assets/photos/food-serving.jpg" alt="Food being served">
+    <div class="fb__overlay fb__overlay--magenta"></div>
+    <div class="fb__scrim fb__scrim--center">
+      <h3>Magenta Duotone</h3>
+      <p>Bold accent moment. Use sparingly.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     03 · COLOUR WASH FILTERS
+     ============================================================ -->
+<section id="colour-wash">
+  <div class="section-intro">
+    <span class="tag tag--overlay">Overlay</span>
+    <h2>Colour Wash Filters</h2>
+    <p>CSS-only treatments applied to the image itself — no overlay element. Subtler than duotone, these unify the photo palette without hiding detail. Good for supporting imagery that sits alongside brand colours.</p>
+  </div>
+
+  <div class="wash wash--warm">
+    <img src="assets/photos/banner-crowd.jpg" alt="Banner crowd warm">
+    <span class="wash-label">Warm Sepia</span>
+  </div>
+  <div style="height:1rem"></div>
+  <div class="wash wash--cool">
+    <img src="assets/photos/banner-crowd.jpg" alt="Banner crowd cool">
+    <span class="wash-label">Cool Teal Cast</span>
+  </div>
+  <div style="height:1rem"></div>
+  <div class="wash wash--bw">
+    <img src="assets/photos/banner-crowd.jpg" alt="Banner crowd bw">
+    <span class="wash-label">Black &amp; White</span>
+  </div>
+  <div style="height:1rem"></div>
+  <div class="wash wash--vintage">
+    <img src="assets/photos/banner-crowd.jpg" alt="Banner crowd vintage">
+    <span class="wash-label">Faded Vintage</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     04 · INSET ON CREAM
+     ============================================================ -->
+<section id="inset-cream">
+  <div class="section-intro">
+    <span class="tag tag--inset">Inset</span>
+    <h2>Inset on Cream Ground</h2>
+    <p>Photos sit within the page layout with breathing room. Five border/radius treatments from sharp-edged to soft shadow.</p>
+  </div>
+
+  <!-- Row: plain vs rounded -->
+  <div class="inset-row inset-row--2">
+    <div>
+      <div class="inset-card inset--plain"><img src="assets/photos/food-serving.jpg" alt="Food serving"></div>
+      <p style="text-align:center;font-size:12px;font-weight:600;margin-top:0.5rem;color:var(--cz-ink-soft)">SHARP EDGE</p>
+    </div>
+    <div>
+      <div class="inset-card inset--rounded"><img src="assets/photos/buttons-basket.jpg" alt="Buttons basket"></div>
+      <p style="text-align:center;font-size:12px;font-weight:600;margin-top:0.5rem;color:var(--cz-ink-soft)">ROUNDED (16px)</p>
+    </div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <!-- Row: bordered, camel-bordered, shadow -->
+  <div class="inset-row inset-row--3">
+    <div>
+      <div class="inset-card inset--bordered"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+      <p style="text-align:center;font-size:12px;font-weight:600;margin-top:0.5rem;color:var(--cz-ink-soft)">TEAL BORDER</p>
+    </div>
+    <div>
+      <div class="inset-card inset--bordered-camel"><img src="assets/photos/venue-crowd.jpg" alt="Venue crowd"></div>
+      <p style="text-align:center;font-size:12px;font-weight:600;margin-top:0.5rem;color:var(--cz-ink-soft)">CAMEL BORDER + RADIUS</p>
+    </div>
+    <div>
+      <div class="inset-card inset--shadow"><img src="assets/photos/banner-crowd.jpg" alt="Banner crowd"></div>
+      <p style="text-align:center;font-size:12px;font-weight:600;margin-top:0.5rem;color:var(--cz-ink-soft)">SHADOW FLOAT</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     05 · INSET ON COLOUR GROUNDS
+     ============================================================ -->
+<section id="inset-colour">
+  <div class="section-intro">
+    <span class="tag tag--inset">Inset</span>
+    <h2>Inset on Colour Grounds</h2>
+    <p>Same inset approach, but the band behind the photo is a palette colour. The contrast makes the photo pop and ties the section to the brand.</p>
+  </div>
+
+  <div class="ground-band ground-band--teal">
+    <div class="inset-row inset-row--2">
+      <div class="inset-card inset--rounded"><img src="assets/photos/buttons-basket.jpg" alt="Buttons"></div>
+      <div class="inset-card inset--rounded"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+    </div>
+    <p class="caption">Rounded insets on teal ground</p>
+  </div>
+
+  <div class="ground-band ground-band--chocolate">
+    <div class="inset-row inset-row--2">
+      <div class="inset-card inset--shadow" style="border-radius:12px"><img src="assets/photos/venue-crowd.jpg" alt="Venue" style="border-radius:12px"></div>
+      <div class="inset-card inset--shadow" style="border-radius:12px"><img src="assets/photos/musicians.jpg" alt="Musicians" style="border-radius:12px"></div>
+    </div>
+    <p class="caption">Shadow floats on chocolate ground</p>
+  </div>
+
+  <div class="ground-band ground-band--camel">
+    <div class="inset-row inset-row--3">
+      <div class="inset-card inset--plain"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+      <div class="inset-card inset--plain"><img src="assets/photos/banner-crowd.jpg" alt="Banner"></div>
+      <div class="inset-card inset--plain"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+    </div>
+    <p class="caption">Sharp-edged trio on camel ground</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     06 · CIRCLE & SHAPE MASKS
+     ============================================================ -->
+<section id="shape-masks">
+  <div class="section-intro">
+    <span class="tag tag--shape">Shape</span>
+    <h2>Circle &amp; Shape Masks</h2>
+    <p>Photos cropped into geometric shapes. Circles echo the folk-icon treatment. Arches nod to the gothic windows in the venue photos. Ovals add a portrait-frame feel.</p>
+  </div>
+
+  <div class="shapes-row">
+    <div class="shape-cell">
+      <div class="photo-circle"><img src="assets/photos/buttons-basket.jpg" alt="Buttons"></div>
+      <span class="label">Plain circle</span>
+    </div>
+    <div class="shape-cell">
+      <div class="photo-circle photo-circle--ring"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+      <span class="label">Camel ring</span>
+    </div>
+    <div class="shape-cell">
+      <div class="photo-circle photo-circle--teal-ring"><img src="assets/photos/banner-crowd.jpg" alt="Banner"></div>
+      <span class="label">Teal ring</span>
+    </div>
+  </div>
+
+  <div class="shapes-row" style="margin-top:1rem">
+    <div class="shape-cell">
+      <div class="photo-arch"><img src="assets/photos/venue-crowd.jpg" alt="Venue"></div>
+      <span class="label">Arch</span>
+    </div>
+    <div class="shape-cell">
+      <div class="photo-oval"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+      <span class="label">Oval portrait</span>
+    </div>
+    <div class="shape-cell">
+      <div class="photo-arch" style="border:4px solid var(--cz-camel)"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+      <span class="label">Arch + camel border</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     07 · SPLIT / SIDE-BY-SIDE
+     ============================================================ -->
+<section id="split">
+  <div class="section-intro">
+    <span class="tag tag--layout">Layout</span>
+    <h2>Split / Side-by-Side</h2>
+    <p>Half photo, half content. The workhorse for feature sections. Three ground colours shown, plus a reversed (photo-right) variant.</p>
+  </div>
+
+  <!-- cream content, photo left -->
+  <div class="split split--cream">
+    <div class="split__photo"><img src="assets/photos/venue-crowd.jpg" alt="Venue crowd"></div>
+    <div class="split__content">
+      <h2>A Space to Gather</h2>
+      <p>String lights, gothic arches, and a room full of people who came to celebrate something simple: being together in the cold months.</p>
+      <div class="cz-btn-row" style="justify-content:flex-start"><a class="cz-btn cz-btn--primary" href="#">Learn More</a></div>
+    </div>
+  </div>
+
+  <div style="height:1.5rem"></div>
+
+  <!-- teal content, photo right -->
+  <div class="split split--teal split--reverse">
+    <div class="split__photo"><img src="assets/photos/food-serving.jpg" alt="Food serving"></div>
+    <div class="split__content">
+      <h2>Feast Together</h2>
+      <p>Sticky toffee pudding, mulled cider, and a ladle that never stops. Every bite tastes better when the table is shared.</p>
+    </div>
+  </div>
+
+  <div style="height:1.5rem"></div>
+
+  <!-- chocolate content, photo left -->
+  <div class="split split--chocolate">
+    <div class="split__photo"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+    <div class="split__content">
+      <h2>The Sound of Winter</h2>
+      <p>Fiddles, guitars, and a room that hums along. Music is the heartbeat of every Cozendagen gathering.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     08 · EDITORIAL GRID
+     ============================================================ -->
+<section id="editorial-grid">
+  <div class="section-intro">
+    <span class="tag tag--layout">Layout</span>
+    <h2>Editorial Grid</h2>
+    <p>Multi-photo layouts for gallery sections, event recaps, or "moments" pages. Two grid variants: asymmetric editorial and balanced masonry.</p>
+  </div>
+
+  <p style="text-align:center;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--cz-ink-soft);margin-bottom:1rem">ASYMMETRIC EDITORIAL</p>
+  <div class="ed-grid">
+    <div class="ed-grid__item ed-grid__item--hero"><img src="assets/photos/venue-crowd.jpg" alt="Venue"></div>
+    <div class="ed-grid__item ed-grid__item--tall"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+    <div class="ed-grid__item ed-grid__item--wide"><img src="assets/photos/banner-crowd.jpg" alt="Banner"></div>
+    <div class="ed-grid__item ed-grid__item--small-a"><img src="assets/photos/buttons-basket.jpg" alt="Buttons"></div>
+    <div class="ed-grid__item ed-grid__item--small-b"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <p style="text-align:center;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--cz-ink-soft);margin-bottom:1rem">BALANCED MASONRY</p>
+  <div class="ed-grid-2">
+    <div class="ed-grid-2__item ed-grid-2__item--span-2"><img src="assets/photos/venue-crowd.jpg" alt="Venue"></div>
+    <div class="ed-grid-2__item"><img src="assets/photos/buttons-basket.jpg" alt="Buttons"></div>
+    <div class="ed-grid-2__item"><img src="assets/photos/food-serving.jpg" alt="Food"></div>
+    <div class="ed-grid-2__item"><img src="assets/photos/banner-crowd.jpg" alt="Banner"></div>
+    <div class="ed-grid-2__item ed-grid-2__item--span-2"><img src="assets/photos/musicians.jpg" alt="Musicians"></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     09 · CORNER-ORNAMENT FRAME
+     ============================================================ -->
+<section id="corner-frame">
+  <div class="section-intro">
+    <span class="tag tag--frame">Frame</span>
+    <h2>Corner-Ornament Frame</h2>
+    <p>Uses the existing corner ornament SVGs to frame a photo — tying photography into the same decorative language as the bands. Cream-ground only, per the corner convention.</p>
+  </div>
+
+  <div class="corner-frame">
+    <div class="corner-frame__inner">
+      <img src="assets/photos/musicians.jpg" alt="Musicians at Cozendagen">
+      <div class="corner-frame__corner corner-frame__corner--tl"><img src="assets/icons/teal/corner-02.svg" alt=""></div>
+      <div class="corner-frame__corner corner-frame__corner--tr"><img src="assets/icons/teal/corner-02.svg" alt=""></div>
+      <div class="corner-frame__corner corner-frame__corner--bl"><img src="assets/icons/teal/corner-02.svg" alt=""></div>
+      <div class="corner-frame__corner corner-frame__corner--br"><img src="assets/icons/teal/corner-02.svg" alt=""></div>
+    </div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <!-- Camel corners variant -->
+  <div class="corner-frame">
+    <div class="corner-frame__inner" style="border-color:var(--cz-chocolate)">
+      <img src="assets/photos/banner-crowd.jpg" alt="Cozendagen banner">
+      <div class="corner-frame__corner corner-frame__corner--tl"><img src="assets/icons/chocolate/corner-02.svg" alt=""></div>
+      <div class="corner-frame__corner corner-frame__corner--tr"><img src="assets/icons/chocolate/corner-02.svg" alt=""></div>
+      <div class="corner-frame__corner corner-frame__corner--bl"><img src="assets/icons/chocolate/corner-02.svg" alt=""></div>
+      <div class="corner-frame__corner corner-frame__corner--br"><img src="assets/icons/chocolate/corner-02.svg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     10 · PATTERN-INK BORDER
+     ============================================================ -->
+<section id="pattern-border">
+  <div class="section-intro">
+    <span class="tag tag--frame">Frame</span>
+    <h2>Pattern-Ink Border</h2>
+    <p>A band of pattern tile peeks out as a decorative border around the photo. Connects the photo to Cozendagen's hand-drawn pattern system.</p>
+  </div>
+
+  <div class="pattern-border">
+    <div class="pattern-border__outer" style="--pb-src:url(assets/patterns/teal/pattern-01.png)">
+      <img src="assets/photos/food-serving.jpg" alt="Food serving">
+    </div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <div class="pattern-border">
+    <div class="pattern-border__outer" style="--pb-src:url(assets/patterns/camel/pattern-02.png);border-radius:0">
+      <img src="assets/photos/venue-crowd.jpg" alt="Venue" style="border-radius:0">
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     11 · POLAROID / INSTANT
+     ============================================================ -->
+<section id="polaroid">
+  <div class="section-intro">
+    <span class="tag tag--frame">Frame</span>
+    <h2>Instant / Polaroid</h2>
+    <p>A scattered-photos feel. Playful and personal — great for "moments" galleries or testimonial-adjacent sections. Slight rotation sells the casual-tossed-on-a-table look.</p>
+  </div>
+
+  <div class="polaroids">
+    <div class="polaroid polaroid--tilted-l">
+      <img src="assets/photos/buttons-basket.jpg" alt="Buttons">
+      <p class="caption">The Buttons</p>
+    </div>
+    <div class="polaroid polaroid--tilted-r">
+      <img src="assets/photos/food-serving.jpg" alt="Food">
+      <p class="caption">Sticky Toffee</p>
+    </div>
+    <div class="polaroid polaroid--tilted-l2">
+      <img src="assets/photos/musicians.jpg" alt="Musicians">
+      <p class="caption">The Fiddlers</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     12 · FILMSTRIP
+     ============================================================ -->
+<section id="filmstrip">
+  <div class="section-intro">
+    <span class="tag tag--frame">Frame</span>
+    <h2>Filmstrip</h2>
+    <p>A horizontally scrollable strip with sprocket-hole detailing. Nostalgic and tactile — fits the handmade ethos. Good for timelines or sequential moments.</p>
+  </div>
+
+  <div class="filmstrip">
+    <div class="filmstrip__frame">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <img src="assets/photos/venue-crowd.jpg" alt="Venue">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="filmstrip__frame">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <img src="assets/photos/banner-crowd.jpg" alt="Banner">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="filmstrip__frame">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <img src="assets/photos/buttons-basket.jpg" alt="Buttons">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="filmstrip__frame">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <img src="assets/photos/food-serving.jpg" alt="Food">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="filmstrip__frame">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <img src="assets/photos/musicians.jpg" alt="Musicians">
+      <div class="filmstrip__perf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     13 · VIGNETTE
+     ============================================================ -->
+<section id="vignette">
+  <div class="section-intro">
+    <span class="tag tag--overlay">Overlay</span>
+    <h2>Vignette</h2>
+    <p>An inset shadow that darkens the edges and draws the eye inward. Subtle but effective for hero-adjacent moments where you want the photo to feel intimate and focused.</p>
+  </div>
+
+  <div class="vignette">
+    <img src="assets/photos/venue-crowd.jpg" alt="Venue crowd">
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================================
+     14 · PHOTO + FOLK CIRCLE ACCENT
+     ============================================================ -->
+<section id="photo-accent">
+  <div class="section-intro">
+    <span class="tag tag--shape">Shape</span>
+    <h2>Photo + Folk Circle Accent</h2>
+    <p>A photo with a folk-icon circle overlapping the edge — bridging the illustrated and photographic worlds. The circle anchors a thematic icon to the photo content.</p>
+  </div>
+
+  <div class="photo-accent">
+    <img class="photo-accent__img" src="assets/photos/food-serving.jpg" alt="Food serving">
+    <div class="photo-accent__circle">
+      <img src="assets/icons/cream/campfire.svg" alt="campfire icon">
+    </div>
+  </div>
+
+  <div style="height:4rem"></div>
+
+  <div class="photo-accent">
+    <img class="photo-accent__img" src="assets/photos/musicians.jpg" alt="Musicians">
+    <div class="photo-accent__circle" style="background:var(--cz-camel)">
+      <img src="assets/icons/cream/open-book.svg" alt="open book icon">
+    </div>
+  </div>
+</section>
+
+<div style="height:6rem"></div>
+
+<!-- ============================================================
+     FOOTER NOTE
+     ============================================================ -->
+<footer style="text-align:center;padding:2rem;border-top:2px solid var(--cz-camel);max-width:800px;margin:0 auto">
+  <p style="font-size:var(--cz-text-sm);color:var(--cz-ink-soft);max-width:54ch;margin:0 auto">
+    <strong>Design system note:</strong> All treatments above use the Cozendagen palette and type system. Photography rules, once finalised, will be documented in the styleguide alongside icon placement and band layout conventions.
+  </p>
+</footer>
+
+<div style="height:3rem"></div>
+
+</body>
+</html>

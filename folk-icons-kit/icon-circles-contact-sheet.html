@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cozendagen — Icon-in-Circle Contact Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Jost:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cozendagen.css">
+<link rel="stylesheet" href="assets/folk-icons.css">
+<style>
+  body {
+    background: var(--cz-cream);
+    color: var(--cz-teal);
+    font-family: var(--cz-font-body);
+    margin: 0;
+    padding: 2rem;
+  }
+  h1 {
+    font-family: var(--cz-font-display);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: var(--cz-text-sm);
+    color: var(--cz-ink-soft);
+    margin-bottom: 2.5rem;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cell .cz-folk-circle {
+    --cfc-size: 160px;
+    --cfc-bg: var(--cz-teal);
+  }
+
+  .cell-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--cz-maroon);
+  }
+
+  .cell-correction {
+    font-size: 11px;
+    font-family: monospace;
+    color: var(--cz-ink-soft);
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: var(--cz-font-body);
+    font-weight: 700;
+    font-size: var(--cz-text-lg);
+    letter-spacing: 0.072em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+    color: var(--cz-teal);
+  }
+  .section-title:first-of-type { margin-top: 0; }
+
+  hr {
+    border: none;
+    border-top: 2px solid var(--cz-maroon);
+    margin: 3rem auto;
+    max-width: 200px;
+    opacity: 0.3;
+  }
+
+  /* Contact sheet overrides: don't shrink to 136px band size */
+  .cell .cz-folk-circle { --cfc-size: 160px !important; }
+</style>
+</head>
+<body>
+
+<h1>Icon-in-Circle Contact Sheet</h1>
+<p class="subtitle">
+  Every icon at 160 px inside a teal circle on cream ground. Review visual centering — geometric center ≠ visual center for asymmetric shapes.
+  Existing corrections noted in <code>monospace</code> below each icon. Icons with no correction show "none yet."
+</p>
+
+<h3 class="section-title">Kettles</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--kettle"><img src="assets/icons/cream/kettle-01.svg" alt="kettle-01"></div>
+    <span class="cell-label">kettle-01</span>
+    <span class="cell-correction">translate(-4px, -8px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--kettle"><img src="assets/icons/cream/kettle-02.svg" alt="kettle-02"></div>
+    <span class="cell-label">kettle-02</span>
+    <span class="cell-correction">translate(-4px, -8px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--kettle"><img src="assets/icons/cream/kettle-03.svg" alt="kettle-03"></div>
+    <span class="cell-label">kettle-03</span>
+    <span class="cell-correction">translate(-4px, -8px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--kettle"><img src="assets/icons/cream/kettle-04.svg" alt="kettle-04"></div>
+    <span class="cell-label">kettle-04</span>
+    <span class="cell-correction">translate(-4px, -8px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Teacups</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--teacup"><img src="assets/icons/cream/teacup-01.svg" alt="teacup-01"></div>
+    <span class="cell-label">teacup-01</span>
+    <span class="cell-correction">translateX(6px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--teacup"><img src="assets/icons/cream/teacup-02.svg" alt="teacup-02"></div>
+    <span class="cell-label">teacup-02</span>
+    <span class="cell-correction">translateX(6px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--teacup"><img src="assets/icons/cream/teacup-03.svg" alt="teacup-03"></div>
+    <span class="cell-label">teacup-03</span>
+    <span class="cell-correction">translateX(6px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--teacup"><img src="assets/icons/cream/teacup-04.svg" alt="teacup-04"></div>
+    <span class="cell-label">teacup-04</span>
+    <span class="cell-correction">translateX(6px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Coffee Pots &amp; Moka</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--coffee-pot-01"><img src="assets/icons/cream/coffee-pot-01.svg" alt="coffee-pot-01"></div>
+    <span class="cell-label">coffee-pot-01</span>
+    <span class="cell-correction">translate(2px, -6px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--coffee-pot-02"><img src="assets/icons/cream/coffee-pot-02.svg" alt="coffee-pot-02"></div>
+    <span class="cell-label">coffee-pot-02</span>
+    <span class="cell-correction">translate(-2px, -6px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--moka-pot"><img src="assets/icons/cream/moka-pot.svg" alt="moka-pot"></div>
+    <span class="cell-label">moka-pot</span>
+    <span class="cell-correction">translate(2px, -5px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Typewriters</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--typewriter"><img src="assets/icons/cream/typewriter-01.svg" alt="typewriter-01"></div>
+    <span class="cell-label">typewriter-01</span>
+    <span class="cell-correction">translate(-1px, -2px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--typewriter"><img src="assets/icons/cream/typewriter-02.svg" alt="typewriter-02"></div>
+    <span class="cell-label">typewriter-02</span>
+    <span class="cell-correction">translate(-1px, -2px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Campfire</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--campfire"><img src="assets/icons/cream/campfire.svg" alt="campfire"></div>
+    <span class="cell-label">campfire</span>
+    <span class="cell-correction">translate(-1px, -5px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Candle</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/candle.svg" alt="candle"></div>
+    <span class="cell-label">candle</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+</div>
+
+<h3 class="section-title">Stove</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--stove"><img src="assets/icons/cream/stove-01.svg" alt="stove-01"></div>
+    <span class="cell-label">stove-01</span>
+    <span class="cell-correction">30% smaller + translateY(-10px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Armchairs</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/armchair-01.svg" alt="armchair-01"></div>
+    <span class="cell-label">armchair-01</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/armchair-02.svg" alt="armchair-02"></div>
+    <span class="cell-label">armchair-02</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+</div>
+
+<h3 class="section-title">Slippers &amp; Socks</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--slippers"><img src="assets/icons/cream/slippers-01.svg" alt="slippers-01"></div>
+    <span class="cell-label">slippers-01</span>
+    <span class="cell-correction">translateY(4px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/socks-01.svg" alt="socks-01"></div>
+    <span class="cell-label">socks-01</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+</div>
+
+<h3 class="section-title">Sweaters</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--sweater"><img src="assets/icons/cream/sweater-01.svg" alt="sweater-01"></div>
+    <span class="cell-label">sweater-01</span>
+    <span class="cell-correction">0.528 + translateY(-4px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--sweater"><img src="assets/icons/cream/sweater-02.svg" alt="sweater-02"></div>
+    <span class="cell-label">sweater-02</span>
+    <span class="cell-correction">0.528 + translateY(-4px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Books</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/closed-book-01.svg" alt="closed-book-01"></div>
+    <span class="cell-label">closed-book-01</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/closed-book-02.svg" alt="closed-book-02"></div>
+    <span class="cell-label">closed-book-02</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--open-book"><img src="assets/icons/cream/open-book.svg" alt="open-book"></div>
+    <span class="cell-label">open-book</span>
+    <span class="cell-correction">0.528 (size only)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Houses</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--house"><img src="assets/icons/cream/house-01.svg" alt="house-01"></div>
+    <span class="cell-label">house-01</span>
+    <span class="cell-correction">25% smaller (0.33)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--house"><img src="assets/icons/cream/house-02.svg" alt="house-02"></div>
+    <span class="cell-label">house-02</span>
+    <span class="cell-correction">25% smaller (0.33)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--house-03"><img src="assets/icons/cream/house-03.svg" alt="house-03"></div>
+    <span class="cell-label">house-03</span>
+    <span class="cell-correction">translateY(-6px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Moose</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--moose"><img src="assets/icons/cream/moose-01.svg" alt="moose-01"></div>
+    <span class="cell-label">moose-01</span>
+    <span class="cell-correction">15% bigger (0.506) + translate(-6px, -6px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--moose"><img src="assets/icons/cream/moose-02.svg" alt="moose-02"></div>
+    <span class="cell-label">moose-02</span>
+    <span class="cell-correction">15% bigger (0.506) + translate(-6px, -6px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Trees</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--tree"><img src="assets/icons/cream/tree-01.svg" alt="tree-01"></div>
+    <span class="cell-label">tree-01</span>
+    <span class="cell-correction">20% smaller (0.352)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--tree-02"><img src="assets/icons/cream/tree-02.svg" alt="tree-02"></div>
+    <span class="cell-label">tree-02</span>
+    <span class="cell-correction">0.352 + translateX(3px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--tree-03"><img src="assets/icons/cream/tree-03.svg" alt="tree-03"></div>
+    <span class="cell-label">tree-03</span>
+    <span class="cell-correction">0.352 + translateX(3px)</span>
+  </div>
+</div>
+
+<h3 class="section-title">Radios</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/radio-01.svg" alt="radio-01"></div>
+    <span class="cell-label">radio-01</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle"><img src="assets/icons/cream/radio-02.svg" alt="radio-02"></div>
+    <span class="cell-label">radio-02</span>
+    <span class="cell-correction">none yet</span>
+  </div>
+</div>
+
+<h3 class="section-title">Sewing Machines</h3>
+<div class="grid">
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--sewing-machine"><img src="assets/icons/cream/sewing-machine-01.svg" alt="sewing-machine-01"></div>
+    <span class="cell-label">sewing-machine-01</span>
+    <span class="cell-correction">translateX(3px)</span>
+  </div>
+  <div class="cell">
+    <div class="cz-folk-circle cz-folk-circle--sewing-machine"><img src="assets/icons/cream/sewing-machine-02.svg" alt="sewing-machine-02"></div>
+    <span class="cell-label">sewing-machine-02</span>
+    <span class="cell-correction">translateX(3px)</span>
+  </div>
+</div>
+
+<hr>
+<p class="subtitle" style="margin-top:0">
+  <strong>Centering rules log:</strong> Each icon's SVG has asymmetric whitespace in its bounding box, so geometric center ≠ visual center. Corrections use <code>transform: translate()</code> and/or size overrides via <code>.cz-folk-circle--{slug} &gt; img</code> in <code>cozendagen.css</code>. All corrections were calibrated at 1/5 strength from initial visual review. Icons with corrections: kettle, teacup, coffee-pot-01, coffee-pot-02, moka-pot, typewriter, campfire, stove (size + position), slippers, sweater (size + position), open-book (size), house (size), house-03 (position), moose (size + position), tree (size), tree-02/03 (size + position), sewing-machine (position). Armchairs, candle, socks, closed-books, and radios still need review.
+</p>
+
+</body>
+</html>

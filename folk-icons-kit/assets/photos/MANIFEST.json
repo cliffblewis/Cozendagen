@@ -1,0 +1,570 @@
+{
+  "name": "Cozendagen Event Photo Library",
+  "generated": "2026-09-03",
+  "total_source_photos": 39,
+  "categories": {
+    "activities": 2,
+    "branding-and-signage": 3,
+    "food-and-drink": 6,
+    "live-music": 4,
+    "people-and-community": 16,
+    "venue-and-atmosphere": 4,
+    "film-screening": 4
+  },
+  "crop_sizes": {
+    "hero": "1920x1080",
+    "band": "1920x800",
+    "card": "600x400",
+    "square": "1080x1080",
+    "email-header": "600x300"
+  },
+  "photos": [
+    {
+      "name": "poem-bar-and-board-games",
+      "category": "activities",
+      "description": "Poem bar area with chess, board games, lanterns",
+      "original_dimensions": "2400x3200",
+      "files": {
+        "original": "activities/original/poem-bar-and-board-games.jpg",
+        "hero": "activities/hero/poem-bar-and-board-games.jpg",
+        "band": "activities/band/poem-bar-and-board-games.jpg",
+        "card": "activities/card/poem-bar-and-board-games.jpg",
+        "square": "activities/square/poem-bar-and-board-games.jpg",
+        "email-header": "activities/email-header/poem-bar-and-board-games.jpg"
+      }
+    },
+    {
+      "name": "typewriter-poet-at-desk",
+      "category": "activities",
+      "description": "Typewriter poet at desk with blue typewriter, board games shelf",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "activities/original/typewriter-poet-at-desk.jpg",
+        "hero": "activities/hero/typewriter-poet-at-desk.jpg",
+        "band": "activities/band/typewriter-poet-at-desk.jpg",
+        "card": "activities/card/typewriter-poet-at-desk.jpg",
+        "square": "activities/square/typewriter-poet-at-desk.jpg",
+        "email-header": "activities/email-header/typewriter-poet-at-desk.jpg"
+      }
+    },
+    {
+      "name": "cozendagen-banner-crowd-wide",
+      "category": "branding-and-signage",
+      "description": "Cozendagen banner overhead, packed crowd, paper snowflakes, wooden beams",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "branding-and-signage/original/cozendagen-banner-crowd-wide.jpg",
+        "hero": "branding-and-signage/hero/cozendagen-banner-crowd-wide.jpg",
+        "band": "branding-and-signage/band/cozendagen-banner-crowd-wide.jpg",
+        "card": "branding-and-signage/card/cozendagen-banner-crowd-wide.jpg",
+        "square": "branding-and-signage/square/cozendagen-banner-crowd-wide.jpg",
+        "email-header": "branding-and-signage/email-header/cozendagen-banner-crowd-wide.jpg"
+      }
+    },
+    {
+      "name": "cozendagen-banner-portrait",
+      "category": "branding-and-signage",
+      "description": "Cozendagen banner from below, portrait orientation, crowd, paper snowflakes",
+      "original_dimensions": "2400x2999",
+      "files": {
+        "original": "branding-and-signage/original/cozendagen-banner-portrait.jpg",
+        "hero": "branding-and-signage/hero/cozendagen-banner-portrait.jpg",
+        "band": "branding-and-signage/band/cozendagen-banner-portrait.jpg",
+        "card": "branding-and-signage/card/cozendagen-banner-portrait.jpg",
+        "square": "branding-and-signage/square/cozendagen-banner-portrait.jpg",
+        "email-header": "branding-and-signage/email-header/cozendagen-banner-portrait.jpg"
+      }
+    },
+    {
+      "name": "cozendagen-buttons-in-basket",
+      "category": "branding-and-signage",
+      "description": "Cozendagen buttons in wicker basket \u2014 dusk, flame, valentine colours",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "branding-and-signage/original/cozendagen-buttons-in-basket.jpg",
+        "hero": "branding-and-signage/hero/cozendagen-buttons-in-basket.jpg",
+        "band": "branding-and-signage/band/cozendagen-buttons-in-basket.jpg",
+        "card": "branding-and-signage/card/cozendagen-buttons-in-basket.jpg",
+        "square": "branding-and-signage/square/cozendagen-buttons-in-basket.jpg",
+        "email-header": "branding-and-signage/email-header/cozendagen-buttons-in-basket.jpg"
+      }
+    },
+    {
+      "name": "artisan-bread-loaves",
+      "category": "food-and-drink",
+      "description": "Box of scored sourdough loaves, beautiful crust detail",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "food-and-drink/original/artisan-bread-loaves.jpg",
+        "hero": "food-and-drink/hero/artisan-bread-loaves.jpg",
+        "band": "food-and-drink/band/artisan-bread-loaves.jpg",
+        "card": "food-and-drink/card/artisan-bread-loaves.jpg",
+        "square": "food-and-drink/square/artisan-bread-loaves.jpg",
+        "email-header": "food-and-drink/email-header/artisan-bread-loaves.jpg"
+      }
+    },
+    {
+      "name": "sticky-toffee-pudding-closeup",
+      "category": "food-and-drink",
+      "description": "Hands holding pudding plate, knit sweater, panoramic source",
+      "original_dimensions": "2400x1022",
+      "files": {
+        "original": "food-and-drink/original/sticky-toffee-pudding-closeup.jpg",
+        "hero": "food-and-drink/hero/sticky-toffee-pudding-closeup.jpg",
+        "band": "food-and-drink/band/sticky-toffee-pudding-closeup.jpg",
+        "card": "food-and-drink/card/sticky-toffee-pudding-closeup.jpg",
+        "square": "food-and-drink/square/sticky-toffee-pudding-closeup.jpg",
+        "email-header": "food-and-drink/email-header/sticky-toffee-pudding-closeup.jpg"
+      }
+    },
+    {
+      "name": "sticky-toffee-pudding-service",
+      "category": "food-and-drink",
+      "description": "Pudding being served with whipped cream, black gloves, action shot",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "food-and-drink/original/sticky-toffee-pudding-service.jpg",
+        "hero": "food-and-drink/hero/sticky-toffee-pudding-service.jpg",
+        "band": "food-and-drink/band/sticky-toffee-pudding-service.jpg",
+        "card": "food-and-drink/card/sticky-toffee-pudding-service.jpg",
+        "square": "food-and-drink/square/sticky-toffee-pudding-service.jpg",
+        "email-header": "food-and-drink/email-header/sticky-toffee-pudding-service.jpg"
+      }
+    },
+    {
+      "name": "toffee-sauce-drizzle-action",
+      "category": "food-and-drink",
+      "description": "Sauce drizzling onto pudding, excited attendee watching",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "food-and-drink/original/toffee-sauce-drizzle-action.jpg",
+        "hero": "food-and-drink/hero/toffee-sauce-drizzle-action.jpg",
+        "band": "food-and-drink/band/toffee-sauce-drizzle-action.jpg",
+        "card": "food-and-drink/card/toffee-sauce-drizzle-action.jpg",
+        "square": "food-and-drink/square/toffee-sauce-drizzle-action.jpg",
+        "email-header": "food-and-drink/email-header/toffee-sauce-drizzle-action.jpg"
+      }
+    },
+    {
+      "name": "toffee-sauce-pour",
+      "category": "food-and-drink",
+      "description": "Ladle pouring toffee sauce over pudding plate",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "food-and-drink/original/toffee-sauce-pour.jpg",
+        "hero": "food-and-drink/hero/toffee-sauce-pour.jpg",
+        "band": "food-and-drink/band/toffee-sauce-pour.jpg",
+        "card": "food-and-drink/card/toffee-sauce-pour.jpg",
+        "square": "food-and-drink/square/toffee-sauce-pour.jpg",
+        "email-header": "food-and-drink/email-header/toffee-sauce-pour.jpg"
+      }
+    },
+    {
+      "name": "whipped-cream-topping",
+      "category": "food-and-drink",
+      "description": "Close-up of whipped cream being added to pudding",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "food-and-drink/original/whipped-cream-topping.jpg",
+        "hero": "food-and-drink/hero/whipped-cream-topping.jpg",
+        "band": "food-and-drink/band/whipped-cream-topping.jpg",
+        "card": "food-and-drink/card/whipped-cream-topping.jpg",
+        "square": "food-and-drink/square/whipped-cream-topping.jpg",
+        "email-header": "food-and-drink/email-header/whipped-cream-topping.jpg"
+      }
+    },
+    {
+      "name": "banjo-bass-fiddle-trio",
+      "category": "live-music",
+      "description": "Banjo, upright bass, and fiddle players under banner",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "live-music/original/banjo-bass-fiddle-trio.jpg",
+        "hero": "live-music/hero/banjo-bass-fiddle-trio.jpg",
+        "band": "live-music/band/banjo-bass-fiddle-trio.jpg",
+        "card": "live-music/card/banjo-bass-fiddle-trio.jpg",
+        "square": "live-music/square/banjo-bass-fiddle-trio.jpg",
+        "email-header": "live-music/email-header/banjo-bass-fiddle-trio.jpg"
+      }
+    },
+    {
+      "name": "fiddle-and-mandolin-players",
+      "category": "live-music",
+      "description": "Multi-generational musicians: fiddle, mandolin, dulcimer",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "live-music/original/fiddle-and-mandolin-players.jpg",
+        "hero": "live-music/hero/fiddle-and-mandolin-players.jpg",
+        "band": "live-music/band/fiddle-and-mandolin-players.jpg",
+        "card": "live-music/card/fiddle-and-mandolin-players.jpg",
+        "square": "live-music/square/fiddle-and-mandolin-players.jpg",
+        "email-header": "live-music/email-header/fiddle-and-mandolin-players.jpg"
+      }
+    },
+    {
+      "name": "fiddle-players-with-banner",
+      "category": "live-music",
+      "description": "Fiddle players under Cozendagen banner, stained glass behind",
+      "original_dimensions": "2400x3200",
+      "files": {
+        "original": "live-music/original/fiddle-players-with-banner.jpg",
+        "hero": "live-music/hero/fiddle-players-with-banner.jpg",
+        "band": "live-music/band/fiddle-players-with-banner.jpg",
+        "card": "live-music/card/fiddle-players-with-banner.jpg",
+        "square": "live-music/square/fiddle-players-with-banner.jpg",
+        "email-header": "live-music/email-header/fiddle-players-with-banner.jpg"
+      }
+    },
+    {
+      "name": "folk-band-wide-under-banner",
+      "category": "live-music",
+      "description": "Full folk band under flame 'Cozendagen Winter Holiday' banner, gothic windows \u2014 best hero candidate",
+      "original_dimensions": "2400x1832",
+      "files": {
+        "original": "live-music/original/folk-band-wide-under-banner.jpg",
+        "hero": "live-music/hero/folk-band-wide-under-banner.jpg",
+        "band": "live-music/band/folk-band-wide-under-banner.jpg",
+        "card": "live-music/card/folk-band-wide-under-banner.jpg",
+        "square": "live-music/square/folk-band-wide-under-banner.jpg",
+        "email-header": "live-music/email-header/folk-band-wide-under-banner.jpg"
+      }
+    },
+    {
+      "name": "five-friends-sitting-on-floor",
+      "category": "people-and-community",
+      "description": "Five friends on floor with mugs, drinks, pastry",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/five-friends-sitting-on-floor.jpg",
+        "hero": "people-and-community/hero/five-friends-sitting-on-floor.jpg",
+        "band": "people-and-community/band/five-friends-sitting-on-floor.jpg",
+        "card": "people-and-community/card/five-friends-sitting-on-floor.jpg",
+        "square": "people-and-community/square/five-friends-sitting-on-floor.jpg",
+        "email-header": "people-and-community/email-header/five-friends-sitting-on-floor.jpg"
+      }
+    },
+    {
+      "name": "four-friends-at-brewery-bar",
+      "category": "people-and-community",
+      "description": "Four friends at brewery with tap board behind",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/four-friends-at-brewery-bar.jpg",
+        "hero": "people-and-community/hero/four-friends-at-brewery-bar.jpg",
+        "band": "people-and-community/band/four-friends-at-brewery-bar.jpg",
+        "card": "people-and-community/card/four-friends-at-brewery-bar.jpg",
+        "square": "people-and-community/square/four-friends-at-brewery-bar.jpg",
+        "email-header": "people-and-community/email-header/four-friends-at-brewery-bar.jpg"
+      }
+    },
+    {
+      "name": "four-friends-in-plaid",
+      "category": "people-and-community",
+      "description": "Four friends at bar in plaid/flannel",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/four-friends-in-plaid.jpg",
+        "hero": "people-and-community/hero/four-friends-in-plaid.jpg",
+        "band": "people-and-community/band/four-friends-in-plaid.jpg",
+        "card": "people-and-community/card/four-friends-in-plaid.jpg",
+        "square": "people-and-community/square/four-friends-in-plaid.jpg",
+        "email-header": "people-and-community/email-header/four-friends-in-plaid.jpg"
+      }
+    },
+    {
+      "name": "four-friends-on-couch",
+      "category": "people-and-community",
+      "description": "Four friends on southwestern blanket couch, Cozendagen buttons, star lantern",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/four-friends-on-couch.jpg",
+        "hero": "people-and-community/hero/four-friends-on-couch.jpg",
+        "band": "people-and-community/band/four-friends-on-couch.jpg",
+        "card": "people-and-community/card/four-friends-on-couch.jpg",
+        "square": "people-and-community/square/four-friends-on-couch.jpg",
+        "email-header": "people-and-community/email-header/four-friends-on-couch.jpg"
+      }
+    },
+    {
+      "name": "four-friends-under-banner",
+      "category": "people-and-community",
+      "description": "Four friends under 'Cozendagen Winter Holiday' banner",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/four-friends-under-banner.jpg",
+        "hero": "people-and-community/hero/four-friends-under-banner.jpg",
+        "band": "people-and-community/band/four-friends-under-banner.jpg",
+        "card": "people-and-community/card/four-friends-under-banner.jpg",
+        "square": "people-and-community/square/four-friends-under-banner.jpg",
+        "email-header": "people-and-community/email-header/four-friends-under-banner.jpg"
+      }
+    },
+    {
+      "name": "friends-at-table-with-board-game",
+      "category": "people-and-community",
+      "description": "Friends at table with board game, lantern, drinks",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/friends-at-table-with-board-game.jpg",
+        "hero": "people-and-community/hero/friends-at-table-with-board-game.jpg",
+        "band": "people-and-community/band/friends-at-table-with-board-game.jpg",
+        "card": "people-and-community/card/friends-at-table-with-board-game.jpg",
+        "square": "people-and-community/square/friends-at-table-with-board-game.jpg",
+        "email-header": "people-and-community/email-header/friends-at-table-with-board-game.jpg"
+      }
+    },
+    {
+      "name": "group-conversing-in-winter-hats",
+      "category": "people-and-community",
+      "description": "Group of five conversing, winter hats, drinks, moody lighting",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/group-conversing-in-winter-hats.jpg",
+        "hero": "people-and-community/hero/group-conversing-in-winter-hats.jpg",
+        "band": "people-and-community/band/group-conversing-in-winter-hats.jpg",
+        "card": "people-and-community/card/group-conversing-in-winter-hats.jpg",
+        "square": "people-and-community/square/group-conversing-in-winter-hats.jpg",
+        "email-header": "people-and-community/email-header/group-conversing-in-winter-hats.jpg"
+      }
+    },
+    {
+      "name": "group-of-seven-at-bar",
+      "category": "people-and-community",
+      "description": "Group of seven at brewery bar",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/group-of-seven-at-bar.jpg",
+        "hero": "people-and-community/hero/group-of-seven-at-bar.jpg",
+        "band": "people-and-community/band/group-of-seven-at-bar.jpg",
+        "card": "people-and-community/card/group-of-seven-at-bar.jpg",
+        "square": "people-and-community/square/group-of-seven-at-bar.jpg",
+        "email-header": "people-and-community/email-header/group-of-seven-at-bar.jpg"
+      }
+    },
+    {
+      "name": "group-socializing-on-couches-bw",
+      "category": "people-and-community",
+      "description": "Large group socializing on couches, B&W, ~12 people",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/group-socializing-on-couches-bw.jpg",
+        "hero": "people-and-community/hero/group-socializing-on-couches-bw.jpg",
+        "band": "people-and-community/band/group-socializing-on-couches-bw.jpg",
+        "card": "people-and-community/card/group-socializing-on-couches-bw.jpg",
+        "square": "people-and-community/square/group-socializing-on-couches-bw.jpg",
+        "email-header": "people-and-community/email-header/group-socializing-on-couches-bw.jpg"
+      }
+    },
+    {
+      "name": "three-friends-in-sweaters",
+      "category": "people-and-community",
+      "description": "Three friends posing, Cozendagen pin visible",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/three-friends-in-sweaters.jpg",
+        "hero": "people-and-community/hero/three-friends-in-sweaters.jpg",
+        "band": "people-and-community/band/three-friends-in-sweaters.jpg",
+        "card": "people-and-community/card/three-friends-in-sweaters.jpg",
+        "square": "people-and-community/square/three-friends-in-sweaters.jpg",
+        "email-header": "people-and-community/email-header/three-friends-in-sweaters.jpg"
+      }
+    },
+    {
+      "name": "three-friends-laughing",
+      "category": "people-and-community",
+      "description": "Three friends laughing, black food-service gloves, energetic",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/three-friends-laughing.jpg",
+        "hero": "people-and-community/hero/three-friends-laughing.jpg",
+        "band": "people-and-community/band/three-friends-laughing.jpg",
+        "card": "people-and-community/card/three-friends-laughing.jpg",
+        "square": "people-and-community/square/three-friends-laughing.jpg",
+        "email-header": "people-and-community/email-header/three-friends-laughing.jpg"
+      }
+    },
+    {
+      "name": "three-friends-seated",
+      "category": "people-and-community",
+      "description": "Three friends seated, lavender cable-knit sweater, Cozendagen button",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/three-friends-seated.jpg",
+        "hero": "people-and-community/hero/three-friends-seated.jpg",
+        "band": "people-and-community/band/three-friends-seated.jpg",
+        "card": "people-and-community/card/three-friends-seated.jpg",
+        "square": "people-and-community/square/three-friends-seated.jpg",
+        "email-header": "people-and-community/email-header/three-friends-seated.jpg"
+      }
+    },
+    {
+      "name": "three-friends-with-drinks",
+      "category": "people-and-community",
+      "description": "Three friends with drinks, 'GIVE COZ...' sign behind",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/three-friends-with-drinks.jpg",
+        "hero": "people-and-community/hero/three-friends-with-drinks.jpg",
+        "band": "people-and-community/band/three-friends-with-drinks.jpg",
+        "card": "people-and-community/card/three-friends-with-drinks.jpg",
+        "square": "people-and-community/square/three-friends-with-drinks.jpg",
+        "email-header": "people-and-community/email-header/three-friends-with-drinks.jpg"
+      }
+    },
+    {
+      "name": "two-bartenders-making-cocktails",
+      "category": "people-and-community",
+      "description": "Two people behind bar with espresso machine, cocktail shaker",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/two-bartenders-making-cocktails.jpg",
+        "hero": "people-and-community/hero/two-bartenders-making-cocktails.jpg",
+        "band": "people-and-community/band/two-bartenders-making-cocktails.jpg",
+        "card": "people-and-community/card/two-bartenders-making-cocktails.jpg",
+        "square": "people-and-community/square/two-bartenders-making-cocktails.jpg",
+        "email-header": "people-and-community/email-header/two-bartenders-making-cocktails.jpg"
+      }
+    },
+    {
+      "name": "two-people-chatting-in-entryway",
+      "category": "people-and-community",
+      "description": "Two people chatting by dark wooden staircase, 'Welcome' sign",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "people-and-community/original/two-people-chatting-in-entryway.jpg",
+        "hero": "people-and-community/hero/two-people-chatting-in-entryway.jpg",
+        "band": "people-and-community/band/two-people-chatting-in-entryway.jpg",
+        "card": "people-and-community/card/two-people-chatting-in-entryway.jpg",
+        "square": "people-and-community/square/two-people-chatting-in-entryway.jpg",
+        "email-header": "people-and-community/email-header/two-people-chatting-in-entryway.jpg"
+      }
+    },
+    {
+      "name": "food-table-area-bw",
+      "category": "venue-and-atmosphere",
+      "description": "Food table area with cookies/pastries, laughing crowd, B&W",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "venue-and-atmosphere/original/food-table-area-bw.jpg",
+        "hero": "venue-and-atmosphere/hero/food-table-area-bw.jpg",
+        "band": "venue-and-atmosphere/band/food-table-area-bw.jpg",
+        "card": "venue-and-atmosphere/card/food-table-area-bw.jpg",
+        "square": "venue-and-atmosphere/square/food-table-area-bw.jpg",
+        "email-header": "venue-and-atmosphere/email-header/food-table-area-bw.jpg"
+      }
+    },
+    {
+      "name": "gothic-hall-wide-shot-a",
+      "category": "venue-and-atmosphere",
+      "description": "Gothic hall wide shot: arched ceiling, string lights, crowd",
+      "original_dimensions": "2400x1800",
+      "files": {
+        "original": "venue-and-atmosphere/original/gothic-hall-wide-shot-a.jpg",
+        "hero": "venue-and-atmosphere/hero/gothic-hall-wide-shot-a.jpg",
+        "band": "venue-and-atmosphere/band/gothic-hall-wide-shot-a.jpg",
+        "card": "venue-and-atmosphere/card/gothic-hall-wide-shot-a.jpg",
+        "square": "venue-and-atmosphere/square/gothic-hall-wide-shot-a.jpg",
+        "email-header": "venue-and-atmosphere/email-header/gothic-hall-wide-shot-a.jpg"
+      }
+    },
+    {
+      "name": "gothic-hall-wide-shot-b",
+      "category": "venue-and-atmosphere",
+      "description": "Gothic hall wide shot: similar angle, string lights, crowd",
+      "original_dimensions": "2400x1800",
+      "files": {
+        "original": "venue-and-atmosphere/original/gothic-hall-wide-shot-b.jpg",
+        "hero": "venue-and-atmosphere/hero/gothic-hall-wide-shot-b.jpg",
+        "band": "venue-and-atmosphere/band/gothic-hall-wide-shot-b.jpg",
+        "card": "venue-and-atmosphere/card/gothic-hall-wide-shot-b.jpg",
+        "square": "venue-and-atmosphere/square/gothic-hall-wide-shot-b.jpg",
+        "email-header": "venue-and-atmosphere/email-header/gothic-hall-wide-shot-b.jpg"
+      }
+    },
+    {
+      "name": "hallway-crowd-string-lights-bw",
+      "category": "venue-and-atmosphere",
+      "description": "Hallway crowd with string lights, coffee urns, B&W",
+      "original_dimensions": "2400x1600",
+      "files": {
+        "original": "venue-and-atmosphere/original/hallway-crowd-string-lights-bw.jpg",
+        "hero": "venue-and-atmosphere/hero/hallway-crowd-string-lights-bw.jpg",
+        "band": "venue-and-atmosphere/band/hallway-crowd-string-lights-bw.jpg",
+        "card": "venue-and-atmosphere/card/hallway-crowd-string-lights-bw.jpg",
+        "square": "venue-and-atmosphere/square/hallway-crowd-string-lights-bw.jpg",
+        "email-header": "venue-and-atmosphere/email-header/hallway-crowd-string-lights-bw.jpg"
+      }
+    },
+    {
+      "name": "audience-watching-with-luminarias",
+      "category": "film-screening",
+      "description": "Audience watching film in dark theater, star/moon luminaria bags in foreground, film reels on wall",
+      "original_dimensions": "2400x1800",
+      "files": {
+        "original": "film-screening/original/audience-watching-with-luminarias.jpg",
+        "hero": "film-screening/hero/audience-watching-with-luminarias.jpg",
+        "band": "film-screening/band/audience-watching-with-luminarias.jpg",
+        "card": "film-screening/card/audience-watching-with-luminarias.jpg",
+        "square": "film-screening/square/audience-watching-with-luminarias.jpg",
+        "email-header": "film-screening/email-header/audience-watching-with-luminarias.jpg"
+      }
+    },
+    {
+      "name": "theater-screen-with-banner",
+      "category": "film-screening",
+      "description": "Theater wide shot: projector screen with film playing, 'Cozendagen Winter Holiday' banner below, luminaria bags along stage",
+      "original_dimensions": "2400x1800",
+      "files": {
+        "original": "film-screening/original/theater-screen-with-banner.jpg",
+        "hero": "film-screening/hero/theater-screen-with-banner.jpg",
+        "band": "film-screening/band/theater-screen-with-banner.jpg",
+        "card": "film-screening/card/theater-screen-with-banner.jpg",
+        "square": "film-screening/square/theater-screen-with-banner.jpg",
+        "email-header": "film-screening/email-header/theater-screen-with-banner.jpg"
+      }
+    },
+    {
+      "name": "two-viewers-from-behind-luminarias",
+      "category": "film-screening",
+      "description": "Two viewers from behind with luminaria bags, screen and banner in background",
+      "original_dimensions": "2400x1800",
+      "files": {
+        "original": "film-screening/original/two-viewers-from-behind-luminarias.jpg",
+        "hero": "film-screening/hero/two-viewers-from-behind-luminarias.jpg",
+        "band": "film-screening/band/two-viewers-from-behind-luminarias.jpg",
+        "card": "film-screening/card/two-viewers-from-behind-luminarias.jpg",
+        "square": "film-screening/square/two-viewers-from-behind-luminarias.jpg",
+        "email-header": "film-screening/email-header/two-viewers-from-behind-luminarias.jpg"
+      }
+    },
+    {
+      "name": "full-audience-group-photo",
+      "category": "film-screening",
+      "description": "Full audience group photo: 60+ people on couches with blankets, mugs, and cozy winter gear \u2014 best community shot",
+      "original_dimensions": "2400x1350",
+      "files": {
+        "original": "film-screening/original/full-audience-group-photo.jpg",
+        "hero": "film-screening/hero/full-audience-group-photo.jpg",
+        "band": "film-screening/band/full-audience-group-photo.jpg",
+        "card": "film-screening/card/full-audience-group-photo.jpg",
+        "square": "film-screening/square/full-audience-group-photo.jpg",
+        "email-header": "film-screening/email-header/full-audience-group-photo.jpg"
+      }
+    },
+    {
+      "name": "friends-around-campfire",
+      "category": "people-and-community",
+      "description": "Friends around campfire at night, firelight glow, blankets and scarves, trees behind",
+      "original_dimensions": "2400x1800",
+      "files": {
+        "original": "people-and-community/original/friends-around-campfire.jpg",
+        "hero": "people-and-community/hero/friends-around-campfire.jpg",
+        "band": "people-and-community/band/friends-around-campfire.jpg",
+        "card": "people-and-community/card/friends-around-campfire.jpg",
+        "square": "people-and-community/square/friends-around-campfire.jpg",
+        "email-header": "people-and-community/email-header/friends-around-campfire.jpg"
+      }
+    }
+  ],
+  "total_output_files": 234
+}

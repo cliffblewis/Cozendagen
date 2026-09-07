@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pattern Diagnostic</title>
+<style>
+body { background: #f3e6d8; margin: 2rem; font-family: sans-serif; }
+h3 { margin-top: 2rem; }
+
+.test { width: 400px; height: 200px; margin: 1rem 0; border: 2px solid #14607F; }
+
+/* Test 1: Direct background-image, no custom property */
+.test-1 {
+  background-image: url('assets/patterns/teal/pattern-01.png');
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+/* Test 2: Custom property set in stylesheet */
+.test-2 {
+  --my-bg: url('assets/patterns/teal/pattern-01.png');
+  background-image: var(--my-bg);
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+/* Test 3: Custom property set via inline style (see HTML) */
+.test-3 {
+  background-image: var(--inline-bg);
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+/* Test 4: Pseudo-element with custom property from inline style */
+.test-4 {
+  position: relative;
+}
+.test-4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--pseudo-bg);
+  background-size: 300px;
+  background-repeat: repeat;
+  opacity: 1;
+}
+
+/* Test 5: Pseudo-element at 10% opacity */
+.test-5 {
+  position: relative;
+}
+.test-5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--pseudo-bg);
+  background-size: 300px;
+  background-repeat: repeat;
+  opacity: 0.10;
+}
+
+/* Test 6: Photo accent - inline bg directly */
+.test-6 {
+  display: inline-block;
+  padding: 32px;
+  width: 280px;
+}
+.test-6 img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
+
+/* Test 7: replicate exact cz-photo-accent with custom property */
+.test-7 {
+  display: inline-block;
+  background-image: var(--cpa-pattern);
+  background-size: 300px;
+  padding: 32px;
+  border-radius: 8px;
+  width: 280px;
+}
+.test-7 img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h2>Pattern Rendering Diagnostic</h2>
+<p>If you can see the teal folk pattern in a test, it works. If the box is blank/cream, it's broken.</p>
+
+<h3>Test 1: Direct background-image in CSS (no custom property)</h3>
+<div class="test test-1"></div>
+
+<h3>Test 2: Custom property defined in stylesheet</h3>
+<div class="test test-2"></div>
+
+<h3>Test 3: Custom property via inline style</h3>
+<div class="test test-3" style="--inline-bg: url('assets/patterns/teal/pattern-01.png')"></div>
+
+<h3>Test 4: Pseudo-element, custom property from inline style, 100% opacity</h3>
+<div class="test test-4" style="--pseudo-bg: url('assets/patterns/teal/pattern-01.png')"></div>
+
+<h3>Test 5: Pseudo-element, custom property from inline style, 10% opacity</h3>
+<div class="test test-5" style="--pseudo-bg: url('assets/patterns/teal/pattern-01.png')"></div>
+
+<h3>Test 6: Photo accent — background-image directly in inline style</h3>
+<div class="test-6" style="background-image: url('assets/patterns/teal/pattern-01.png'); background-size: 300px">
+  <img src="assets/photos/buttons-basket.jpg" alt="test">
+</div>
+
+<h3>Test 7: Photo accent — background-image via custom property</h3>
+<div class="test-7" style="--cpa-pattern: url(assets/patterns/teal/pattern-01.png)">
+  <img src="assets/photos/buttons-basket.jpg" alt="test">
+</div>
+
+<h3>Test 8: Plain &lt;img&gt; tag — does the file load at all?</h3>
+<img src="assets/patterns/teal/pattern-01.png" alt="pattern tile" style="width:300px;border:2px solid #14607F">
+
+</body>
+</html>

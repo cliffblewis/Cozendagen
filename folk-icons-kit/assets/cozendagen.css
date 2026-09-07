@@ -1,0 +1,1589 @@
+/* ============================================================================
+   COZENDAGEN DESIGN SYSTEM
+   ----------------------------------------------------------------------------
+   Vanilla CSS, no build step, no preprocessor. Load after a font link and
+   before folk-icons.css:
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="assets/cozendagen.css">
+     <link rel="stylesheet" href="assets/folk-icons.css">
+
+   Two structural decisions drive everything below; see DESIGN-SYSTEM.md §2.
+
+   1. OUTLINES, NOT SHADOWS. The brand is flat colour with confident outlines
+      (scherenschnitte). Surfaces are separated by 2px borders, never by
+      elevation. There is exactly one box-shadow in this file and it is a focus
+      ring. Do not add more.
+
+   2. BAND RULE. Alternate between two ground types:
+        LIGHT: cream background. Text colour is teal (5.69:1), magenta (3.84:1
+               large text only), or orange (4.37:1 large text only).
+        COLOUR: teal, magenta, gold, or orange background, cream/white copy.
+               Note: gold and orange vs cream fail AA for body text — treat those
+               bands as display/eyebrow-only or wrap body copy in .cz-panel.
+      Never use maroon/chocolate or camel as a band background.
+      Default ink on cream: teal (#14607F, 5.69:1 on cream). Chocolate brown
+      (#5C3317) is reserved for borders, outlines, and warm structural accents.
+      On dark grounds (teal, magenta), accent flips to gold.
+   ========================================================================= */
+
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+
+:root {
+  /* ---- Palette. Seven colours. Nothing else, ever. No red. --------------
+         PRIMARY (the four bold accent colours):
+           flame      #DBA80D   (token: --cz-gold)
+           valentine  #CD3684   (token: --cz-magenta)
+           sunset     #DE8426   (token: --cz-orange)
+           dusk       #14607F   (token: --cz-teal)
+         TERTIARY (warm neutrals and grounds):
+           snow       #F3E6D8   (token: --cz-cream)
+           toffee     #5C3317   (token: --cz-maroon)
+           bread      #D9A66A   (token: --cz-camel)
+     -------------------------------------------------------------------- */
+  --cz-teal:      #14607F;   /* dusk      — primary */
+  --cz-camel:     #D9A66A;   /* bread     — tertiary */
+  --cz-maroon:    #5C3317;   /* toffee    — tertiary */
+  --cz-cream:     #F3E6D8;   /* snow      — tertiary */
+  --cz-magenta:   #CD3684;   /* valentine — primary */
+  --cz-orange:    #DE8426;   /* sunset    — primary */
+  --cz-gold:      #DBA80D;   /* flame     — primary */
+
+  /* ---- Semantic roles. Components reference these, not the palette. ----- */
+  --cz-bg:            var(--cz-cream);   /* the page */
+  --cz-ink:           var(--cz-teal);    /* body copy — dusk is the default text colour */
+  --cz-ink-soft:      rgba(20, 96, 127, 0.72);  /* dusk at 72% alpha for muted meta */
+  --cz-ink-invert:    var(--cz-cream);   /* copy on a dark ground */
+  --cz-accent:        var(--cz-teal);    /* links, focus, interactive */
+  --cz-accent-warm:   var(--cz-gold);    /* highlights, rules, emphasis */
+  --cz-line:          var(--cz-maroon);  /* borders */
+  --cz-line-soft:     rgba(92, 51, 23, 0.28);
+  --cz-scrim:         rgba(92, 51, 23, 0.82);  /* modal backdrop: toffee, not
+                                                  black — no dark neutral exists */
+
+  /* ---- Type ------------------------------------------------------------- */
+  --cz-font-display: "Germania One", "Times New Roman", serif;
+  --cz-font-body:    "Futura", "Century Gothic", "Trebuchet MS", system-ui, sans-serif;
+
+  /* fluid scale, 1.25 ratio at the small end, wider steps for display */
+  --cz-text-xs:   0.78rem;
+  --cz-text-sm:   0.88rem;
+  --cz-text-base: 1.0625rem;               /* 17px — Jost runs small */
+  --cz-text-md:   1.1875rem;
+  --cz-text-lg:   clamp(1.3rem,  0.6vw + 1.15rem, 1.5rem);
+  --cz-text-xl:   clamp(1.6rem,  1.2vw + 1.3rem,  2.1rem);
+  --cz-text-2xl:  clamp(2.0rem,  2.2vw + 1.5rem,  3.0rem);
+  --cz-text-3xl:  clamp(2.6rem,  3.6vw + 1.7rem,  4.4rem);
+  --cz-text-4xl:  clamp(3.2rem,  5.4vw + 1.8rem,  6.0rem);
+
+  --cz-leading-tight: 1.05;
+  --cz-leading-snug:  1.3;
+  --cz-leading-body:  1.5;
+  --cz-tracking-wide: 0.14em;   /* eyebrows and small caps */
+
+  /* ---- Space. 4px base. -------------------------------------------------- */
+  --cz-1:  0.25rem;  --cz-2:  0.5rem;   --cz-3:  0.75rem;  --cz-4: 1rem;
+  --cz-5:  1.5rem;   --cz-6:  2rem;     --cz-7:  3rem;     --cz-8: 4rem;
+  --cz-9:  6rem;     --cz-10: 8rem;
+
+  /* ---- Borders and radii ------------------------------------------------- */
+  --cz-border:       2px;
+  --cz-border-thick: 3px;
+  --cz-radius-sm: 3px;
+  --cz-radius:    5px;
+  --cz-radius-lg: 10px;
+  --cz-radius-pill: 999px;
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --cz-ease: cubic-bezier(0.32, 0.08, 0.24, 1);
+  --cz-fast: 140ms;
+  --cz-slow: 260ms;
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --cz-measure: 55ch;     /* body copy max line length — approx 55 chars */
+  --cz-container: 1140px;
+  --cz-gutter: var(--cz-5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cz-bg);
+  color: var(--cz-ink);
+  font: var(--cz-text-base)/var(--cz-leading-body) var(--cz-font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+
+::selection { background: var(--cz-gold); color: var(--cz-maroon); }
+
+/* One focus style for everything. currentColor means it always contrasts with
+   whatever ground it sits on — no per-band overrides needed. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: var(--cz-border-thick) solid currentColor;
+  outline-offset: 2px;
+  border-radius: var(--cz-radius-sm);
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+.cz-display, h1 {
+  font-family: var(--cz-font-display);
+  font-weight: 400;
+  line-height: var(--cz-leading-tight);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 var(--cz-4);
+  text-wrap: balance;
+}
+
+/* H2: Germania One, sentence case — a deliberate break from the all-caps body
+   headings so the two tiers are visually distinct. H3: Futura bold all-caps,
+   slightly larger than H4. */
+h2 {
+  font-family: var(--cz-font-display);
+  font-weight: 400;
+  line-height: var(--cz-leading-snug);
+  letter-spacing: 0.01em;
+  text-transform: none;
+  margin: 0 0 var(--cz-4);
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--cz-font-body);
+  font-weight: 700;
+  line-height: var(--cz-leading-snug);
+  letter-spacing: 0.072em;
+  text-transform: uppercase;
+  margin: 0 0 var(--cz-4);
+  text-wrap: balance;
+}
+
+/* Germania One has a single weight and a decorative skeleton. It stops being
+   comfortable below ~22px, so h4–h6 switch to Futura.
+   RULE: Only two Futura weights — 400 (regular) and 700 (bold). No 600. */
+h4, h5, h6, .cz-heading-sm {
+  font-family: var(--cz-font-body);
+  font-weight: 700;
+  line-height: var(--cz-leading-snug);
+  margin: 0 0 var(--cz-3);
+}
+
+h1 { font-size: var(--cz-text-3xl); }
+h2 { font-size: var(--cz-text-xl); }
+h3 { font-size: var(--cz-text-lg); }
+h4 { font-size: var(--cz-text-md); }
+h5 { font-size: var(--cz-text-base); }
+h6 { font-size: var(--cz-text-sm); letter-spacing: 0.04em; text-transform: uppercase; }
+
+.cz-hero-title { font-family: var(--cz-font-display); font-size: var(--cz-text-4xl); line-height: 1.0; }
+
+/* Eyebrow — the small tracked label above a heading. Jost, never Germania. */
+.cz-eyebrow {
+  display: block;
+  font: 700 var(--cz-text-xs)/1.2 var(--cz-font-body);
+  letter-spacing: var(--cz-tracking-wide);
+  text-transform: uppercase;
+  color: var(--cz-accent);
+  margin: 0 0 var(--cz-2);
+}
+
+p { margin: 0 0 var(--cz-4); max-width: var(--cz-measure); }
+
+.cz-lead {
+  font-size: var(--cz-text-lg);
+  line-height: 1.5;
+  max-width: 60ch;
+}
+
+.cz-small, small { font-size: var(--cz-text-sm); }
+
+.cz-meta {
+  font-size: var(--cz-text-sm);
+  color: var(--cz-ink-soft);
+  letter-spacing: 0.01em;
+}
+
+/* Links. Underline is the affordance; colour alone is never the only signal. */
+a {
+  color: var(--cz-accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  transition: color var(--cz-fast) var(--cz-ease),
+              text-decoration-color var(--cz-fast) var(--cz-ease);
+}
+a:hover { color: var(--cz-maroon); text-decoration-thickness: 3px; }
+
+/* On a dark band, links inherit the band's ink and lean on the underline. */
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) a { color: inherit; text-decoration-color: var(--cz-gold); }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) a:hover { color: var(--cz-gold); }
+
+/* ---- Lists. Default markers are replaced with palette-coloured ones. ----- */
+ul, ol { margin: 0 0 var(--cz-4); padding-left: var(--cz-5); max-width: var(--cz-measure); }
+li { margin-bottom: var(--cz-2); }
+li::marker { color: var(--cz-accent-warm); }
+ol li::marker { font-weight: 700; font-family: var(--cz-font-body); }
+
+/* Ornament bullets: uses mark-01 from the icon library at its 20px floor.
+   Set --cz-bullet to any colourway path. */
+.cz-list--ornament {
+  list-style: none;
+  padding-left: 0;
+}
+.cz-list--ornament > li {
+  position: relative;
+  padding-left: var(--cz-6);
+  margin-bottom: var(--cz-3);
+}
+.cz-list--ornament > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 20px; height: 20px;
+  background: var(--cz-bullet, url("icons/toffee/mark-01.svg")) center/contain no-repeat;
+}
+
+hr {
+  border: 0;
+  border-top: var(--cz-border) solid var(--cz-line-soft);
+  margin: var(--cz-7) 0;
+}
+
+
+/* ==========================================================================
+   4. LAYOUT
+   ========================================================================== */
+
+.cz-container {
+  width: 100%;
+  max-width: var(--cz-container);
+  margin-inline: auto;
+  padding-inline: var(--cz-gutter);
+}
+.cz-container--narrow { max-width: 760px; }
+.cz-container--wide   { max-width: 1380px; }
+
+/* Bands are the full-width horizontal sections the site is built from. Each
+   sets its own ground and ink, and documents which icon colourway to use
+   inside it. Illustration guidance is in DESIGN-SYSTEM.md §5. */
+.cz-band {
+  padding-block: var(--cz-9);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* Band-level centering: headlines, eyebrows, icons, body, buttons.
+   Scoped to direct container children — does NOT cascade into components
+   like callouts, cards, lists, forms, tabs, accordions that can keep
+   their own left-aligned copy. Components reset via their own text-align. */
+.cz-band > .cz-container { text-align: center; }
+.cz-band > .cz-container > p,
+.cz-band > .cz-container > .cz-pattern-ground__panel p { margin-inline: auto; max-width: 62ch; }
+
+/* Component blocks inside bands reset to left-aligned copy. */
+.cz-callout,
+.cz-card,
+.cz-accordion,
+.cz-tabs,
+.cz-field,
+.cz-fieldset,
+.cz-form,
+.cz-pullquote { text-align: left; }
+.cz-band--tight { padding-block: var(--cz-7); }
+.cz-band--tall  { padding-block: var(--cz-10); }
+
+/* Light grounds — snow background, choose dusk, valentine, or sunset as the ink colour. */
+.cz-band--cream          { background: var(--cz-cream);   color: var(--cz-teal);    --cz-band-bg: var(--cz-cream); }
+.cz-band--cream--magenta { background: var(--cz-cream);   color: var(--cz-magenta); --cz-band-bg: var(--cz-cream); }
+.cz-band--cream--orange  { background: var(--cz-cream);   color: var(--cz-orange);  --cz-band-bg: var(--cz-cream); }
+
+/* Colour grounds — dusk, valentine, flame, or sunset; snow/white copy.
+   Note: flame and sunset are low-contrast against snow (<3.1:1). Keep these
+   bands to large/display text or eyebrows only — body copy needs a .cz-panel. */
+.cz-band--teal    { background: var(--cz-teal);    color: var(--cz-cream); --cz-band-bg: var(--cz-teal); }
+.cz-band--magenta { background: var(--cz-magenta); color: var(--cz-cream); --cz-band-bg: var(--cz-magenta); }
+.cz-band--gold    { background: var(--cz-gold);    color: var(--cz-cream); --cz-band-bg: var(--cz-gold); }
+.cz-band--orange  { background: var(--cz-orange);  color: var(--cz-cream); --cz-band-bg: var(--cz-orange); }
+
+/* DARK CONTEXTS. Dusk and valentine carry snow copy; flame and sunset are too
+   light for full body-copy contrast but still count as colour grounds. Add
+   .cz-band--dark by hand for any dark surface that isn't listed here. */
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) {
+  --cz-line: currentColor;
+  --cz-accent: var(--cz-gold);
+}
+
+.cz-stack > * + * { margin-top: var(--cz-stack-gap, var(--cz-5)); }
+
+.cz-grid {
+  display: grid;
+  gap: var(--cz-6);
+  grid-template-columns: repeat(auto-fit, minmax(var(--cz-grid-min, 260px), 1fr));
+}
+.cz-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.cz-grid--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 720px) {
+  .cz-grid--2, .cz-grid--3 { grid-template-columns: 1fr; }
+}
+
+.cz-center { text-align: center; }
+.cz-center p, .cz-center .cz-lead { margin-inline: auto; }
+
+
+/* ==========================================================================
+   5. BUTTONS
+   ========================================================================== */
+
+.cz-btn {
+  --_bg: var(--cz-maroon);
+  --_fg: var(--cz-cream);
+  --_bd: var(--cz-maroon);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cz-2);
+  padding: 0.7em 1.5em;
+  border: var(--cz-border) solid var(--_bd);
+  border-radius: var(--cz-radius);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: 700 var(--cz-text-base)/1 var(--cz-font-body);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--cz-fast) var(--cz-ease),
+              color var(--cz-fast) var(--cz-ease),
+              border-color var(--cz-fast) var(--cz-ease),
+              transform var(--cz-fast) var(--cz-ease);
+}
+.cz-btn:hover { transform: translateY(-1px); text-decoration: none; }
+.cz-btn:active { transform: translateY(0); }
+
+/* Primary — toffee fill. Hover inverts to a snow fill with toffee ink, which
+   keeps contrast at 10:1 in both states. */
+.cz-btn--primary:hover { --_bg: var(--cz-cream); --_fg: var(--cz-maroon); }
+
+/* Secondary — outline only. */
+.cz-btn--secondary {
+  --_bg: transparent;
+  --_fg: currentColor;
+  --_bd: currentColor;
+}
+.cz-btn--secondary:hover { --_bg: var(--cz-maroon); --_fg: var(--cz-cream); --_bd: var(--cz-maroon); }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-btn--secondary:hover { --_bg: var(--cz-cream); --_fg: var(--cz-maroon); --_bd: var(--cz-cream); }
+
+/* Tertiary — a link that sits in a row of buttons. */
+.cz-btn--tertiary {
+  --_bg: transparent; --_fg: currentColor; --_bd: transparent;
+  padding-inline: var(--cz-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+}
+.cz-btn--tertiary:hover { --_fg: var(--cz-teal); text-decoration-thickness: 3px; transform: none; }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-btn--tertiary:hover { --_fg: var(--cz-gold); }
+
+/* Gold call to action — the loudest button. Maroon ink at 5.65:1. */
+.cz-btn--gold { --_bg: var(--cz-gold); --_fg: var(--cz-maroon); --_bd: var(--cz-maroon); }
+.cz-btn--gold:hover { --_bg: var(--cz-maroon); --_fg: var(--cz-gold); }
+
+.cz-btn--sm { padding: 0.5em 1.1em; font-size: var(--cz-text-sm); }
+.cz-btn--lg { padding: 0.85em 1.9em; font-size: var(--cz-text-md); }
+.cz-btn--block { display: flex; width: 100%; }
+
+.cz-btn[disabled], .cz-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ---- Button icons -------------------------------------------------------
+   Pre-coloured <img> icons can't change colour via CSS on their own. The
+   brightness(0) invert(1) trick collapses any colour to black then flips to
+   white — clean result for single-colour folk icons. Only single-path icons
+   (mark-01, spray-01) are used inside buttons; multi-colour badges are not. */
+
+/* Primary (toffee fill) → white icon */
+.cz-btn--primary > img { filter: brightness(0) invert(1); }
+/* Primary hover inverts to snow fill → restore dark icon */
+.cz-btn--primary:hover > img { filter: none; }
+
+/* Secondary is outline (transparent) by default → dark icon is correct */
+/* Secondary hover fills toffee → force white icon */
+.cz-btn--secondary:hover > img { filter: brightness(0) invert(1); }
+
+/* Flame hover fills toffee → white icon */
+.cz-btn--gold:hover > img { filter: brightness(0) invert(1); }
+
+/* On dark bands, secondary starts dark-filled → already needs white icon */
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-btn--secondary > img { filter: brightness(0) invert(1); }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-btn--secondary:hover > img { filter: none; }
+
+.cz-btn-row { display: flex; flex-wrap: wrap; gap: var(--cz-3); align-items: center; justify-content: center; }
+
+/* An icon inside a button: use a colourway that contrasts with the fill.
+   The filter transition smooths the swap between normal and hover states. */
+.cz-btn > img { width: 1.15em; height: 1.15em; transition: filter var(--cz-fast) var(--cz-ease); }
+
+/* Secondary outline: use toffee icon by default; on hover the fill goes
+   maroon so force the icon to cream via brightness/invert. */
+.cz-btn--secondary > img { filter: none; }
+.cz-btn--secondary:hover > img { filter: brightness(0) invert(1) !important; }
+
+
+/* ==========================================================================
+   6. SURFACES — panels and cards
+   ========================================================================== */
+
+/* Panel — a snow field. This is the escape hatch that lets body copy live on
+   an orange or magenta band. It mirrors the cream label medallions in the
+   illustration artwork, so it reads as intentional rather than as a patch. */
+.cz-panel {
+  background: var(--cz-cream);
+  color: var(--cz-teal);             /* reset to snow-ground ink */
+  border: var(--cz-border) solid var(--cz-maroon);
+  border-radius: var(--cz-radius-lg);
+  padding: var(--cz-6);
+  --cz-ink: var(--cz-teal);
+  --cz-line: var(--cz-maroon);
+  --cz-accent: var(--cz-teal);
+}
+.cz-panel--flush { border-radius: 0; }
+.cz-panel--plain { border-color: var(--cz-line-soft); }
+
+.cz-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--cz-3);
+  padding: var(--cz-5);
+  background: transparent;
+  border: var(--cz-border) solid var(--cz-line);
+  border-radius: var(--cz-radius-lg);
+  transition: border-color var(--cz-fast) var(--cz-ease),
+              background var(--cz-fast) var(--cz-ease);
+}
+.cz-card--filled { background: var(--cz-cream); color: var(--cz-teal);   border-color: var(--cz-maroon); }
+.cz-card__title { margin: 0; }
+.cz-card__body > :last-child { margin-bottom: 0; }
+
+/* A whole card that is a link. */
+a.cz-card { text-decoration: none; color: inherit; }
+a.cz-card:hover { border-color: var(--cz-gold); }
+
+/* Badge card — a circular badge above a heading, for the essentials grids. */
+.cz-badge-card { text-align: center; display: grid; justify-items: center; gap: var(--cz-3); }
+.cz-badge-card > img { width: var(--cz-badge-size, 132px); height: var(--cz-badge-size, 132px); }
+
+
+
+/* ==========================================================================
+   6b. FOLK CIRCLE — illustration centred inside a filled palette disc
+   ==========================================================================
+   The circle supplies its own visual ground, so you choose the icon colourway
+   to contrast with --cfc-bg, not with the band behind the circle.
+
+   Pair guide (bg → icon colourway):
+     teal bg    → cream icon      gold bg    → maroon icon
+     magenta bg → cream icon      cream bg   → teal icon
+     maroon bg  → cream icon      orange bg  → maroon icon
+
+   <div class="cz-folk-circle" style="--cfc-bg:var(--cz-teal);--cfc-size:160px">
+     <img src="assets/icons/cream/kettle-02.svg" alt="">
+   </div>
+
+   Default size 160px. Practical range: 120px (card) to 200px (feature row).
+   Never below 100px — the folk detail degrades before the circle does. */
+
+.cz-folk-circle {
+  display: grid;
+  place-items: center;
+  width:  var(--cfc-size, 160px);
+  height: var(--cfc-size, 160px);
+  border-radius: 50%;
+  background: var(--cfc-bg, var(--cz-teal));
+  flex: none;
+  margin-inline: auto;
+}
+
+/* In-band folk circles: 15% smaller than standalone (136px vs 160px) */
+.cz-band .cz-folk-circle { --cfc-size: 136px; }
+
+.cz-folk-circle > img {
+  width: calc(var(--cfc-size, 160px) * 0.44);
+  height: auto;
+}
+
+/* ==========================================================================
+   7. CALLOUTS AND PULL QUOTES
+   ========================================================================== */
+
+/* Callout — a bordered aside with a left rule and an optional icon slot.
+   NOTE ON SEMANTICS: there is no red in this palette, so the usual
+   error/warning colour convention is unavailable. Orange carries error,
+   teal carries information/success, gold carries emphasis. */
+.cz-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--cz-4);
+  align-items: start;
+  padding: var(--cz-5);
+  border: var(--cz-border) solid var(--cz-line);
+  border-left-width: 6px;
+  border-radius: var(--cz-radius);
+  background: transparent;
+}
+.cz-callout > img { width: 44px; height: 44px; }
+.cz-callout__title { font: 700 var(--cz-text-md)/1.3 var(--cz-font-body); margin: 0 0 var(--cz-2); }
+.cz-callout > div > :last-child { margin-bottom: 0; }
+
+.cz-callout--info      { border-color: var(--cz-teal);   border-left-color: var(--cz-teal); }
+.cz-callout--emphasis  { border-color: var(--cz-gold);   border-left-color: var(--cz-gold); }
+.cz-callout--important { border-color: var(--cz-maroon); border-left-color: var(--cz-maroon); }
+.cz-callout--filled    { background: var(--cz-cream); color: var(--cz-teal); }
+
+/* Pull quote. Germania One at display size with a large flame quote mark.
+   For a heavier treatment, wrap it in .folk-corners instead. */
+.cz-pullquote {
+  margin: var(--cz-7) 0;
+  padding: 0 0 0 var(--cz-6);
+  border-left: var(--cz-border-thick) solid var(--cz-gold);
+  max-width: 40ch;
+}
+.cz-pullquote blockquote,
+.cz-pullquote > p {
+  font: 400 var(--cz-text-xl)/1.25 var(--cz-font-display);
+  margin: 0 0 var(--cz-3);
+  max-width: none;
+}
+.cz-pullquote--centred {
+  border-left: 0;
+  padding: 0;
+  margin-inline: auto;
+  text-align: center;
+  max-width: 46ch;
+}
+.cz-pullquote--centred::before {
+  content: "\201C";
+  display: block;
+  font: 400 5rem/0.7 var(--cz-font-display);
+  color: var(--cz-gold);
+  margin-bottom: var(--cz-2);
+}
+.cz-pullquote cite {
+  display: block;
+  font: 700 var(--cz-text-sm)/1.4 var(--cz-font-body);
+  font-style: normal;
+  letter-spacing: var(--cz-tracking-wide);
+  text-transform: uppercase;
+  color: var(--cz-ink-soft);
+}
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-pullquote cite { color: inherit; opacity: 0.8; }
+
+
+/* ==========================================================================
+   8. DIVIDERS
+   ========================================================================== */
+
+/* An ornament divider uses a real graphic from the icon library rather than a
+   rule. Set --cz-divider to any ornament path; divider-01 and the garlands are
+   built for this. Sizes by width: 120px minimum, 200–320px typical. */
+.cz-divider {
+  display: block;
+  width: var(--cz-divider-w, 240px);
+  margin: var(--cz-7) auto;
+}
+
+/* Rule with a centred ornament. */
+.cz-divider-rule {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--cz-4);
+  margin: var(--cz-7) 0;
+}
+.cz-divider-rule::before,
+.cz-divider-rule::after {
+  content: "";
+  height: var(--cz-border);
+  background: var(--cz-line-soft);
+}
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-divider-rule::before,
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-divider-rule::after { background: currentColor; opacity: 0.45; }
+.cz-divider-rule > img { width: var(--cz-divider-w, 120px); }
+
+
+/* ==========================================================================
+   9. HEADER, NAV, FOOTER
+   ========================================================================== */
+
+.cz-header {
+  border-bottom: var(--cz-border) solid var(--cz-line-soft);
+  background: var(--cz-cream);
+  color: var(--cz-teal);
+}
+.cz-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cz-5);
+  padding-block: var(--cz-3);
+}
+/* The emblem is the brand mark. 160px is its hard floor, so on a compact header
+   it sits at 160 and the header grows to fit rather than shrinking the seal. */
+.cz-header .folk-emblem, .cz-header__mark { width: 160px; }
+
+.cz-nav { display: flex; gap: var(--cz-5); align-items: center; }
+.cz-nav a {
+  font: 700 var(--cz-text-sm)/1 var(--cz-font-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  padding-block: var(--cz-2);
+  border-bottom: var(--cz-border) solid transparent;
+}
+.cz-nav a:hover { border-bottom-color: var(--cz-gold); }
+.cz-nav a[aria-current="page"] { border-bottom-color: var(--cz-teal); }
+
+.cz-nav-toggle { display: none; }
+
+@media (max-width: 900px) {
+  .cz-nav-toggle {
+    display: inline-flex;
+    background: transparent;
+    border: var(--cz-border) solid currentColor;
+    border-radius: var(--cz-radius-sm);
+    color: inherit;
+    padding: var(--cz-2) var(--cz-3);
+    font: 700 var(--cz-text-sm)/1 var(--cz-font-body);
+    cursor: pointer;
+  }
+  .cz-nav {
+    position: absolute;
+    inset: auto 0 auto 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--cz-cream);
+    border-bottom: var(--cz-border) solid var(--cz-maroon);
+    padding: var(--cz-3) var(--cz-gutter);
+    display: none;
+  }
+  .cz-nav[data-open="true"] { display: flex; }
+  .cz-nav a { padding-block: var(--cz-3); border-bottom-color: var(--cz-line-soft); }
+  .cz-header__inner { position: relative; }
+}
+
+.cz-footer {
+  background: var(--cz-maroon);
+  color: var(--cz-cream);
+  padding-block: var(--cz-8);
+  --cz-accent: var(--cz-gold);
+  --cz-line: currentColor;
+}
+.cz-footer a { color: inherit; text-decoration-color: var(--cz-gold); }
+.cz-footer a:hover { color: var(--cz-gold); }
+.cz-footer__grid { display: grid; gap: var(--cz-6); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.cz-footer h2, .cz-footer h3 { font-size: var(--cz-text-md); font-family: var(--cz-font-body); font-weight: 700; }
+.cz-footer ul { list-style: none; padding: 0; }
+
+
+/* ==========================================================================
+   10. FORMS
+   ========================================================================== */
+
+.cz-field { display: grid; gap: var(--cz-2); margin-bottom: var(--cz-5); max-width: 34rem; }
+
+.cz-label {
+  font: 700 var(--cz-text-sm)/1.3 var(--cz-font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cz-label__req { color: var(--cz-magenta); }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-label__req { color: var(--cz-gold); }
+
+.cz-input, .cz-textarea, .cz-select {
+  width: 100%;
+  padding: 0.65em 0.8em;
+  background: var(--cz-cream);
+  color: var(--cz-teal);
+  border: var(--cz-border) solid var(--cz-maroon);
+  border-radius: var(--cz-radius);
+  font: 400 var(--cz-text-base)/1.4 var(--cz-font-body);
+  transition: border-color var(--cz-fast) var(--cz-ease),
+              box-shadow var(--cz-fast) var(--cz-ease);
+}
+.cz-textarea { min-height: 8rem; resize: vertical; }
+
+.cz-input::placeholder, .cz-textarea::placeholder { color: var(--cz-ink-soft); opacity: 1; }
+
+.cz-input:hover, .cz-textarea:hover, .cz-select:hover { border-color: var(--cz-teal); }
+
+/* The only box-shadow in the system besides the focus ring: a focus glow that
+   reads on both cream and saturated grounds. */
+.cz-input:focus, .cz-textarea:focus, .cz-select:focus {
+  outline: none;
+  border-color: var(--cz-teal);
+  box-shadow: 0 0 0 var(--cz-border-thick) rgba(20, 96, 127, 0.35);
+}
+
+.cz-select {
+  appearance: none;
+  padding-right: 2.4em;
+  /* chevron drawn as a background gradient — no icon file, no emoji */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--cz-maroon) 50%),
+    linear-gradient(135deg, var(--cz-maroon) 50%, transparent 50%);
+  background-position: right 1.15em top 50%, right 0.8em top 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.cz-help { font-size: var(--cz-text-sm); color: var(--cz-ink-soft); }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-help { color: inherit; opacity: 0.85; }
+
+/* Validation. No red exists, so sunset carries error and dusk carries success;
+   both are always paired with text, never colour alone. */
+.cz-field--error .cz-input,
+.cz-field--error .cz-textarea,
+.cz-field--error .cz-select { border-color: var(--cz-orange); border-width: var(--cz-border-thick); }
+.cz-error {
+  font: 700 var(--cz-text-sm)/1.4 var(--cz-font-body);
+  color: var(--cz-orange);
+}
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-error { color: var(--cz-gold); }
+.cz-success { font: 700 var(--cz-text-sm)/1.4 var(--cz-font-body); color: var(--cz-teal); }
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-success { color: var(--cz-cream); }
+
+/* Checkbox and radio — custom, square/round, 2px border, palette tick. */
+.cz-check { display: grid; grid-template-columns: auto 1fr; gap: var(--cz-3); align-items: start; }
+.cz-check input[type="checkbox"], .cz-check input[type="radio"] {
+  appearance: none;
+  margin: 0.15em 0 0;
+  width: 1.25rem; height: 1.25rem;
+  flex: none;
+  background: var(--cz-cream);
+  border: var(--cz-border) solid var(--cz-maroon);
+  border-radius: var(--cz-radius-sm);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: background var(--cz-fast) var(--cz-ease);
+}
+.cz-check input[type="radio"] { border-radius: 50%; }
+.cz-check input[type="checkbox"]::before {
+  content: "";
+  width: 0.65rem; height: 0.35rem;
+  border-left: var(--cz-border-thick) solid var(--cz-cream);
+  border-bottom: var(--cz-border-thick) solid var(--cz-cream);
+  transform: rotate(-45deg) translateY(-0.08rem);
+  opacity: 0;
+}
+.cz-check input[type="radio"]::before {
+  content: "";
+  width: 0.6rem; height: 0.6rem;
+  border-radius: 50%;
+  background: var(--cz-cream);
+  opacity: 0;
+}
+.cz-check input:checked { background: var(--cz-maroon); }
+.cz-check input:checked::before { opacity: 1; }
+.cz-check label { font-size: var(--cz-text-base); }
+
+fieldset { border: var(--cz-border) solid var(--cz-line-soft); border-radius: var(--cz-radius); padding: var(--cz-5); margin: 0 0 var(--cz-5); }
+legend { font: 700 var(--cz-text-sm)/1 var(--cz-font-body); letter-spacing: var(--cz-tracking-wide); text-transform: uppercase; padding-inline: var(--cz-2); }
+
+
+/* ==========================================================================
+   11. MODAL
+   ========================================================================== */
+
+/* Uses <dialog>. The backdrop is toffee at 82%, not black — the palette has no
+   dark neutral and inventing one was ruled out. */
+.cz-modal {
+  border: var(--cz-border-thick) solid var(--cz-maroon);
+  border-radius: var(--cz-radius-lg);
+  background: var(--cz-cream);
+  color: var(--cz-teal);
+  padding: 0;
+  max-width: min(38rem, calc(100vw - 2 * var(--cz-5)));
+  width: 100%;
+}
+.cz-modal::backdrop { background: var(--cz-scrim); }
+.cz-modal__head {
+  display: flex; align-items: start; justify-content: space-between; gap: var(--cz-4);
+  padding: var(--cz-5) var(--cz-6) 0;
+}
+.cz-modal__body { padding: var(--cz-4) var(--cz-6) var(--cz-6); }
+.cz-modal__foot {
+  display: flex; gap: var(--cz-3); justify-content: flex-end;
+  padding: var(--cz-4) var(--cz-6) var(--cz-6);
+  border-top: var(--cz-border) solid var(--cz-line-soft);
+  margin-top: var(--cz-4);
+}
+.cz-modal__close {
+  background: transparent; border: var(--cz-border) solid transparent;
+  border-radius: var(--cz-radius-sm);
+  color: inherit; cursor: pointer; line-height: 1;
+  font: 400 1.5rem/1 var(--cz-font-body);
+  padding: 0 var(--cz-2);
+}
+.cz-modal__close:hover { border-color: var(--cz-maroon); }
+
+
+/* ==========================================================================
+   12. TOOLTIP
+   ========================================================================== */
+
+.cz-tooltip { position: relative; display: inline-block; }
+.cz-tooltip > [data-tip] { border-bottom: 1.5px dotted currentColor; cursor: help; }
+.cz-tooltip__bubble {
+  position: absolute;
+  bottom: calc(100% + var(--cz-2));
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 12rem;
+  padding: var(--cz-3);
+  background: var(--cz-maroon);
+  color: var(--cz-cream);
+  border-radius: var(--cz-radius);
+  font: 400 var(--cz-text-sm)/1.4 var(--cz-font-body);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--cz-fast) var(--cz-ease), visibility var(--cz-fast);
+  z-index: 10;
+}
+.cz-tooltip:hover .cz-tooltip__bubble,
+.cz-tooltip:focus-within .cz-tooltip__bubble { opacity: 1; visibility: visible; }
+
+
+/* ==========================================================================
+   13. TABS AND ACCORDION
+   ========================================================================== */
+
+.cz-tabs { display: flex; gap: var(--cz-1); border-bottom: var(--cz-border) solid var(--cz-line-soft); }
+.cz-tab {
+  background: transparent;
+  border: var(--cz-border) solid transparent;
+  border-bottom: 0;
+  border-radius: var(--cz-radius) var(--cz-radius) 0 0;
+  color: inherit;
+  cursor: pointer;
+  padding: var(--cz-3) var(--cz-4);
+  font: 700 var(--cz-text-sm)/1 var(--cz-font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: calc(-1 * var(--cz-border));
+}
+.cz-tab[aria-selected="true"] {
+  border-color: var(--cz-line);
+  border-bottom: var(--cz-border) solid var(--cz-tab-surface, var(--cz-cream));
+  background: var(--cz-tab-surface, var(--cz-cream));
+  color: var(--cz-teal);
+}
+.cz-tabpanel { padding-top: var(--cz-5); }
+
+/* Accordion — native details/summary, for the FAQ. */
+.cz-accordion { border-top: var(--cz-border) solid var(--cz-line-soft); }
+.cz-accordion > details { border-bottom: var(--cz-border) solid var(--cz-line-soft); }
+.cz-accordion summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--cz-4) var(--cz-6) var(--cz-4) 0;
+  position: relative;
+  font: 700 var(--cz-text-md)/1.35 var(--cz-font-body);
+}
+.cz-accordion summary::-webkit-details-marker { display: none; }
+.cz-accordion summary::after {
+  content: "";
+  position: absolute; right: var(--cz-2); top: 50%;
+  width: 0.6rem; height: 0.6rem;
+  border-right: var(--cz-border-thick) solid var(--cz-accent-warm);
+  border-bottom: var(--cz-border-thick) solid var(--cz-accent-warm);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--cz-fast) var(--cz-ease);
+}
+.cz-accordion details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.cz-accordion details > :not(summary) { padding-bottom: var(--cz-4); }
+
+
+/* ==========================================================================
+   14. TABLE
+   ========================================================================== */
+
+.cz-table-wrap { overflow-x: auto; margin-bottom: var(--cz-5); }
+.cz-table { width: 100%; border-collapse: collapse; font-size: var(--cz-text-base); }
+.cz-table caption {
+  text-align: left;
+  font: 700 var(--cz-text-sm)/1.3 var(--cz-font-body);
+  letter-spacing: var(--cz-tracking-wide);
+  text-transform: uppercase;
+  padding-bottom: var(--cz-3);
+  color: var(--cz-ink-soft);
+}
+.cz-table th, .cz-table td { padding: var(--cz-3) var(--cz-4); text-align: left; }
+.cz-table thead th {
+  border-bottom: var(--cz-border-thick) solid var(--cz-line);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.cz-table tbody tr + tr th, .cz-table tbody tr + tr td { border-top: var(--cz-border) solid var(--cz-line-soft); }
+
+
+/* ==========================================================================
+   15. PAGINATION AND BREADCRUMBS
+   ========================================================================== */
+
+.cz-pagination { display: flex; gap: var(--cz-2); align-items: center; list-style: none; padding: 0; }
+.cz-pagination a, .cz-pagination span {
+  display: grid; place-items: center;
+  min-width: 2.5rem; min-height: 2.5rem;
+  padding-inline: var(--cz-2);
+  border: var(--cz-border) solid var(--cz-line-soft);
+  border-radius: var(--cz-radius-sm);
+  color: inherit; text-decoration: none;
+  font: 700 var(--cz-text-sm)/1 var(--cz-font-body);
+}
+.cz-pagination a:hover { border-color: var(--cz-gold); }
+.cz-pagination [aria-current="page"] { background: var(--cz-maroon); color: var(--cz-cream); border-color: var(--cz-maroon); }
+
+.cz-breadcrumbs { display: flex; flex-wrap: wrap; gap: var(--cz-2); list-style: none; padding: 0; font-size: var(--cz-text-sm); }
+.cz-breadcrumbs li + li::before { content: "/"; margin-right: var(--cz-2); color: var(--cz-accent-warm); }
+
+
+/* ==========================================================================
+   16. FIGURES AND CAPTIONS
+   ========================================================================== */
+
+.cz-figure { margin: 0 0 var(--cz-6); }
+.cz-figure img { border-radius: var(--cz-radius-lg); }
+.cz-figure--bordered img { border: var(--cz-border) solid var(--cz-line); }
+.cz-figure figcaption {
+  font-size: var(--cz-text-sm);
+  color: var(--cz-ink-soft);
+  padding-top: var(--cz-3);
+  max-width: var(--cz-measure);
+}
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-figure figcaption { color: inherit; opacity: 0.85; }
+
+
+/* ==========================================================================
+   17. TIMELINE — for the-story.html
+   ========================================================================== */
+
+.cz-timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.cz-timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px; top: 0.6em; bottom: 0.6em;
+  width: var(--cz-border);
+  background: var(--cz-line-soft);
+}
+:is(.cz-band--teal, .cz-band--magenta, .cz-band--dark, .cz-footer) .cz-timeline::before { background: currentColor; opacity: 0.4; }
+.cz-timeline > li { position: relative; padding-left: var(--cz-7); padding-bottom: var(--cz-6); }
+/* the marker is mark-01 from the icon library at its 20px floor */
+.cz-timeline > li::before {
+  content: "";
+  position: absolute; left: 0; top: 0.2em;
+  width: 24px; height: 24px;
+  background: var(--cz-marker, url("icons/toffee/mark-01.svg")) center/contain no-repeat;
+}
+.cz-timeline__date {
+  display: block;
+  font: 700 var(--cz-text-xs)/1.2 var(--cz-font-body);
+  letter-spacing: var(--cz-tracking-wide);
+  text-transform: uppercase;
+  color: var(--cz-accent);
+  margin-bottom: var(--cz-1);
+}
+.cz-timeline__title { font: 700 var(--cz-text-md)/1.3 var(--cz-font-body); margin: 0 0 var(--cz-2); }
+
+
+
+
+
+/* Cards on snow: centred layout, icons small with generous whitespace */
+.cz-card { text-align: center; }
+.cz-card .folk-icon {
+  width: 56px;
+  height: auto;
+  margin-inline: auto;
+  margin-bottom: var(--cz-4);
+}
+
+/* Per-icon visual-centre corrections. These SVGs have asymmetric transparent
+   padding that makes geometric centre look off. Nudges are tuned by eye.
+   Document these for Claude Code — never rely on pure CSS centering for
+   folk icons. Every placement needs its own translate nudge and possibly
+   a size override.
+
+   SIZE OVERRIDES use a multiplier against the circle diameter via
+   --cfc-icon-scale. The base rule is 0.44 (44%). Overrides multiply that:
+     0.70 = 30% smaller,  0.80 = 20% smaller,  0.75 = 25% smaller
+     1.15 = 15% bigger,   1.20 = 20% bigger                           */
+
+/* ---- Kettles: spout pulls visual weight right. -----------------------
+        Base translate(-9px,-8px) + 1/5 of 15% right (+5px) → translate(-4px,-8px) */
+.cz-folk-circle--kettle > img,
+img.folk-icon--kettle    { transform: translate(-4px, -8px); }
+
+/* ---- Teacups: handle pulls visual weight right. ----------------------
+        Base translateX(4px) + 1/5 of 5% right (+2px) → translateX(6px) */
+.cz-folk-circle--teacup > img,
+img.folk-icon--teacup    { transform: translateX(6px); }
+
+/* ---- Coffee pots -----------------------------------------------------
+        coffee-pot-01: base translate(5px,-6px) + 1/5 of 10% left (-3px) → translate(2px,-6px)
+        coffee-pot-02: base translate(-5px,-6px) + 1/5 of 10% right (+3px) → translate(-2px,-6px) */
+.cz-folk-circle--coffee-pot-01 > img,
+img.folk-icon--coffee-pot-01 { transform: translate(2px, -6px); }
+.cz-folk-circle--coffee-pot-02 > img,
+img.folk-icon--coffee-pot-02 { transform: translate(-2px, -6px); }
+
+/* ---- Moka pot: base translateY(-8px) + 1/5 of 6% right (+2px), 1/5 of 8% down (+3px)
+        → translate(2px, -5px) ------------------------------------------ */
+.cz-folk-circle--moka-pot > img,
+img.folk-icon--moka-pot  { transform: translate(2px, -5px); }
+
+/* ---- Typewriters: base translateX(-1px) + 1/5 of 6% up (-2px)
+        → translate(-1px, -2px) ----------------------------------------- */
+.cz-folk-circle--typewriter > img,
+img.folk-icon--typewriter { transform: translate(-1px, -2px); }
+
+/* ---- Campfire: base translate(-3px,-5px) + 1/5 of 5% right (+2px)
+        → translate(-1px, -5px) ----------------------------------------- */
+.cz-folk-circle--campfire > img,
+img.folk-icon--campfire  { transform: translate(-1px, -5px); }
+
+/* ---- Stove: 30% smaller + shift up 15%. ------------------------------ */
+.cz-folk-circle--stove > img,
+img.folk-icon--stove     { width: calc(var(--cfc-size, 160px) * 0.308) !important; transform: translateY(-10px); }
+
+/* ---- Slippers: base translateY(7px) + 1/5 of 10% up (-3px)
+        → translateY(4px) ----------------------------------------------- */
+.cz-folk-circle--slippers > img,
+img.folk-icon--slippers  { transform: translateY(4px); }
+
+/* ---- Sweaters: 20% bigger + 1/5 of 12% up (-4px). ------------------- */
+.cz-folk-circle--sweater > img,
+img.folk-icon--sweater   { width: calc(var(--cfc-size, 160px) * 0.528) !important; transform: translateY(-4px); }
+
+/* ---- Open book: 20% bigger. ----------------------------------------- */
+.cz-folk-circle--open-book > img,
+img.folk-icon--open-book { width: calc(var(--cfc-size, 160px) * 0.528) !important; }
+
+/* ---- Houses 01 & 02: 25% smaller — roof overshoots circle. ---------- */
+.cz-folk-circle--house > img,
+img.folk-icon--house     { width: calc(var(--cfc-size, 160px) * 0.33) !important; }
+
+/* ---- House 03: base translateY(-10px) + 1/5 of 13% down (+4px)
+        → translateY(-6px) ---------------------------------------------- */
+.cz-folk-circle--house-03 > img,
+img.folk-icon--house-03  { transform: translateY(-6px); }
+
+/* ---- Moose: 15% bigger + shift left 8% + up 8%. --------------------- */
+.cz-folk-circle--moose > img,
+img.folk-icon--moose     { width: calc(var(--cfc-size, 160px) * 0.506) !important; transform: translate(-6px, -6px); }
+
+/* ---- Trees: 20% smaller — branches overshoot at default. ------------ */
+.cz-folk-circle--tree > img,
+img.folk-icon--tree      { width: calc(var(--cfc-size, 160px) * 0.352) !important; }
+/* tree-02 and tree-03: + 1/5 of 10% right (+3px) ---------------------- */
+.cz-folk-circle--tree-02 > img,
+img.folk-icon--tree-02   { width: calc(var(--cfc-size, 160px) * 0.352) !important; transform: translateX(3px); }
+.cz-folk-circle--tree-03 > img,
+img.folk-icon--tree-03   { width: calc(var(--cfc-size, 160px) * 0.352) !important; transform: translateX(3px); }
+
+/* ---- Sewing machines: 1/5 of 8% right (+3px) ------------------------ */
+.cz-folk-circle--sewing-machine > img,
+img.folk-icon--sewing-machine { transform: translateX(3px); }
+
+/* ==========================================================================
+   18b. PATTERN GROUND — low-opacity texture with readable text overlay
+   ==========================================================================
+
+   A section that shows the folk pattern as a subtle texture behind content.
+   The pattern is baked at the desired opacity using pseudo-element, so the
+   child content reads cleanly without blending modes or filter tricks.
+
+   Usage:
+     <div class="cz-pattern-ground cz-band--cream"
+          style="--cpg-src:url('assets/patterns/toffee/hex-01.png'); --cpg-opacity:0.10">
+       <div class="cz-container">
+         <div class="cz-pattern-ground__panel">
+           <h2>Heading</h2>
+           <p>Body copy on a cream label medallion over the texture.</p>
+         </div>
+       </div>
+     </div>
+
+   The band class sets the dominant background. --cpg-opacity 0.08–0.15 works
+   for most patterns on cream; push to 0.20 on a colour band if it's too subtle.
+   Always pair with a .cz-pattern-ground__panel for body copy — the texture
+   alone does not provide enough contrast for running text. */
+
+/* IMPORTANT URL RESOLUTION GOTCHA:
+   When setting --cpg-src via inline style on an HTML element, the url()
+   is resolved relative to THIS CSS FILE (assets/cozendagen.css), NOT the
+   HTML document. So use paths relative to the assets/ folder:
+     CORRECT:   style="--cpg-src:url('patterns/teal/pattern-01.png')"
+     WRONG:     style="--cpg-src:url('assets/patterns/teal/pattern-01.png')"
+   The same rule applies to --cpa-pattern on .cz-photo-accent. */
+.cz-pattern-ground { position: relative; isolation: isolate; }
+
+.cz-pattern-ground::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--cpg-src);
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  opacity: var(--cpg-opacity, 0.10);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cz-pattern-ground > * { position: relative; z-index: 1; }
+
+/* Legibility panel — a snow medallion that lifts body copy off the texture.
+   Border and text colour inherit the band's background via --cz-band-bg,
+   so the panel border always matches the surrounding band fill. */
+.cz-pattern-ground__panel {
+  background: var(--cz-cream);
+  color: var(--cz-band-bg, var(--cz-teal));
+  border: var(--cz-border) solid var(--cz-band-bg, var(--cz-maroon));
+  border-radius: var(--cz-radius-lg);
+  padding: var(--cz-6) var(--cz-7);
+  max-width: 62ch;
+}
+
+.cz-pattern-ground__panel > :last-child { margin-bottom: 0; }
+
+
+/* ==========================================================================
+   18c. CORNERED BAND — full-width bands with corner-02 botanical ornaments
+   ==========================================================================
+   Add .cz-band--cornered to any full-width section. Corner images go BEFORE
+   the .cz-container div, absolutely positioned by the band itself.
+   The container's padding-inline keeps content clear of the 180px corners.
+
+   Cream bands: always use corner-02 colored to match the headline/ink.
+   Colour bands (teal/magenta/gold/orange): cream/corner-02.
+   Never use chocolate/maroon corners unless that IS the headline color.
+   ========================================================================== */
+
+.cz-band--cornered {
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+}
+
+.cz-band--cornered .folk-corner {
+  position: absolute;
+  width: var(--cz-corner-size, 157px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mirror transforms (not rotate) — keeps visual content within the element's
+   layout box so overflow:hidden doesn't clip it. The SVG is designed for
+   top-left; other corners are mirrors, not rotations.
+   Inset 16px from edges so the ornament breathes inside the band. */
+.cz-band--cornered .folk-corner--tl { top: 16px;    left: 16px;  transform: none; }
+.cz-band--cornered .folk-corner--tr { top: 16px;    right: 16px; transform: scaleX(-1); }
+.cz-band--cornered .folk-corner--br { bottom: 16px; right: 16px; transform: scale(-1, -1); }
+.cz-band--cornered .folk-corner--bl { bottom: 16px; left: 16px;  transform: scaleY(-1); }
+
+/* Container inside a cornered band: text flows OVER corners (corners are behind
+   at z-index 1).  Normal gutter is enough — no giant inset needed. */
+.cz-band--cornered > .cz-container {
+  position: relative;
+  z-index: 2;
+  padding-inline: var(--cz-gutter);
+  text-align: center;
+}
+
+.cz-band--cornered > .cz-container p { margin-inline: auto; }
+
+/* Pattern-ground inside a cornered band: container still needs z-index bump */
+.cz-band--cornered .cz-pattern-ground > .cz-container,
+.cz-pattern-ground.cz-band--cornered > .cz-container {
+  position: relative;
+  z-index: 2;
+  padding-inline: var(--cz-gutter);
+  text-align: center;
+}
+
+.cz-band--cornered > .cz-container p { margin-inline: auto; }
+
+/* Scale corners down and reduce inset on narrow viewports. */
+@media (max-width: 640px) {
+  .cz-band--cornered .folk-corner {
+    width: var(--cz-corner-size, 110px);
+  }
+  .cz-band--cornered .folk-corner--tl { top: 10px;    left: 10px; }
+  .cz-band--cornered .folk-corner--tr { top: 10px;    right: 10px; }
+  .cz-band--cornered .folk-corner--br { bottom: 10px; right: 10px; }
+  .cz-band--cornered .folk-corner--bl { bottom: 10px; left: 10px; }
+}
+
+/* ==========================================================================
+   18. PHOTOGRAPHY TREATMENTS
+   --------------------------------------------------------------------------
+   Five approved photo treatments, each serving a distinct layout role.
+
+   RULES (apply to ALL photo treatments):
+   - Photos are always <img> with object-fit: cover.
+   - No folk-icon circles or corner ornaments on photo-fill bands (too busy).
+   - Duotone bands follow normal band text/layout rules but skip decorative
+     elements (icons, corners).
+   - Pattern-ink accent borders are for SMALL SQUARE images only.
+   - Arch trios always appear in groups of three with matching sizing.
+   ========================================================================== */
+
+/* ---- 18a. Full-Bleed Hero ------------------------------------------------
+        Edge-to-edge photo with content overlay. Two scrim variants:
+        --bottom: gradient fades up from bottom, headline anchored low.
+        --center: uniform dark wash, content centred. ----------------------- */
+
+.cz-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.cz-hero > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cz-hero--tall  { height: clamp(420px, 60vh, 720px); }
+.cz-hero--mid   { height: clamp(320px, 40vh, 520px); }
+
+/* Scrim — the overlay that protects text legibility. */
+.cz-hero__scrim {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--cz-8) clamp(2rem, 5vw, 6rem);
+}
+.cz-hero__scrim--bottom {
+  justify-content: flex-end;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.68) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    transparent 100%
+  );
+}
+.cz-hero__scrim--center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.cz-hero__scrim h1,
+.cz-hero__scrim h2,
+.cz-hero__scrim h3 {
+  color: #fff;
+  margin: 0 0 var(--cz-2);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+.cz-hero__scrim p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--cz-text-base);
+  max-width: 48ch;
+  margin: 0;
+}
+.cz-hero__scrim--center p { margin-inline: auto; }
+
+/* ---- 18b. Duotone Photo Band --------------------------------------------
+        A photo used as a band background, desaturated and tinted with a
+        palette colour via multiply blend. Follows normal band padding and
+        text rules. NEVER add folk circles, icons, or corner ornaments. ----- */
+
+.cz-band--photo {
+  position: relative;
+  overflow: hidden;
+}
+.cz-band--photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
+  z-index: 0;
+}
+.cz-band--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.cz-band--photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+.cz-band--photo > .cz-container {
+  position: relative;
+  z-index: 3;
+}
+
+/* Three approved duotone colours. */
+.cz-band--photo-chocolate::after { background: var(--cz-maroon); }
+.cz-band--photo-camel::after     { background: var(--cz-camel); }
+.cz-band--photo-magenta::after   { background: var(--cz-magenta); }
+
+/* Text on duotone bands is always snow. */
+.cz-band--photo .cz-container { color: var(--cz-cream); }
+
+/* ---- 18c. Arch Trio (Storyteller) ----------------------------------------
+        Three arch-shaped photos side by side, each with a small headline
+        and one line of body copy underneath. For apples-to-apples comparison
+        of three similar items. Always used in a group of three. ------------ */
+
+.cz-arch-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--cz-6);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.cz-arch-trio__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--cz-3);
+}
+
+.cz-arch-trio__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 50% 50% 0 0 / 33% 33% 0 0;
+  overflow: hidden;
+  border: 4px solid var(--cz-camel);
+}
+.cz-arch-trio__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cz-arch-trio__item h3 {
+  font-family: var(--cz-font-body);
+  font-size: var(--cz-text-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: var(--cz-3) 0 0 0;   /* extra top gap matches the h3-to-p gap */
+}
+.cz-arch-trio__item p {
+  font-size: var(--cz-text-sm);
+  margin: 0;
+  max-width: 28ch;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .cz-arch-trio {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
+/* ---- 18d. Split Side-by-Side (Gallery / Storyteller) ---------------------
+        Half photo, half content. Workhorse feature section. Photo side is
+        always object-fit: cover. Content side takes a band colour. --------- */
+
+.cz-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+.cz-split--reverse { direction: rtl; }
+.cz-split--reverse > * { direction: ltr; }
+
+.cz-split__photo {
+  overflow: hidden;
+  position: relative;
+}
+.cz-split__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cz-split__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4rem);
+}
+.cz-split__content h2 {
+  font-family: var(--cz-font-display);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  margin: 0 0 var(--cz-4);
+}
+.cz-split__content p {
+  font-size: var(--cz-text-base);
+  max-width: 42ch;
+  margin: 0 0 var(--cz-4);
+  line-height: 1.65;
+}
+
+/* Ground colours for the content side. */
+.cz-split--cream .cz-split__content     { background: var(--cz-cream);     color: var(--cz-teal); }
+.cz-split--teal .cz-split__content      { background: var(--cz-teal);      color: var(--cz-cream); }
+.cz-split--chocolate .cz-split__content { background: var(--cz-maroon); color: var(--cz-cream); }
+.cz-split--camel .cz-split__content     { background: var(--cz-camel);     color: var(--cz-maroon); }
+
+@media (max-width: 768px) {
+  .cz-split { grid-template-columns: 1fr; }
+  .cz-split--reverse { direction: ltr; }
+  .cz-split__photo img { aspect-ratio: 16 / 9; }
+}
+
+/* ---- 18e. Asymmetric Editorial Grid (Gallery) ----------------------------
+        Five photos in a 12-column grid: one hero, one tall sidebar, one wide
+        bottom-left, two small bottom-right. For event recaps and gallery
+        sections. ----------------------------------------------------------- */
+
+.cz-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: var(--cz-3);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.cz-photo-grid__item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.cz-photo-grid__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cz-photo-grid__item--hero    { grid-column: 1 / 8;   grid-row: 1 / 3; }
+.cz-photo-grid__item--tall    { grid-column: 8 / 13;  grid-row: 1 / 3; }
+.cz-photo-grid__item--wide    { grid-column: 1 / 7;   grid-row: 3 / 4; }
+.cz-photo-grid__item--small-a { grid-column: 7 / 10;  grid-row: 3 / 4; }
+.cz-photo-grid__item--small-b { grid-column: 10 / 13; grid-row: 3 / 4; }
+
+@media (max-width: 768px) {
+  .cz-photo-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .cz-photo-grid__item--hero,
+  .cz-photo-grid__item--tall,
+  .cz-photo-grid__item--wide,
+  .cz-photo-grid__item--small-a,
+  .cz-photo-grid__item--small-b {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .cz-photo-grid__item img { aspect-ratio: 16 / 9; }
+}
+
+/* ---- 18f. Pattern-Ink Accent Border --------------------------------------
+        A small square photo framed by a visible band of pattern tile.
+        Border is 32px (2× the original 16px) so the pattern is clearly
+        visible. Use for detail shots, portraits, decorative accents. ------- */
+
+.cz-photo-accent {
+  display: inline-block;
+  background-image: var(--cpa-pattern);
+  background-size: 300px;
+  padding: 32px;
+  border-radius: 8px;
+}
+.cz-photo-accent img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Convenience sizes. */
+.cz-photo-accent--md { width: 280px; }
+.cz-photo-accent--lg { width: 360px; }
+
+
+/* ==========================================================================
+   19. UTILITIES — deliberately few
+   ========================================================================== */
+
+.cz-visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.cz-measure { max-width: var(--cz-measure); }
+.cz-no-margin { margin: 0 !important; }
+.cz-mt-0 { margin-top: 0 !important; }
+.cz-mb-0 { margin-bottom: 0 !important; }
+
+/* Skip link — first focusable element on every page. */
+.cz-skip {
+  position: absolute; left: var(--cz-4); top: -4rem;
+  background: var(--cz-maroon); color: var(--cz-cream);
+  padding: var(--cz-3) var(--cz-4);
+  border-radius: var(--cz-radius);
+  z-index: 100;
+  transition: top var(--cz-fast) var(--cz-ease);
+}
+.cz-skip:focus { top: var(--cz-4); }
+
+@media print {
+  .cz-header, .cz-footer, .cz-nav, .cz-skip { display: none; }
+  body { background: #fff; color: #000; }
+}

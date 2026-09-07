@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cozendagen — SVG Contact Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cozendagen.css">
+<style>
+  body { background: #F3E6D8; color: #5C3317; margin: 0; padding: 2rem; font-family: var(--cz-font-body, system-ui); }
+  h1 { font-family: 'Germania One', serif; font-size: 2.2rem; text-align: center; margin: 0 0 .5rem; color: #14607F; }
+  .subtitle { text-align: center; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2.5rem; color: #5C3317; opacity: .6; }
+  .group { margin-bottom: 2.5rem; }
+  .group-title { font-family: var(--cz-font-body, system-ui); font-weight: 600; font-size: .78rem;
+    letter-spacing: .14em; text-transform: uppercase; color: #14607F;
+    border-bottom: 2px solid rgba(217,166,106,.4); padding-bottom: .4rem; margin-bottom: 1.2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.5rem; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: .8rem; }
+  .cell img { width: 100%; max-width: 260px; height: auto; }
+  .cell img.frame-img { max-width: 360px; }
+  .cell img.emblem-img { max-width: 360px; }
+  .cell img.badge-img { max-width: 220px; }
+  .cell img.corner-img { max-width: 180px; }
+  .cell img.garland-img { max-width: 360px; }
+  .cell img.divider-img { max-width: 320px; }
+  .cell .label { font-size: .85rem; text-align: center; color: #5C3317; opacity: .7; word-break: break-all; }
+  .toc { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; justify-content: center; margin-bottom: 2rem; padding: 0; list-style: none; }
+  .toc a { font-size: .8rem; color: #14607F; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .stats { text-align: center; font-size: .8rem; margin-bottom: 1.5rem; opacity: .6; }
+  @media (max-width: 600px) { .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.5rem; } }
+</style>
+</head>
+<body>
+<h1>Cozendagen</h1>
+<p class="subtitle">SVG Icon Library — Contact Sheet</p>
+<p class="stats">58 illustrations across 8 colourways (58 shown in full colour)</p>
+<ul class="toc">
+  <li><a href="#emblem">Emblem (1)</a></li>
+  <li><a href="#badges">Badges (5)</a></li>
+  <li><a href="#tea-coffee">Tea & Coffee (11)</a></li>
+  <li><a href="#warmth-light">Warmth & Light (3)</a></li>
+  <li><a href="#books">Books (3)</a></li>
+  <li><a href="#armchairs">Armchairs (2)</a></li>
+  <li><a href="#clothing">Clothing (4)</a></li>
+  <li><a href="#houses">Houses (3)</a></li>
+  <li><a href="#trees">Trees (3)</a></li>
+  <li><a href="#moose">Moose (2)</a></li>
+  <li><a href="#typewriters">Typewriters (2)</a></li>
+  <li><a href="#sewing-machines">Sewing Machines (2)</a></li>
+  <li><a href="#radios">Radios (2)</a></li>
+  <li><a href="#garlands">Garlands (3)</a></li>
+  <li><a href="#sprays">Sprays (3)</a></li>
+  <li><a href="#frames">Frames (5)</a></li>
+  <li><a href="#corners">Corners (2)</a></li>
+  <li><a href="#dividers-marks">Dividers & Marks (2)</a></li>
+</ul>
+<div class="group" id="emblem">
+  <div class="group-title">Emblem</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/emblem.svg" alt="emblem" class="emblem-img"><span class="label">emblem</span></div>
+  </div>
+</div>
+<div class="group" id="badges">
+  <div class="group-title">Badges</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/badge-house.svg" alt="badge-house" class="badge-img"><span class="label">badge-house</span></div>
+    <div class="cell"><img src="assets/icons/full/badge-moose.svg" alt="badge-moose" class="badge-img"><span class="label">badge-moose</span></div>
+    <div class="cell"><img src="assets/icons/full/badge-socks.svg" alt="badge-socks" class="badge-img"><span class="label">badge-socks</span></div>
+    <div class="cell"><img src="assets/icons/full/badge-sweater.svg" alt="badge-sweater" class="badge-img"><span class="label">badge-sweater</span></div>
+    <div class="cell"><img src="assets/icons/full/badge-teacup.svg" alt="badge-teacup" class="badge-img"><span class="label">badge-teacup</span></div>
+  </div>
+</div>
+<div class="group" id="tea-coffee">
+  <div class="group-title">Tea & Coffee</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/coffee-pot-01.svg" alt="coffee-pot-01" class=""><span class="label">coffee-pot-01</span></div>
+    <div class="cell"><img src="assets/icons/full/coffee-pot-02.svg" alt="coffee-pot-02" class=""><span class="label">coffee-pot-02</span></div>
+    <div class="cell"><img src="assets/icons/full/kettle-01.svg" alt="kettle-01" class=""><span class="label">kettle-01</span></div>
+    <div class="cell"><img src="assets/icons/full/kettle-02.svg" alt="kettle-02" class=""><span class="label">kettle-02</span></div>
+    <div class="cell"><img src="assets/icons/full/kettle-03.svg" alt="kettle-03" class=""><span class="label">kettle-03</span></div>
+    <div class="cell"><img src="assets/icons/full/kettle-04.svg" alt="kettle-04" class=""><span class="label">kettle-04</span></div>
+    <div class="cell"><img src="assets/icons/full/moka-pot.svg" alt="moka-pot" class=""><span class="label">moka-pot</span></div>
+    <div class="cell"><img src="assets/icons/full/teacup-01.svg" alt="teacup-01" class=""><span class="label">teacup-01</span></div>
+    <div class="cell"><img src="assets/icons/full/teacup-02.svg" alt="teacup-02" class=""><span class="label">teacup-02</span></div>
+    <div class="cell"><img src="assets/icons/full/teacup-03.svg" alt="teacup-03" class=""><span class="label">teacup-03</span></div>
+    <div class="cell"><img src="assets/icons/full/teacup-04.svg" alt="teacup-04" class=""><span class="label">teacup-04</span></div>
+  </div>
+</div>
+<div class="group" id="warmth-light">
+  <div class="group-title">Warmth & Light</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/campfire.svg" alt="campfire" class=""><span class="label">campfire</span></div>
+    <div class="cell"><img src="assets/icons/full/candle.svg" alt="candle" class=""><span class="label">candle</span></div>
+    <div class="cell"><img src="assets/icons/full/stove-01.svg" alt="stove-01" class=""><span class="label">stove-01</span></div>
+  </div>
+</div>
+<div class="group" id="books">
+  <div class="group-title">Books</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/closed-book-01.svg" alt="closed-book-01" class=""><span class="label">closed-book-01</span></div>
+    <div class="cell"><img src="assets/icons/full/closed-book-02.svg" alt="closed-book-02" class=""><span class="label">closed-book-02</span></div>
+    <div class="cell"><img src="assets/icons/full/open-book.svg" alt="open-book" class=""><span class="label">open-book</span></div>
+  </div>
+</div>
+<div class="group" id="armchairs">
+  <div class="group-title">Armchairs</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/armchair-01.svg" alt="armchair-01" class=""><span class="label">armchair-01</span></div>
+    <div class="cell"><img src="assets/icons/full/armchair-02.svg" alt="armchair-02" class=""><span class="label">armchair-02</span></div>
+  </div>
+</div>
+<div class="group" id="clothing">
+  <div class="group-title">Clothing</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/slippers-01.svg" alt="slippers-01" class=""><span class="label">slippers-01</span></div>
+    <div class="cell"><img src="assets/icons/full/socks-01.svg" alt="socks-01" class=""><span class="label">socks-01</span></div>
+    <div class="cell"><img src="assets/icons/full/sweater-01.svg" alt="sweater-01" class=""><span class="label">sweater-01</span></div>
+    <div class="cell"><img src="assets/icons/full/sweater-02.svg" alt="sweater-02" class=""><span class="label">sweater-02</span></div>
+  </div>
+</div>
+<div class="group" id="houses">
+  <div class="group-title">Houses</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/house-01.svg" alt="house-01" class=""><span class="label">house-01</span></div>
+    <div class="cell"><img src="assets/icons/full/house-02.svg" alt="house-02" class=""><span class="label">house-02</span></div>
+    <div class="cell"><img src="assets/icons/full/house-03.svg" alt="house-03" class=""><span class="label">house-03</span></div>
+  </div>
+</div>
+<div class="group" id="trees">
+  <div class="group-title">Trees</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/tree-01.svg" alt="tree-01" class=""><span class="label">tree-01</span></div>
+    <div class="cell"><img src="assets/icons/full/tree-02.svg" alt="tree-02" class=""><span class="label">tree-02</span></div>
+    <div class="cell"><img src="assets/icons/full/tree-03.svg" alt="tree-03" class=""><span class="label">tree-03</span></div>
+  </div>
+</div>
+<div class="group" id="moose">
+  <div class="group-title">Moose</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/moose-01.svg" alt="moose-01" class=""><span class="label">moose-01</span></div>
+    <div class="cell"><img src="assets/icons/full/moose-02.svg" alt="moose-02" class=""><span class="label">moose-02</span></div>
+  </div>
+</div>
+<div class="group" id="typewriters">
+  <div class="group-title">Typewriters</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/typewriter-01.svg" alt="typewriter-01" class=""><span class="label">typewriter-01</span></div>
+    <div class="cell"><img src="assets/icons/full/typewriter-02.svg" alt="typewriter-02" class=""><span class="label">typewriter-02</span></div>
+  </div>
+</div>
+<div class="group" id="sewing-machines">
+  <div class="group-title">Sewing Machines</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/sewing-machine-01.svg" alt="sewing-machine-01" class=""><span class="label">sewing-machine-01</span></div>
+    <div class="cell"><img src="assets/icons/full/sewing-machine-02.svg" alt="sewing-machine-02" class=""><span class="label">sewing-machine-02</span></div>
+  </div>
+</div>
+<div class="group" id="radios">
+  <div class="group-title">Radios</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/radio-01.svg" alt="radio-01" class=""><span class="label">radio-01</span></div>
+    <div class="cell"><img src="assets/icons/full/radio-02.svg" alt="radio-02" class=""><span class="label">radio-02</span></div>
+  </div>
+</div>
+<div class="group" id="garlands">
+  <div class="group-title">Garlands</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/garland-01.svg" alt="garland-01" class="garland-img"><span class="label">garland-01</span></div>
+    <div class="cell"><img src="assets/icons/full/garland-02.svg" alt="garland-02" class="garland-img"><span class="label">garland-02</span></div>
+    <div class="cell"><img src="assets/icons/full/garland-03.svg" alt="garland-03" class="garland-img"><span class="label">garland-03</span></div>
+  </div>
+</div>
+<div class="group" id="sprays">
+  <div class="group-title">Sprays</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/spray-01.svg" alt="spray-01" class=""><span class="label">spray-01</span></div>
+    <div class="cell"><img src="assets/icons/full/spray-02.svg" alt="spray-02" class=""><span class="label">spray-02</span></div>
+    <div class="cell"><img src="assets/icons/full/spray-03.svg" alt="spray-03" class=""><span class="label">spray-03</span></div>
+  </div>
+</div>
+<div class="group" id="frames">
+  <div class="group-title">Frames</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/frame-01.svg" alt="frame-01" class="frame-img"><span class="label">frame-01</span></div>
+    <div class="cell"><img src="assets/icons/full/frame-02.svg" alt="frame-02" class="frame-img"><span class="label">frame-02</span></div>
+    <div class="cell"><img src="assets/icons/full/frame-03.svg" alt="frame-03" class="frame-img"><span class="label">frame-03</span></div>
+    <div class="cell"><img src="assets/icons/full/frame-04.svg" alt="frame-04" class="frame-img"><span class="label">frame-04</span></div>
+    <div class="cell"><img src="assets/icons/full/frame-05.svg" alt="frame-05" class="frame-img"><span class="label">frame-05</span></div>
+  </div>
+</div>
+<div class="group" id="corners">
+  <div class="group-title">Corners</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/corner-01.svg" alt="corner-01" class="corner-img"><span class="label">corner-01</span></div>
+    <div class="cell"><img src="assets/icons/full/corner-02.svg" alt="corner-02" class="corner-img"><span class="label">corner-02</span></div>
+  </div>
+</div>
+<div class="group" id="dividers-marks">
+  <div class="group-title">Dividers & Marks</div>
+  <div class="grid">
+    <div class="cell"><img src="assets/icons/full/divider-01.svg" alt="divider-01" class="divider-img"><span class="label">divider-01</span></div>
+    <div class="cell"><img src="assets/icons/full/mark-01.svg" alt="mark-01" class="divider-img"><span class="label">mark-01</span></div>
+  </div>
+</div>
+</body>
+</html>
