@@ -320,6 +320,7 @@ hr {
 .cz-field,
 .cz-fieldset,
 .cz-form,
+.cz-check,
 .cz-pullquote { text-align: left; }
 .cz-band--tight { padding-block: var(--cz-7); }
 .cz-band--tall  { padding-block: var(--cz-10); }
