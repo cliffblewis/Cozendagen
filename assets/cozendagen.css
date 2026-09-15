@@ -422,6 +422,17 @@ hr {
 .cz-btn--gold { --_bg: var(--cz-gold); --_fg: var(--cz-maroon); --_bd: var(--cz-maroon); }
 .cz-btn--gold:hover { --_bg: var(--cz-maroon); --_fg: var(--cz-gold); }
 
+/* Dusk call to action — snow ink at 5.69:1, and it holds that on hover by
+   inverting rather than darkening. The cool counterpart to flame, for warm
+   grounds where a flame button would disappear.
+   NOTE: valentine is deliberately not offered as a button. Snow on valentine
+   is 3.84:1, which only clears AA at large sizes — a default-size variant
+   would fail, so it would be a footgun rather than a choice. */
+.cz-btn--teal { --_bg: var(--cz-teal); --_fg: var(--cz-cream); --_bd: var(--cz-maroon); }
+.cz-btn--teal:hover { --_bg: var(--cz-cream); --_fg: var(--cz-teal); }
+.cz-btn--teal > img { filter: brightness(0) invert(1); }
+.cz-btn--teal:hover > img { filter: none; }
+
 .cz-btn--sm { padding: 0.5em 1.1em; font-size: var(--cz-text-sm); }
 .cz-btn--lg { padding: 0.85em 1.9em; font-size: var(--cz-text-md); }
 .cz-btn--block { display: flex; width: 100%; }
