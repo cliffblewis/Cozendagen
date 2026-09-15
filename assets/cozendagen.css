@@ -228,6 +228,9 @@ p { margin: 0 0 var(--cz-4); max-width: var(--cz-measure); }
   color: var(--cz-ink-soft);
   letter-spacing: 0.01em;
 }
+/* --cz-ink-soft is dusk-based, which goes muddy on a flame or sunset ground;
+   there the band's own toffee ink is the readable choice. */
+:is(.cz-band--gold, .cz-band--orange) .cz-meta { color: inherit; opacity: 0.78; }
 
 /* Links. Underline is the affordance; colour alone is never the only signal. */
 a {
@@ -331,8 +334,11 @@ hr {
    bands to large/display text or eyebrows only — body copy needs a .cz-panel. */
 .cz-band--teal    { background: var(--cz-teal);    color: var(--cz-cream); --cz-band-bg: var(--cz-teal); }
 .cz-band--magenta { background: var(--cz-magenta); color: var(--cz-cream); --cz-band-bg: var(--cz-magenta); }
-.cz-band--gold    { background: var(--cz-gold);    color: var(--cz-cream); --cz-band-bg: var(--cz-gold); }
-.cz-band--orange  { background: var(--cz-orange);  color: var(--cz-cream); --cz-band-bg: var(--cz-orange); }
+/* Flame and sunset carry TOFFEE ink, not snow: snow on flame measures 1.78:1
+   and snow on sunset 2.30:1, both below the 3:1 large-text floor. Toffee on
+   flame is 5.65:1 and toffee on sunset 4.37:1. Accent follows the ink. */
+.cz-band--gold    { background: var(--cz-gold);    color: var(--cz-maroon); --cz-band-bg: var(--cz-gold);   --cz-accent: var(--cz-maroon); --cz-line: var(--cz-maroon); }
+.cz-band--orange  { background: var(--cz-orange);  color: var(--cz-maroon); --cz-band-bg: var(--cz-orange); --cz-accent: var(--cz-maroon); --cz-line: var(--cz-maroon); }
 
 /* DARK CONTEXTS. Dusk and valentine carry snow copy; flame and sunset are too
    light for full body-copy contrast but still count as colour grounds. Add
@@ -663,10 +669,14 @@ a.cz-card:hover { border-color: var(--cz-gold); }
    it sits at 160 and the header grows to fit rather than shrinking the seal. */
 .cz-header .folk-emblem, .cz-header__mark { width: 160px; }
 
-.cz-nav { display: flex; gap: var(--cz-5); align-items: center; }
+.cz-nav { display: flex; gap: var(--cz-4); align-items: center; }
+/* Eight items beside a 160px emblem: without nowrap the longer labels break
+   mid-phrase and the row reads as ragged blocks rather than evenly spaced
+   links. The row collapses to the toggle before it runs out of width. */
 .cz-nav a {
-  font: 700 var(--cz-text-sm)/1 var(--cz-font-body);
+  font: 700 var(--cz-text-xs)/1 var(--cz-font-body);
   letter-spacing: 0.06em;
+  white-space: nowrap;
   text-transform: uppercase;
   color: inherit;
   text-decoration: none;
@@ -678,7 +688,7 @@ a.cz-card:hover { border-color: var(--cz-gold); }
 
 .cz-nav-toggle { display: none; }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .cz-nav-toggle {
     display: inline-flex;
     background: transparent;
@@ -1187,6 +1197,15 @@ img.folk-icon--sewing-machine { transform: translateX(3px); }
   border-radius: var(--cz-radius-lg);
   padding: var(--cz-6) var(--cz-7);
   max-width: 62ch;
+}
+
+/* On a snow band --cz-band-bg IS snow, so the rules above would paint snow
+   text and a snow border onto a snow panel — invisible. Light grounds pin
+   the panel back to readable ink. */
+:is(.cz-band--cream, .cz-band--cream--magenta, .cz-band--cream--orange) .cz-pattern-ground__panel,
+:is(.cz-band--gold, .cz-band--orange) .cz-pattern-ground__panel {
+  color: var(--cz-teal);
+  border-color: var(--cz-maroon);
 }
 
 .cz-pattern-ground__panel > :last-child { margin-bottom: 0; }
